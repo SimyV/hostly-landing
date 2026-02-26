@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security and Vibe Coding: The Opportunity Hiding Inside the Risk | Host-ly Co</title>
+  <meta name="description" content="Vibe coding is accelerating development but introducing security risks. The opportunity is to embed security into the creation process itself." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0A0A0A;
+      --bg-card: #111111;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.14);
+      --text: #f0f0f0;
+      --text-secondary: #888;
+      --text-tertiary: #444;
+      --accent: #D4A853;
+      --accent-glow: rgba(212,168,83,0.12);
+      --max-w: 1160px;
+      --pad: 80px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+    @media (max-width: 1024px) { :root { --pad: 40px; } }
+    @media (max-width: 640px)  { :root { --pad: 20px; } }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      background: rgba(10,10,10,0.90);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 21px; font-weight: 500; letter-spacing: -0.3px;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      font-size: 13px; color: var(--text-secondary); text-decoration: none;
+      transition: color 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .article-header {
+      padding: 140px 0 60px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .article-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-glow);
+      border: 1px solid rgba(212,168,83,0.25);
+      padding: 4px 10px; border-radius: 3px;
+    }
+    .article-date, .article-read {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.04em;
+    }
+    .article-header h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400; line-height: 1.15; letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .article-body {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+    }
+    .article-body p {
+      font-size: 16px; color: var(--text-secondary); line-height: 1.85;
+      margin-bottom: 24px;
+    }
+    .article-body h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 28px; font-weight: 400; line-height: 1.3;
+      letter-spacing: -0.3px; color: var(--text);
+      margin: 48px 0 20px;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+
+    .article-back {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+      border-top: 1px solid var(--border); padding-top: 40px;
+    }
+    .article-back a {
+      font-size: 14px; color: var(--accent); text-decoration: none;
+      transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .article-back a:hover { opacity: 0.8; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 0;
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px; color: var(--text); text-decoration: none;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-meta { font-size: 12px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-secondary); }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; gap: 12px; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">host-ly<span>.</span></a>
+    <a href="/#insights" class="nav-back">&larr; Back to insights</a>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="article-header">
+    <div class="article-meta">
+      <span class="article-tag">Security</span>
+      <span class="article-date">Feb 2026</span>
+      <span class="article-read">6 min read</span>
+    </div>
+    <h1>Security and Vibe Coding: The Opportunity Hiding Inside the Risk</h1>
+  </header>
+
+  <article class="article-body">
+    <p>Vibe coding has gone from a fringe practice to an enterprise reality faster than most security teams were prepared for. The idea is simple: describe what you want in natural language, and let a large language model generate the code. Developers are using tools like Cursor, GitHub Copilot, and Claude to produce working software at a pace that would have been unimaginable three years ago. The productivity gains are real. So are the security risks, and pretending otherwise is not a viable strategy.</p>
+
+    <p>A study published in December 2025 examined code generated by five major AI coding tools and identified 69 distinct vulnerabilities across the outputs. These were not obscure edge cases. They included hardcoded secrets, SQL injection vectors, cross-site scripting vulnerabilities, insecure dependencies, and missing input validation. The kind of issues that every security team knows how to find, but that are now being generated at machine speed and often deployed without the review processes that would catch them.</p>
+
+    <h2>The risk is real, but familiar</h2>
+
+    <p>The vulnerabilities introduced by vibe coding are not new categories of risk. Hardcoded API keys, unvalidated user inputs, and insecure library choices have been security concerns for decades. What has changed is the volume and velocity at which these issues are being introduced. When a developer can generate hundreds of lines of functional code in minutes, the review bottleneck becomes acute. Traditional code review processes were designed for human-speed development. They are not equipped to handle the output of AI-assisted workflows without significant adaptation.</p>
+
+    <p>Supply chain risk is a particular concern. AI coding tools draw on vast training datasets that include code of varying quality and security posture. When a model suggests a dependency, there is no guarantee that it is actively maintained, free of known vulnerabilities, or even legitimate. Package confusion attacks, where malicious packages are given names similar to popular libraries, become more dangerous when the model doing the suggesting does not verify the provenance of its recommendations.</p>
+
+    <p>There is also the uncomfortable reality that criminals are using vibe coding too. The same tools that accelerate legitimate development are being used to generate malware, phishing infrastructure, and exploit code. The barrier to entry for producing functional attack tools has dropped significantly, and the security industry needs to account for that in its threat modelling.</p>
+
+    <h2>The opportunity: security at the point of creation</h2>
+
+    <p>Here is where the conversation needs to shift. Vibe coding is not going away. Telling developers to stop using AI coding tools is about as effective as telling them to stop using Stack Overflow was ten years ago. The question is not whether to allow it, but how to make it safe. And the answer is to embed security into the creation process itself, rather than bolting it on after the code has been written.</p>
+
+    <p>This is the concept behind emerging frameworks like SHIELD (Secure Hybrid Intelligence for Engineered Language Development), which proposes integrating security scanning, policy enforcement, and vulnerability detection directly into the AI-assisted coding workflow. Instead of reviewing generated code after the fact, the security checks happen during generation. The model produces a function, it is scanned in real time, and issues are flagged before the developer commits the code.</p>
+
+    <p>The investment landscape reflects this opportunity. Backslash Security raised $19 million in funding specifically to address AI-generated code security. They are not the only ones. A growing ecosystem of tools is emerging to sit alongside AI coding assistants and provide the security layer that the assistants themselves do not include by default.</p>
+
+    <h2>A balanced path forward</h2>
+
+    <p>The balanced take on vibe coding is this: it is a genuine productivity multiplier that introduces genuine security risks, and both of those things are true simultaneously. Organisations that ban it lose the productivity advantage. Organisations that adopt it without guardrails accumulate security debt at an unprecedented rate. The path forward requires treating AI-generated code with the same rigour as any other code, while recognising that the tooling and processes need to evolve to keep pace with the speed of generation.</p>
+
+    <p>For enterprise architects and security leaders, the practical steps are clear. Implement automated security scanning in the development pipeline that is specifically tuned for patterns common in AI-generated code. Establish policies on dependency management that account for the supply chain risks introduced by model-suggested packages. Train developers on what to look for when reviewing AI-generated output, because the review still matters even if the generation is automated.</p>
+
+    <p>Vibe coding is the new normal. Making it secure is the work that needs doing now, before the technical debt becomes unmanageable.</p>
+  </article>
+
+  <div class="article-back">
+    <a href="/#insights">&larr; Back to all insights</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">host-ly<span>.</span></a>
+    <div class="footer-meta">&copy; 2026 Host-ly Co Pty Ltd &middot; Sydney, Australia</div>
+    <div class="footer-links">
+      <a href="https://agent.host-ly.com" target="_blank">Agent Platform</a>
+      <a href="https://manage.host-ly.com" target="_blank">Manage</a>
+      <a href="https://linkedin.com/in/simonlobascher" target="_blank">LinkedIn</a>
+      <a href="mailto:simon@host-ly.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

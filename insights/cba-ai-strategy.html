@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CBA's AI Bet: What Every Enterprise Architect Should Take Note Of | Host-ly Co</title>
+  <meta name="description" content="Commonwealth Bank's AI maturity isn't about the technology. It's about governance, operating model, and organisational muscle. Here's what enterprise architects should learn." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0A0A0A;
+      --bg-card: #111111;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.14);
+      --text: #f0f0f0;
+      --text-secondary: #888;
+      --text-tertiary: #444;
+      --accent: #D4A853;
+      --accent-glow: rgba(212,168,83,0.12);
+      --max-w: 1160px;
+      --pad: 80px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+    @media (max-width: 1024px) { :root { --pad: 40px; } }
+    @media (max-width: 640px)  { :root { --pad: 20px; } }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      background: rgba(10,10,10,0.90);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 21px; font-weight: 500; letter-spacing: -0.3px;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      font-size: 13px; color: var(--text-secondary); text-decoration: none;
+      transition: color 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    /* ARTICLE */
+    .article-header {
+      padding: 140px 0 60px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .article-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-glow);
+      border: 1px solid rgba(212,168,83,0.25);
+      padding: 4px 10px; border-radius: 3px;
+    }
+    .article-date, .article-read {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.04em;
+    }
+    .article-header h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400; line-height: 1.15; letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .article-body {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+    }
+    .article-body p {
+      font-size: 16px; color: var(--text-secondary); line-height: 1.85;
+      margin-bottom: 24px;
+    }
+    .article-body h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 28px; font-weight: 400; line-height: 1.3;
+      letter-spacing: -0.3px; color: var(--text);
+      margin: 48px 0 20px;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+
+    /* BACK LINK */
+    .article-back {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+      border-top: 1px solid var(--border); padding-top: 40px;
+    }
+    .article-back a {
+      font-size: 14px; color: var(--accent); text-decoration: none;
+      transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .article-back a:hover { opacity: 0.8; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 0;
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px; color: var(--text); text-decoration: none;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-meta { font-size: 12px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-secondary); }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; gap: 12px; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">host-ly<span>.</span></a>
+    <a href="/#insights" class="nav-back">&larr; Back to insights</a>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="article-header">
+    <div class="article-meta">
+      <span class="article-tag">AI Strategy</span>
+      <span class="article-date">Feb 2026</span>
+      <span class="article-read">5 min read</span>
+    </div>
+    <h1>CBA's AI Bet: What Every Enterprise Architect Should Take Note Of</h1>
+  </header>
+
+  <article class="article-body">
+    <p>Commonwealth Bank has quietly become one of the most AI-mature organisations in the southern hemisphere. Not by chasing headlines, not by announcing a flashy partnership with a frontier model provider, but by doing the unglamorous work of re-architecting how decisions get made across the bank. For enterprise architects watching from the outside, this is worth studying closely. The lesson is not about the technology. It is about how the organisation wrapped itself around AI in a way that actually scales.</p>
+
+    <p>CBA has embedded artificial intelligence into credit decisioning, fraud detection, and customer service at a depth that most Australian enterprises have not come close to matching. Their fraud detection systems process millions of transactions in real time, flagging anomalies with a speed and accuracy that manual processes could never replicate. Their credit decisioning models do not simply assist human assessors. They operate as core components of the lending workflow, with human oversight built into the governance layer rather than the operational one. Customer service interactions are increasingly handled or augmented by AI, with natural language processing reducing resolution times and freeing frontline staff for higher-value conversations.</p>
+
+    <h2>The operating model matters more than the model</h2>
+
+    <p>What separates CBA from organisations still running disconnected pilots is not their choice of model or cloud provider. It is the operating model they have built around AI. CBA invested early in dedicated AI and machine learning teams, embedded within business units rather than isolated in an innovation lab. This structural choice matters enormously. It means the people building the models understand the business context, and the people running the business understand what the models are doing.</p>
+
+    <p>Their data platform is another critical piece. CBA has spent years consolidating and governing its data assets, building the kind of clean, accessible, well-documented data environment that most organisations only talk about in strategy decks. Without that foundation, the AI capabilities sitting on top of it would not function at the level they do. You cannot run production-grade machine learning on ungoverned data, and CBA understood that earlier than most.</p>
+
+    <h2>Governance as competitive advantage</h2>
+
+    <p>Accountability is where many enterprise AI programs fall apart. Someone builds a model, it gets deployed, and then nobody is clearly responsible for its ongoing performance, its bias profile, or its alignment with regulatory expectations. CBA has structured accountability into the system. There are clear owners for each AI capability, defined escalation paths, and governance forums that review model performance on a regular cadence. This is not bureaucracy for its own sake. It is the organisational infrastructure that allows AI to operate safely at scale in a regulated industry.</p>
+
+    <p>For enterprise architects, this is the real takeaway. The conversation about AI in most boardrooms is still dominated by technology choices. Which model should we use? Should we build or buy? What about open source? These questions matter, but they are secondary to the structural ones. Who owns the AI capability? How do we govern model performance? What does the operating model look like when AI is not a side project but a core part of how the business runs?</p>
+
+    <h2>Building organisational muscle</h2>
+
+    <p>CBA's approach reveals something that the enterprise architecture discipline has always known but rarely applies to AI: sustained capability requires organisational muscle, not just technical infrastructure. The bank did not simply hire data scientists and point them at problems. They built career pathways, defined roles, created communities of practice, and invested in the kind of institutional knowledge that makes AI delivery repeatable rather than heroic.</p>
+
+    <p>This is where most organisations get stuck. They can run a successful pilot with a small, talented team. But when they try to scale, they discover that the organisational structures, governance processes, and talent models they need simply do not exist. The technology works fine. The organisation around it does not.</p>
+
+    <p>Enterprise architects have a unique opportunity here. The discipline already thinks in terms of capability models, governance frameworks, and operating structures. Applying that thinking to AI, rather than leaving it to the data science team alone, is how organisations move from experimentation to maturity. CBA did not get where it is by having better algorithms. It got there by building the organisational architecture to support them.</p>
+
+    <p>If you are an enterprise architect and you are not studying how CBA structured its AI operating model, you are missing the most instructive example in the Australian market. The technology will keep changing. The organisational patterns that make it work will not.</p>
+  </article>
+
+  <div class="article-back">
+    <a href="/#insights">&larr; Back to all insights</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">host-ly<span>.</span></a>
+    <div class="footer-meta">&copy; 2026 Host-ly Co Pty Ltd &middot; Sydney, Australia</div>
+    <div class="footer-links">
+      <a href="https://agent.host-ly.com" target="_blank">Agent Platform</a>
+      <a href="https://manage.host-ly.com" target="_blank">Manage</a>
+      <a href="https://linkedin.com/in/simonlobascher" target="_blank">LinkedIn</a>
+      <a href="mailto:simon@host-ly.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

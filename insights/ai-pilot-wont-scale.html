@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Your AI Pilot Won't Scale, and What to Fix Before It Does | Host-ly Co</title>
+  <meta name="description" content="Most enterprise AI pilots fail because they weren't designed to scale. Here are the common failure patterns and what successful organisations do differently." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0A0A0A;
+      --bg-card: #111111;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.14);
+      --text: #f0f0f0;
+      --text-secondary: #888;
+      --text-tertiary: #444;
+      --accent: #D4A853;
+      --accent-glow: rgba(212,168,83,0.12);
+      --max-w: 1160px;
+      --pad: 80px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+    @media (max-width: 1024px) { :root { --pad: 40px; } }
+    @media (max-width: 640px)  { :root { --pad: 20px; } }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      background: rgba(10,10,10,0.90);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 21px; font-weight: 500; letter-spacing: -0.3px;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      font-size: 13px; color: var(--text-secondary); text-decoration: none;
+      transition: color 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .article-header {
+      padding: 140px 0 60px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .article-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-glow);
+      border: 1px solid rgba(212,168,83,0.25);
+      padding: 4px 10px; border-radius: 3px;
+    }
+    .article-date, .article-read {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.04em;
+    }
+    .article-header h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400; line-height: 1.15; letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .article-body {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+    }
+    .article-body p {
+      font-size: 16px; color: var(--text-secondary); line-height: 1.85;
+      margin-bottom: 24px;
+    }
+    .article-body h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 28px; font-weight: 400; line-height: 1.3;
+      letter-spacing: -0.3px; color: var(--text);
+      margin: 48px 0 20px;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+
+    .article-back {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+      border-top: 1px solid var(--border); padding-top: 40px;
+    }
+    .article-back a {
+      font-size: 14px; color: var(--accent); text-decoration: none;
+      transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .article-back a:hover { opacity: 0.8; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 0;
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px; color: var(--text); text-decoration: none;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-meta { font-size: 12px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-secondary); }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; gap: 12px; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">host-ly<span>.</span></a>
+    <a href="/#insights" class="nav-back">&larr; Back to insights</a>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="article-header">
+    <div class="article-meta">
+      <span class="article-tag">Delivery</span>
+      <span class="article-date">Jan 2026</span>
+      <span class="article-read">7 min read</span>
+    </div>
+    <h1>Why Your AI Pilot Won't Scale, and What to Fix Before It Does</h1>
+  </header>
+
+  <article class="article-body">
+    <p>There is a pattern playing out across enterprises right now that is both predictable and avoidable. An AI pilot launches. It works well enough in a controlled environment with a motivated team and a narrow scope. Leadership gets excited. Someone writes a slide deck about scaling it across the organisation. And then nothing happens. The pilot sits there, useful to a handful of people, but structurally incapable of becoming anything more. This is not a technology problem. It is a design problem, and it starts well before the first model is trained.</p>
+
+    <p>The organisations that are successfully operationalising AI have one thing in common: they treated the pilot as a design exercise for scale, not a standalone experiment. They asked the hard questions early. Who owns this capability once it moves out of the lab? How will we measure value? What data governance needs to be in place before we feed production data into a model? What happens when the person who built this moves on?</p>
+
+    <h2>The common failure patterns</h2>
+
+    <p>The failure modes are remarkably consistent. First, there is the data governance gap. The pilot works because it uses a clean, curated dataset assembled by the project team. When you try to scale it, you discover that the broader data environment is a mess. No data catalogue, no lineage, no clear ownership, and quality that varies wildly across business units. The model that performed brilliantly on clean data falls apart when exposed to the real thing.</p>
+
+    <p>Second, there is the ownership vacuum. During the pilot, the data science team owns everything. They built the model, they deploy it, they monitor it, they fix it when it breaks. That works for a team of three serving one use case. It does not work when you have fifteen models in production across six business units. Without a clear operating model that defines who owns what (and who is accountable when something goes wrong), scaling becomes organisationally impossible.</p>
+
+    <p>Third, there is the value measurement problem. Most pilots are funded on the promise of future value, with vague metrics like "efficiency gains" or "improved customer experience." When it comes time to justify the investment required for scale, those vague metrics are not enough. Finance wants to see a clear cost-benefit analysis. The executive sponsor wants to know exactly what business outcome the AI capability is delivering. If you did not build measurement into the pilot from the start, you are now trying to retrofit it under pressure.</p>
+
+    <h2>What the successful ones do differently</h2>
+
+    <p>The organisations that scale AI successfully share a set of practices that are less about technology and more about organisational design. They define the target operating model before the pilot begins. This does not mean building a massive governance bureaucracy upfront. It means having a clear view of what the capability will look like at scale and working backwards to determine what needs to be true for that to happen.</p>
+
+    <p>They assign a business owner from day one. Not a technical owner who happens to sit in a business unit, but someone who is accountable for the business outcome the AI capability is meant to deliver. This person does not need to understand the technical details. They need to understand the value case and have the authority to make decisions about priority, resourcing, and scope.</p>
+
+    <p>They invest in data governance as a prerequisite, not an afterthought. The organisations that scale AI well have typically done the unglamorous work of cataloguing their data, establishing quality standards, and defining ownership before they start building models. This work is not exciting and it does not generate impressive demos, but it is the foundation that everything else depends on.</p>
+
+    <h2>Treat the pilot as the design phase</h2>
+
+    <p>The most important shift is conceptual. Stop thinking of the pilot as a proof of concept for the technology. Start thinking of it as the design phase for the operating model. The technology will almost certainly work. Large language models, machine learning pipelines, and the supporting infrastructure are mature enough that the technical risk in most enterprise use cases is manageable. The risk is organisational.</p>
+
+    <p>Use the pilot to test governance processes, data quality workflows, handover procedures, and value measurement frameworks. Use it to identify the organisational friction that will block scaling, while you still have the time and goodwill to address it. When the pilot ends, you should have a clear answer to the question: what needs to change in this organisation for this capability to run at scale?</p>
+
+    <p>If you cannot answer that question, the pilot has not failed. But it has not succeeded either. It has just produced a demo that nobody knows how to turn into a capability.</p>
+  </article>
+
+  <div class="article-back">
+    <a href="/#insights">&larr; Back to all insights</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">host-ly<span>.</span></a>
+    <div class="footer-meta">&copy; 2026 Host-ly Co Pty Ltd &middot; Sydney, Australia</div>
+    <div class="footer-links">
+      <a href="https://agent.host-ly.com" target="_blank">Agent Platform</a>
+      <a href="https://manage.host-ly.com" target="_blank">Manage</a>
+      <a href="https://linkedin.com/in/simonlobascher" target="_blank">LinkedIn</a>
+      <a href="mailto:simon@host-ly.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

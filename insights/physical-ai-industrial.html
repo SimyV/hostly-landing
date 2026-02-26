@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physical AI Goes Industrial: What CES 2026 Signals for Enterprise | Host-ly Co</title>
+  <meta name="description" content="CES 2026 showcased the shift from conversational AI to physical AI. Here's what it means for enterprise architects planning infrastructure investments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0A0A0A;
+      --bg-card: #111111;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.14);
+      --text: #f0f0f0;
+      --text-secondary: #888;
+      --text-tertiary: #444;
+      --accent: #D4A853;
+      --accent-glow: rgba(212,168,83,0.12);
+      --max-w: 1160px;
+      --pad: 80px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+    @media (max-width: 1024px) { :root { --pad: 40px; } }
+    @media (max-width: 640px)  { :root { --pad: 20px; } }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      background: rgba(10,10,10,0.90);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 21px; font-weight: 500; letter-spacing: -0.3px;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      font-size: 13px; color: var(--text-secondary); text-decoration: none;
+      transition: color 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .article-header {
+      padding: 140px 0 60px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .article-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-glow);
+      border: 1px solid rgba(212,168,83,0.25);
+      padding: 4px 10px; border-radius: 3px;
+    }
+    .article-date, .article-read {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.04em;
+    }
+    .article-header h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400; line-height: 1.15; letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .article-body {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+    }
+    .article-body p {
+      font-size: 16px; color: var(--text-secondary); line-height: 1.85;
+      margin-bottom: 24px;
+    }
+    .article-body h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 28px; font-weight: 400; line-height: 1.3;
+      letter-spacing: -0.3px; color: var(--text);
+      margin: 48px 0 20px;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+
+    .article-back {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+      border-top: 1px solid var(--border); padding-top: 40px;
+    }
+    .article-back a {
+      font-size: 14px; color: var(--accent); text-decoration: none;
+      transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .article-back a:hover { opacity: 0.8; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 0;
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px; color: var(--text); text-decoration: none;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-meta { font-size: 12px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-secondary); }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; gap: 12px; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">host-ly<span>.</span></a>
+    <a href="/#insights" class="nav-back">&larr; Back to insights</a>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="article-header">
+    <div class="article-meta">
+      <span class="article-tag">Industry</span>
+      <span class="article-date">Feb 2026</span>
+      <span class="article-read">6 min read</span>
+    </div>
+    <h1>Physical AI Goes Industrial: What CES 2026 Signals for Enterprise</h1>
+  </header>
+
+  <article class="article-body">
+    <p>For the past three years, enterprise AI conversations have been dominated by language models, chatbots, and knowledge workers. CES 2026 marked a visible turning point. The show floor was not about conversational AI. It was about physical AI: systems that operate in the real world, manipulating objects, navigating environments, and performing tasks that require spatial reasoning and physical interaction. Siemens, Lenovo, and Caterpillar all made major announcements. The message was clear. AI is moving out of the chat window and into the factory, the warehouse, and the field.</p>
+
+    <p>This is not a consumer electronics trend dressed up for enterprise relevance. The industrial applications showcased at CES 2026 are targeted directly at enterprise operations. Autonomous quality inspection on manufacturing lines. AI-guided maintenance for heavy equipment. Warehouse robots that can pick, sort, and pack without human intervention across a wider range of objects than previously possible. These are systems that address real operational constraints in industries where labour shortages, safety requirements, and throughput demands are pressing challenges.</p>
+
+    <h2>The industrial robotics acceleration</h2>
+
+    <p>Siemens demonstrated AI-driven digital twins for factory operations that go beyond simulation into real-time optimisation. Their approach connects physical sensors, process data, and AI models into a feedback loop that adjusts production parameters continuously. The result is not just monitoring but active intervention: the AI identifies a drift in quality metrics and adjusts machine settings before defective products reach the end of the line.</p>
+
+    <p>Lenovo showcased edge AI platforms designed for industrial deployment, where the computing needs to happen close to the physical process rather than in a remote data centre. Latency matters when you are controlling robotic arms or monitoring safety conditions. A round trip to the cloud and back is too slow for many industrial AI applications, which means the infrastructure architecture has to be fundamentally different from what most enterprises have built for their digital AI workloads.</p>
+
+    <p>Caterpillar's announcements focused on autonomous operations for mining and construction equipment. AI systems that can navigate unstructured environments, make real-time decisions about routing and task execution, and operate safely alongside human workers. These are not prototype demonstrations. They are production-grade systems being deployed at operational sites, with safety certifications and regulatory compliance built in.</p>
+
+    <h2>GPU supply as a bottleneck</h2>
+
+    <p>Physical AI is compute-intensive in ways that differ from language model workloads. Training models that understand spatial relationships, physics, and real-time sensor data requires specialised GPU capacity. Inference at the edge requires hardware that can run these models with low latency and high reliability in environments that are hot, dusty, and vibration-prone. This is not the same as running a language model in a climate-controlled data centre.</p>
+
+    <p>GPU supply constraints, which have already affected language model training and inference capacity, become an even more acute concern for physical AI. The demand for compute is growing across both digital and physical AI workloads, and the supply chain has not expanded fast enough to meet it. For enterprises planning physical AI deployments, securing compute capacity is not just a procurement exercise. It is a strategic planning concern that needs to be addressed twelve to eighteen months ahead of deployment timelines.</p>
+
+    <p>This is where infrastructure investment decisions become critical. Organisations that have invested in flexible compute infrastructure, with the ability to deploy GPU resources at the edge as well as in the cloud, will be better positioned to adopt physical AI than those that have optimised their infrastructure exclusively for cloud-based workloads. The architecture decisions you make today about compute placement, network topology, and hardware procurement will directly affect your ability to deploy physical AI capabilities in the years ahead.</p>
+
+    <h2>Different architecture for a different kind of AI</h2>
+
+    <p>The architectural requirements for physical AI differ from digital AI in several important ways. Latency tolerance is lower. Reliability requirements are higher, because failures in physical systems can result in equipment damage, safety incidents, or production downtime. Data volumes are larger, because sensor streams generate continuous high-frequency data that needs to be processed, filtered, and acted upon in real time.</p>
+
+    <p>Edge computing becomes a core architectural component rather than an optional add-on. Data governance gets more complex, because sensor data often contains operational information that is commercially sensitive or subject to industry-specific regulation. Integration patterns change, because physical AI systems need to interface with operational technology (OT) networks, industrial control systems, and safety instrumented systems that operate under different protocols and standards than enterprise IT.</p>
+
+    <p>Enterprise architects who have spent the past few years building architectures for digital AI, language models, knowledge management, document processing, need to start thinking about what happens when AI moves into the physical domain. The skills, infrastructure, governance models, and integration patterns are different enough that treating physical AI as an extension of your existing AI architecture would be a mistake.</p>
+
+    <p>CES 2026 was the signal. Physical AI is no longer aspirational. It is industrial, operational, and moving fast. The enterprises that prepare their architecture for it now will be the ones that capture its value first.</p>
+  </article>
+
+  <div class="article-back">
+    <a href="/#insights">&larr; Back to all insights</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">host-ly<span>.</span></a>
+    <div class="footer-meta">&copy; 2026 Host-ly Co Pty Ltd &middot; Sydney, Australia</div>
+    <div class="footer-links">
+      <a href="https://agent.host-ly.com" target="_blank">Agent Platform</a>
+      <a href="https://manage.host-ly.com" target="_blank">Manage</a>
+      <a href="https://linkedin.com/in/simonlobascher" target="_blank">LinkedIn</a>
+      <a href="mailto:simon@host-ly.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP Is Becoming the USB-C of Enterprise AI, and That Changes Everything | Host-ly Co</title>
+  <meta name="description" content="Anthropic's Model Context Protocol is now backed by OpenAI, Google, and Microsoft. Enterprises that adopt MCP early gain composability. Those that don't face integration debt." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0A0A0A;
+      --bg-card: #111111;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.14);
+      --text: #f0f0f0;
+      --text-secondary: #888;
+      --text-tertiary: #444;
+      --accent: #D4A853;
+      --accent-glow: rgba(212,168,83,0.12);
+      --max-w: 1160px;
+      --pad: 80px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+    @media (max-width: 1024px) { :root { --pad: 40px; } }
+    @media (max-width: 640px)  { :root { --pad: 20px; } }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      background: rgba(10,10,10,0.90);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 21px; font-weight: 500; letter-spacing: -0.3px;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      font-size: 13px; color: var(--text-secondary); text-decoration: none;
+      transition: color 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .article-header {
+      padding: 140px 0 60px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .article-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-glow);
+      border: 1px solid rgba(212,168,83,0.25);
+      padding: 4px 10px; border-radius: 3px;
+    }
+    .article-date, .article-read {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.04em;
+    }
+    .article-header h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400; line-height: 1.15; letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .article-body {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+    }
+    .article-body p {
+      font-size: 16px; color: var(--text-secondary); line-height: 1.85;
+      margin-bottom: 24px;
+    }
+    .article-body h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 28px; font-weight: 400; line-height: 1.3;
+      letter-spacing: -0.3px; color: var(--text);
+      margin: 48px 0 20px;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+
+    .article-back {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+      border-top: 1px solid var(--border); padding-top: 40px;
+    }
+    .article-back a {
+      font-size: 14px; color: var(--accent); text-decoration: none;
+      transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .article-back a:hover { opacity: 0.8; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 0;
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px; color: var(--text); text-decoration: none;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-meta { font-size: 12px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-secondary); }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; gap: 12px; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">host-ly<span>.</span></a>
+    <a href="/#insights" class="nav-back">&larr; Back to insights</a>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="article-header">
+    <div class="article-meta">
+      <span class="article-tag">Architecture</span>
+      <span class="article-date">Feb 2026</span>
+      <span class="article-read">6 min read</span>
+    </div>
+    <h1>MCP Is Becoming the USB-C of Enterprise AI, and That Changes Everything</h1>
+  </header>
+
+  <article class="article-body">
+    <p>When Anthropic first released the Model Context Protocol in late 2024, it was easy to dismiss as another proprietary standard trying to gain traction. That is no longer a credible reading. MCP has been donated to the Linux Foundation's Agentic AI Foundation. It has been adopted by OpenAI, Google, and Microsoft. The SDK is recording 97 million monthly downloads. In the space of about a year, MCP has gone from an Anthropic initiative to something that looks increasingly like an industry standard for connecting AI models to the systems they need to work with. Enterprise architects should be paying close attention.</p>
+
+    <p>The analogy to USB-C is apt, even if imperfect. Before USB-C, connecting devices meant navigating a maze of proprietary cables, adapters, and protocols. USB-C did not make the underlying devices better. It made them interoperable. MCP is doing the same thing for AI: providing a standard protocol through which AI models can connect to data sources, tools, and enterprise systems without requiring bespoke integrations for every combination.</p>
+
+    <h2>Solving the M times N problem</h2>
+
+    <p>The integration challenge MCP addresses is one that enterprise architects will recognise immediately. Without a common protocol, connecting M applications to N data sources requires M times N custom integrations. Every new application needs a connector for every data source. Every new data source needs a connector for every application. The combinatorial explosion makes integration the most expensive and fragile part of any AI deployment.</p>
+
+    <p>MCP reduces this to M plus N. Each application implements the MCP client protocol once. Each data source implements the MCP server protocol once. Any client can then connect to any server without additional integration work. This is the same architectural pattern that made REST APIs transformative for web services: a common interface that turns point-to-point integrations into a pluggable ecosystem.</p>
+
+    <p>For enterprises with complex technology landscapes (dozens of data sources, multiple AI tools, hundreds of potential use cases) this shift from multiplicative to additive integration cost is significant. It does not eliminate integration complexity entirely, but it changes the economics fundamentally.</p>
+
+    <h2>The enterprise plugin ecosystem is expanding</h2>
+
+    <p>Anthropic has been accelerating the enterprise applicability of MCP through initiatives like Claude Cowork, which allows AI agents to interact with enterprise tools through standardised MCP connections. The growing plugin ecosystem means that common enterprise systems (CRMs, project management tools, knowledge bases, databases, communication platforms) are increasingly accessible to AI models through a standard protocol rather than custom code.</p>
+
+    <p>This composability is where the real value lies. When your AI systems can connect to any MCP-compliant data source or tool without custom integration, the time from identifying an AI use case to deploying it drops dramatically. Instead of spending weeks building connectors, your team can focus on the logic and governance that make the use case valuable. The plumbing becomes standard, and the differentiation moves to the business logic layer where it belongs.</p>
+
+    <p>The adoption by OpenAI, Google, and Microsoft amplifies this effect. When the three largest AI platform providers all support the same integration protocol, it becomes rational for enterprise software vendors to build MCP compatibility into their products. This creates a network effect: the more tools that support MCP, the more valuable it becomes for every tool that supports it.</p>
+
+    <h2>Early adoption as architectural advantage</h2>
+
+    <p>For enterprise architects making decisions today, MCP presents a clear strategic consideration. Organisations that adopt MCP early and build their AI integration layer around it will accumulate composability. Every new MCP-compliant tool or data source they add to their ecosystem becomes immediately available to every AI capability they have deployed. The marginal cost of each new integration approaches zero.</p>
+
+    <p>Organisations that do not adopt MCP, or that build their AI integrations on proprietary protocols, will accumulate integration debt instead. Every new AI use case will require bespoke connector work. Every change to an underlying system will require updates across multiple integration points. The maintenance burden will grow linearly with the number of AI capabilities deployed, and that burden will eventually throttle the organisation's ability to scale its AI investments.</p>
+
+    <p>The decision is not whether MCP will become the standard protocol for AI integration. The trajectory of adoption makes that increasingly likely. The decision is whether your organisation positions itself to benefit from that standardisation or pays the cost of resisting it.</p>
+
+    <p>MCP may not be the final word in AI integration standards. But it is the most credible candidate right now, and the architectural advantages of early adoption compound over time. For enterprise architects, that makes it worth understanding, evaluating, and, in most cases, adopting sooner rather than later.</p>
+  </article>
+
+  <div class="article-back">
+    <a href="/#insights">&larr; Back to all insights</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">host-ly<span>.</span></a>
+    <div class="footer-meta">&copy; 2026 Host-ly Co Pty Ltd &middot; Sydney, Australia</div>
+    <div class="footer-links">
+      <a href="https://agent.host-ly.com" target="_blank">Agent Platform</a>
+      <a href="https://manage.host-ly.com" target="_blank">Manage</a>
+      <a href="https://linkedin.com/in/simonlobascher" target="_blank">LinkedIn</a>
+      <a href="mailto:simon@host-ly.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

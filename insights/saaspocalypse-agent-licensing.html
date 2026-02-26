@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The SaaSpocalypse Is Here: How AI Agents Are Rewriting Enterprise Licensing | Host-ly Co</title>
+  <meta name="description" content="The software industry has lost nearly $2 trillion in market cap as AI agents dismantle per-seat licensing. Here's what CIOs and CFOs need to understand." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0A0A0A;
+      --bg-card: #111111;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.14);
+      --text: #f0f0f0;
+      --text-secondary: #888;
+      --text-tertiary: #444;
+      --accent: #D4A853;
+      --accent-glow: rgba(212,168,83,0.12);
+      --max-w: 1160px;
+      --pad: 80px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+    @media (max-width: 1024px) { :root { --pad: 40px; } }
+    @media (max-width: 640px)  { :root { --pad: 20px; } }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      background: rgba(10,10,10,0.90);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 21px; font-weight: 500; letter-spacing: -0.3px;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      font-size: 13px; color: var(--text-secondary); text-decoration: none;
+      transition: color 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .article-header {
+      padding: 140px 0 60px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .article-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-glow);
+      border: 1px solid rgba(212,168,83,0.25);
+      padding: 4px 10px; border-radius: 3px;
+    }
+    .article-date, .article-read {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.04em;
+    }
+    .article-header h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400; line-height: 1.15; letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .article-body {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+    }
+    .article-body p {
+      font-size: 16px; color: var(--text-secondary); line-height: 1.85;
+      margin-bottom: 24px;
+    }
+    .article-body h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 28px; font-weight: 400; line-height: 1.3;
+      letter-spacing: -0.3px; color: var(--text);
+      margin: 48px 0 20px;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+
+    .article-back {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+      border-top: 1px solid var(--border); padding-top: 40px;
+    }
+    .article-back a {
+      font-size: 14px; color: var(--accent); text-decoration: none;
+      transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .article-back a:hover { opacity: 0.8; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 0;
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px; color: var(--text); text-decoration: none;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-meta { font-size: 12px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-secondary); }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; gap: 12px; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">host-ly<span>.</span></a>
+    <a href="/#insights" class="nav-back">&larr; Back to insights</a>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="article-header">
+    <div class="article-meta">
+      <span class="article-tag">Industry</span>
+      <span class="article-date">Feb 2026</span>
+      <span class="article-read">6 min read</span>
+    </div>
+    <h1>The SaaSpocalypse Is Here: How AI Agents Are Rewriting Enterprise Licensing</h1>
+  </header>
+
+  <article class="article-body">
+    <p>Something structural is happening to the software industry, and the numbers are hard to ignore. Enterprise software companies have shed nearly $2 trillion in market capitalisation in early 2026, and while multiple factors are at play, there is a common thread running through analyst calls, board presentations, and CIO conversations: AI agents are dismantling the per-seat licensing model that has underpinned SaaS economics for the past fifteen years. The industry is calling it the SaaSpocalypse, and the term is not as hyperbolic as it sounds.</p>
+
+    <p>The logic is straightforward. Per-seat licensing charges for every human who uses the software. AI agents do not have seats. A single agent can perform the work of dozens of junior employees across customer service, data entry, report generation, scheduling, and administrative tasks. When the work gets done without a human logging in, the seats disappear. And when the seats disappear, so does the revenue model that most enterprise software companies are built on.</p>
+
+    <h2>Seat compression and the revenue gap</h2>
+
+    <p>Seat compression is the term being used to describe what happens when AI agents reduce the number of human users an organisation needs licensed for a particular tool. A customer service team that previously required forty Salesforce licences might now need twelve, because agents handle the routine interactions. An analytics team that needed twenty Power BI licences might need eight, because agents generate the standard reports automatically. The software still runs. The work still gets done. But the number of seats being paid for drops significantly.</p>
+
+    <p>For software vendors, this is an existential challenge. Their entire financial model, from revenue forecasting to sales compensation, is built around the assumption that usage scales with headcount. When AI breaks that relationship, the models stop working. Revenue per customer declines even as usage of the platform may actually increase, because the agents are consuming more API calls and compute than the humans they replaced.</p>
+
+    <p>Salesforce has been among the first to respond with a new licensing construct: the Agentic Enterprise License Agreement (AELA). Instead of charging per seat, AELA moves toward a model that accounts for agent consumption, combining elements of flat-fee licensing with usage-based pricing for agent activity. It is an early attempt to solve a problem that does not yet have an established solution, and other vendors are watching closely to see if it works.</p>
+
+    <h2>What CIOs and CFOs actually want</h2>
+
+    <p>On the buyer side, the shift creates both opportunity and confusion. CIOs want predictability. They want to know what their software spend will be next quarter and next year. Per-seat licensing, for all its flaws, provided that predictability because headcount is relatively stable and forecastable. Consumption-based pricing introduces variability that makes budgeting harder, and hybrid models that mix flat fees with usage tiers add complexity to procurement processes that are already slow.</p>
+
+    <p>CFOs want ROI clarity. If the organisation is deploying AI agents that replace work previously done by licensed human users, the CFO wants to see that reflected in the software line item. A flat-fee model that costs the same regardless of how many agents are deployed undermines the business case for automation. A purely consumption-based model might save money initially but could grow unpredictably as agent usage scales.</p>
+
+    <p>The tension between these two priorities is driving a rapid evolution in enterprise licensing. Vendors are experimenting with outcome-based pricing (charging for results rather than usage), agent-tier licensing (pricing based on the number and type of agents deployed), and bundled platform models that include a certain level of agent activity within the base subscription.</p>
+
+    <h2>The architecture implication</h2>
+
+    <p>Gartner predicts that 40% of enterprise applications will include task-specific AI agents by the end of 2026. If that prediction holds, the licensing implications will touch every line item in the enterprise technology budget. Enterprise architects and technology leaders need to start modelling for this now, not as a theoretical exercise but as a practical input to procurement and vendor management strategy.</p>
+
+    <p>The practical steps are clear. Audit your current licensing portfolio for seat-compression risk. Identify which applications are most likely to see human-seat reduction as agent capabilities mature. Engage vendors proactively about their licensing roadmaps, because the ones that have thought about this are worth partnering with, and the ones that have not are a risk. Build financial models that account for the transition from per-seat to hybrid or consumption-based pricing, so you are not caught off guard when your next renewal looks fundamentally different from your current contract.</p>
+
+    <p>The per-seat licensing model was built for a world where software was used by humans. AI agents are building a different world. The organisations that adapt their procurement, architecture, and financial models to that reality will capture the value. The ones that do not will find themselves paying for a licensing structure that no longer matches how their technology is actually used.</p>
+  </article>
+
+  <div class="article-back">
+    <a href="/#insights">&larr; Back to all insights</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">host-ly<span>.</span></a>
+    <div class="footer-meta">&copy; 2026 Host-ly Co Pty Ltd &middot; Sydney, Australia</div>
+    <div class="footer-links">
+      <a href="https://agent.host-ly.com" target="_blank">Agent Platform</a>
+      <a href="https://manage.host-ly.com" target="_blank">Manage</a>
+      <a href="https://linkedin.com/in/simonlobascher" target="_blank">LinkedIn</a>
+      <a href="mailto:simon@host-ly.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

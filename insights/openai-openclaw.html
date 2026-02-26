@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAI Acquires OpenClaw: What Workflow Infrastructure Tells Us About Where AI Value Is Heading | Host-ly Co</title>
+  <meta name="description" content="OpenAI's acqui-hire of the OpenClaw project signals that AI value is migrating from model intelligence to workflow orchestration." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0A0A0A;
+      --bg-card: #111111;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.14);
+      --text: #f0f0f0;
+      --text-secondary: #888;
+      --text-tertiary: #444;
+      --accent: #D4A853;
+      --accent-glow: rgba(212,168,83,0.12);
+      --max-w: 1160px;
+      --pad: 80px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+    @media (max-width: 1024px) { :root { --pad: 40px; } }
+    @media (max-width: 640px)  { :root { --pad: 20px; } }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      background: rgba(10,10,10,0.90);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 21px; font-weight: 500; letter-spacing: -0.3px;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      font-size: 13px; color: var(--text-secondary); text-decoration: none;
+      transition: color 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .article-header {
+      padding: 140px 0 60px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .article-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-glow);
+      border: 1px solid rgba(212,168,83,0.25);
+      padding: 4px 10px; border-radius: 3px;
+    }
+    .article-date, .article-read {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.04em;
+    }
+    .article-header h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400; line-height: 1.15; letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .article-body {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+    }
+    .article-body p {
+      font-size: 16px; color: var(--text-secondary); line-height: 1.85;
+      margin-bottom: 24px;
+    }
+    .article-body h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 28px; font-weight: 400; line-height: 1.3;
+      letter-spacing: -0.3px; color: var(--text);
+      margin: 48px 0 20px;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+
+    .article-back {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+      border-top: 1px solid var(--border); padding-top: 40px;
+    }
+    .article-back a {
+      font-size: 14px; color: var(--accent); text-decoration: none;
+      transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .article-back a:hover { opacity: 0.8; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 0;
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px; color: var(--text); text-decoration: none;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-meta { font-size: 12px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-secondary); }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; gap: 12px; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">host-ly<span>.</span></a>
+    <a href="/#insights" class="nav-back">&larr; Back to insights</a>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="article-header">
+    <div class="article-meta">
+      <span class="article-tag">Industry</span>
+      <span class="article-date">Feb 2026</span>
+      <span class="article-read">6 min read</span>
+    </div>
+    <h1>OpenAI Acquires OpenClaw: What Workflow Infrastructure Tells Us About Where AI Value Is Heading</h1>
+  </header>
+
+  <article class="article-body">
+    <p>When OpenAI acqui-hired Peter Steinberger and the OpenClaw project in early 2026, the headlines focused on the deal itself. What deserved more attention was the signal. OpenClaw, which began life as ClawdBot and grew to 196,000 GitHub stars, had become one of the most widely adopted open-source tools for AI workflow orchestration. Steinberger was reportedly courted by Meta and Microsoft before choosing OpenAI. The fact that three of the largest technology companies in the world were competing for a workflow infrastructure project tells you everything you need to know about where AI value is migrating.</p>
+
+    <p>The era where model intelligence alone determined competitive advantage is ending. What matters now is what AI systems can actually do, not just what they can say. And doing things at enterprise scale requires workflow orchestration, tool integration, task management, and the kind of infrastructure that connects a language model to the systems where real work happens.</p>
+
+    <h2>From intelligence to orchestration</h2>
+
+    <p>For the past three years, the AI industry has been primarily a model race. Larger context windows, better reasoning, faster inference, lower cost per token. These improvements matter, but they are becoming table stakes. The frontier models from OpenAI, Anthropic, Google, and the leading open-source projects are converging in capability. The gap between them is narrowing, not widening.</p>
+
+    <p>As model capability commoditises, the value layer shifts upward. The question is no longer "can the model understand this?" but "can the model execute this workflow end to end?" That requires infrastructure: the ability to call tools, manage state, handle errors, coordinate across multiple steps, and integrate with the enterprise systems where data lives and decisions get made.</p>
+
+    <p>This is exactly what OpenClaw was built to do. It provided a framework for chaining AI actions into reliable, repeatable workflows. It handled the messy reality of connecting a language model to APIs, databases, file systems, and external services. The 196,000 GitHub stars were not a vanity metric. They reflected genuine demand from developers who understood that model intelligence without workflow capability is a parlour trick.</p>
+
+    <h2>The competitive context adds urgency</h2>
+
+    <p>OpenAI's motivation for this acquisition becomes clearer when you look at the competitive landscape. According to recent market analysis, OpenAI's enterprise market share dropped from roughly 50% to 27% over the past year, while Anthropic's share rose to approximately 40%. That shift is significant. It suggests that enterprises are making provider choices based on factors beyond model capability, including developer experience, reliability, and the ability to integrate into existing workflows.</p>
+
+    <p>By acquiring OpenClaw, OpenAI is addressing a gap in its enterprise offering. They have strong models, strong brand recognition, and a growing suite of tools. What they needed was better workflow infrastructure, the connective tissue that turns a model API into an operational capability. Steinberger's team provides that.</p>
+
+    <p>The competitive pressure from Meta and Microsoft also signals that this is not a niche concern. Meta has been investing heavily in open-source AI infrastructure, and Microsoft has been building agentic capabilities into its Copilot ecosystem. Both companies recognised that workflow orchestration was a critical piece of the puzzle. OpenAI simply moved faster.</p>
+
+    <h2>What this means for enterprise architecture</h2>
+
+    <p>For enterprise architects, the OpenClaw acquisition reinforces a principle that should already be guiding your AI strategy: the value of AI is increasingly determined by what surrounds the model, not by the model itself. Investing in model selection while neglecting workflow infrastructure is like choosing a high-performance engine and forgetting to build the car around it.</p>
+
+    <p>Practically, this means treating workflow orchestration as a first-class architectural concern. How do your AI systems connect to your enterprise data? How do they trigger actions in downstream systems? How do you manage state, handle failures, and ensure auditability across multi-step AI workflows? These are the questions that determine whether AI delivers measurable value or remains a sophisticated chatbot.</p>
+
+    <p>It also means watching the integration strategies of the major providers carefully. OpenAI now owns workflow infrastructure. Anthropic is investing in the Model Context Protocol and agentic frameworks. Google is embedding AI orchestration into its cloud platform. The provider that wins the enterprise market will not be the one with the best model. It will be the one that makes it easiest to connect that model to the work that actually needs doing.</p>
+
+    <p>The future of AI is not about what models can say. It is about what they can do. And the infrastructure that enables that doing just became one of the most contested spaces in enterprise technology.</p>
+  </article>
+
+  <div class="article-back">
+    <a href="/#insights">&larr; Back to all insights</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">host-ly<span>.</span></a>
+    <div class="footer-meta">&copy; 2026 Host-ly Co Pty Ltd &middot; Sydney, Australia</div>
+    <div class="footer-links">
+      <a href="https://agent.host-ly.com" target="_blank">Agent Platform</a>
+      <a href="https://manage.host-ly.com" target="_blank">Manage</a>
+      <a href="https://linkedin.com/in/simonlobascher" target="_blank">LinkedIn</a>
+      <a href="mailto:simon@host-ly.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

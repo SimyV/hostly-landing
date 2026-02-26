@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAI Acquires Windsurf: What Vertical Integration Means for Enterprise AI | Host-ly Co</title>
+  <meta name="description" content="OpenAI's acquisition of Windsurf signals the collapse of the line between AI platform and AI application. Here's what it means for enterprise vendor strategy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0A0A0A;
+      --bg-card: #111111;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.14);
+      --text: #f0f0f0;
+      --text-secondary: #888;
+      --text-tertiary: #444;
+      --accent: #D4A853;
+      --accent-glow: rgba(212,168,83,0.12);
+      --max-w: 1160px;
+      --pad: 80px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+    @media (max-width: 1024px) { :root { --pad: 40px; } }
+    @media (max-width: 640px)  { :root { --pad: 20px; } }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      background: rgba(10,10,10,0.90);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 21px; font-weight: 500; letter-spacing: -0.3px;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      font-size: 13px; color: var(--text-secondary); text-decoration: none;
+      transition: color 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .article-header {
+      padding: 140px 0 60px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .article-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-glow);
+      border: 1px solid rgba(212,168,83,0.25);
+      padding: 4px 10px; border-radius: 3px;
+    }
+    .article-date, .article-read {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.04em;
+    }
+    .article-header h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400; line-height: 1.15; letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .article-body {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+    }
+    .article-body p {
+      font-size: 16px; color: var(--text-secondary); line-height: 1.85;
+      margin-bottom: 24px;
+    }
+    .article-body h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 28px; font-weight: 400; line-height: 1.3;
+      letter-spacing: -0.3px; color: var(--text);
+      margin: 48px 0 20px;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+
+    .article-back {
+      max-width: 760px; margin: 0 auto; padding: 0 0 80px;
+      border-top: 1px solid var(--border); padding-top: 40px;
+    }
+    .article-back a {
+      font-size: 14px; color: var(--accent); text-decoration: none;
+      transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .article-back a:hover { opacity: 0.8; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 0;
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px; color: var(--text); text-decoration: none;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-meta { font-size: 12px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-secondary); }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; gap: 12px; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">host-ly<span>.</span></a>
+    <a href="/#insights" class="nav-back">&larr; Back to insights</a>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="article-header">
+    <div class="article-meta">
+      <span class="article-tag">Industry</span>
+      <span class="article-date">Feb 2026</span>
+      <span class="article-read">6 min read</span>
+    </div>
+    <h1>OpenAI Acquires Windsurf: What Vertical Integration Means for Enterprise AI</h1>
+  </header>
+
+  <article class="article-body">
+    <p>OpenAI's acquisition of Windsurf, formerly known as Codeium, is not just another deal in the AI consolidation wave. It is a strategic signal that every enterprise technology leader should be reading carefully. OpenAI is no longer content to operate at the API layer, providing models that other companies wrap into products. They want the developer surface. They want the place where code gets written, reviewed, and shipped. And that changes the calculus for any organisation building its AI strategy around a single provider.</p>
+
+    <p>Windsurf had built a credible AI-powered coding assistant that competed directly with GitHub Copilot and a growing field of developer tools. By acquiring it, OpenAI gains a direct relationship with developers at the point of creation, not just consumption. This is vertical integration in its clearest form: owning the model, the API, and now the application that developers use every day.</p>
+
+    <h2>The platform and the application are becoming the same thing</h2>
+
+    <p>For years, the enterprise technology stack had a relatively clean separation between platform and application. You chose your cloud provider, your middleware, your databases, and then you chose the applications that ran on top of them. AI is collapsing that separation. When OpenAI provides both the foundation model and the developer tool that uses it, the traditional distinction between infrastructure and application stops being meaningful.</p>
+
+    <p>This matters for enterprise architects because it changes how you evaluate vendor risk. If your organisation has standardised on OpenAI's API for a range of use cases, and OpenAI now also provides the tools your developers use to write code, you are not dealing with a single vendor relationship. You are dealing with a dependency that spans multiple layers of your technology stack. That is a different kind of lock-in, and it requires a different kind of governance.</p>
+
+    <p>The broader trend reinforces this concern. Frontier model providers are all moving up the stack. They are not satisfied with being the engine under the hood. They want to be the dashboard, the steering wheel, and increasingly the road itself. Google is doing it with Gemini across its productivity suite. Microsoft has done it with Copilot across the entire Office ecosystem. OpenAI acquiring Windsurf is the same pattern, just executed through acquisition rather than internal product development.</p>
+
+    <h2>What this means for enterprise vendor strategy</h2>
+
+    <p>The practical implication is that enterprises need to think about AI vendor strategy the way they think about cloud strategy. Not as a single choice, but as a portfolio decision with deliberate diversification. Organisations that have gone all-in on a single AI provider are accumulating risk that they may not be pricing correctly.</p>
+
+    <p>This does not mean avoiding OpenAI or any other provider. It means being intentional about where you create dependencies and where you maintain optionality. Use OpenAI's models where they are the best fit. Use Anthropic's Claude where long-form reasoning and code generation are the priority. Use open-source models where control and customisation matter most. The key is that your architecture should make switching possible, even if you never exercise that option.</p>
+
+    <p>Abstraction layers become critical in this context. If your application code is tightly coupled to a specific model's API, every strategic shift becomes a rewrite. If you have built an abstraction layer that allows you to route requests to different models based on task type, cost, or performance requirements, you retain the ability to respond to market changes without rewriting your systems.</p>
+
+    <h2>Architecture decisions today, lock-in consequences tomorrow</h2>
+
+    <p>The Windsurf acquisition should prompt a straightforward question in every enterprise architecture review: where are we creating single-provider dependencies in our AI stack, and are we comfortable with the long-term implications of those choices?</p>
+
+    <p>This is not a hypothetical concern. The AI vendor landscape is consolidating rapidly. Acquisitions like this one will continue. The providers that survive will be larger, more vertically integrated, and more interested in capturing a greater share of your technology spend. Enterprises that build their architectures with that trajectory in mind will be better positioned than those that treat today's vendor landscape as permanent.</p>
+
+    <p>The line between AI platform and AI application has not just blurred. It is actively being erased by the companies building both. Your architecture needs to account for that reality, starting now.</p>
+  </article>
+
+  <div class="article-back">
+    <a href="/#insights">&larr; Back to all insights</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">host-ly<span>.</span></a>
+    <div class="footer-meta">&copy; 2026 Host-ly Co Pty Ltd &middot; Sydney, Australia</div>
+    <div class="footer-links">
+      <a href="https://agent.host-ly.com" target="_blank">Agent Platform</a>
+      <a href="https://manage.host-ly.com" target="_blank">Manage</a>
+      <a href="https://linkedin.com/in/simonlobascher" target="_blank">LinkedIn</a>
+      <a href="mailto:simon@host-ly.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
