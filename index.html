@@ -274,11 +274,7 @@
 
     /* ── INSIGHTS ── */
     .insights { padding: 120px 0; border-top: 1px solid var(--border); }
-    .insights-top {
-      display: flex; align-items: end; justify-content: space-between;
-      margin-bottom: 64px; gap: 32px; flex-wrap: wrap;
-    }
-    .insights-header { margin-bottom: 0; }
+    .insights-header { margin-bottom: 64px; }
     .insights-header h2 {
       font-family: 'EB Garamond', serif;
       font-size: clamp(32px, 3.5vw, 50px);
@@ -286,33 +282,21 @@
     }
     .insights-header h2 em { font-style: italic; color: var(--text-secondary); }
     .insights-header p { font-size: 15px; color: var(--text-secondary); max-width: 480px; line-height: 1.8; }
-    .insights-nav { display: flex; gap: 10px; flex-shrink: 0; }
-    .insights-nav button {
-      width: 44px; height: 44px; border-radius: 6px;
-      background: var(--bg-card); border: 1px solid var(--border);
-      color: var(--text-secondary); cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
-      font-size: 18px;
-    }
-    .insights-nav button:hover { border-color: var(--border-hover); color: var(--text); background: var(--bg-card-hover); }
-    .insights-nav button:disabled { opacity: 0.3; cursor: default; }
-    .insights-viewport {
-      overflow: hidden; border-radius: 10px;
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: 10px;
+      overflow: hidden;
       border: 1px solid var(--border);
     }
-    .insights-track {
-      display: flex; transition: transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
-    }
     .insight-card {
-      flex: 0 0 calc(100% / 3); min-width: 0;
       background: var(--bg-card); padding: 36px 32px;
       display: flex; flex-direction: column;
       transition: background 0.25s; cursor: pointer;
       text-decoration: none; color: inherit;
-      border-right: 1px solid var(--border);
     }
-    .insight-card:last-child { border-right: none; }
     .insight-card:hover { background: var(--bg-card-hover); }
     .insight-meta {
       display: flex; align-items: center; justify-content: space-between;
@@ -346,17 +330,8 @@
       transition: transform 0.2s;
     }
     .insight-card:hover .insight-footer::after { transform: translateX(4px); }
-    .insights-dots {
-      display: flex; justify-content: center; gap: 8px; margin-top: 32px;
-    }
-    .insights-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--text-tertiary); border: none; cursor: pointer;
-      padding: 0; transition: background 0.2s, transform 0.2s;
-    }
-    .insights-dot.active { background: var(--accent); transform: scale(1.3); }
-    @media (max-width: 900px) { .insight-card { flex: 0 0 50%; } }
-    @media (max-width: 560px) { .insight-card { flex: 0 0 100%; } }
+    @media (max-width: 900px) { .insights-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .insights-grid { grid-template-columns: 1fr; } }
 
     /* ── CLIENTS ── */
     .clients { padding: 100px 0; border-top: 1px solid var(--border); }
@@ -704,19 +679,12 @@
 <!-- INSIGHTS -->
 <section id="insights" class="insights">
   <div class="container">
-    <div class="insights-top">
-      <div class="insights-header">
-        <div class="section-eyebrow">Insights</div>
-        <h2>Thinking on AI, architecture,<br><em>and what's actually happening.</em></h2>
-        <p>Practical perspectives on enterprise AI. What's working, what isn't, and what the headlines miss.</p>
-      </div>
-      <div class="insights-nav">
-        <button id="insightPrev" aria-label="Previous insights">&#8592;</button>
-        <button id="insightNext" aria-label="Next insights">&#8594;</button>
-      </div>
+    <div class="insights-header">
+      <div class="section-eyebrow">Insights</div>
+      <h2>Thinking on AI, architecture,<br><em>and what's actually happening.</em></h2>
+      <p>Practical perspectives on enterprise AI. What's working, what isn't, and what the headlines miss.</p>
     </div>
-    <div class="insights-viewport" id="insightsViewport">
-      <div class="insights-track" id="insightsTrack">
+    <div class="insights-grid">
 
         <a href="insights/cba-ai-strategy.html" class="insight-card">
           <div class="insight-meta">
@@ -808,9 +776,7 @@
           <div class="insight-footer">5 min read</div>
         </a>
 
-      </div>
     </div>
-    <div class="insights-dots" id="insightsDots"></div>
   </div>
 </section>
 
@@ -1001,97 +967,6 @@
   }, { threshold: 0.3 });
   document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
 
-  // Insights carousel
-  (function() {
-    const track = document.getElementById('insightsTrack');
-    const viewport = document.getElementById('insightsViewport');
-    const prevBtn = document.getElementById('insightPrev');
-    const nextBtn = document.getElementById('insightNext');
-    const dotsWrap = document.getElementById('insightsDots');
-    if (!track || !viewport) return;
-
-    const cards = track.querySelectorAll('.insight-card');
-    const totalCards = cards.length;
-    let page = 0;
-
-    function getVisible() {
-      const w = viewport.offsetWidth;
-      if (w < 560) return 1;
-      if (w < 900) return 2;
-      return 3;
-    }
-
-    function getMaxPage() {
-      return Math.max(0, totalCards - getVisible());
-    }
-
-    function renderDots() {
-      const max = getMaxPage();
-      const vis = getVisible();
-      const dotCount = Math.ceil(totalCards / vis);
-      dotsWrap.innerHTML = '';
-      for (let i = 0; i < dotCount; i++) {
-        const dot = document.createElement('button');
-        dot.className = 'insights-dot' + (Math.floor(page / vis) === i ? ' active' : '');
-        dot.setAttribute('aria-label', 'Go to page ' + (i + 1));
-        dot.addEventListener('click', () => { page = Math.min(i * vis, max); update(); });
-        dotsWrap.appendChild(dot);
-      }
-    }
-
-    function update() {
-      const max = getMaxPage();
-      if (page < 0) page = 0;
-      if (page > max) page = max;
-      const cardW = 100 / totalCards;
-      track.style.transform = 'translateX(-' + (page * cardW) + '%)';
-      prevBtn.disabled = page === 0;
-      nextBtn.disabled = page >= max;
-      renderDots();
-    }
-
-    prevBtn.addEventListener('click', () => { page -= getVisible(); update(); });
-    nextBtn.addEventListener('click', () => { page += getVisible(); update(); });
-
-    // Touch / swipe support
-    let startX = 0, startY = 0, dragging = false;
-    viewport.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-      dragging = true;
-    }, { passive: true });
-    viewport.addEventListener('touchend', (e) => {
-      if (!dragging) return;
-      dragging = false;
-      const dx = e.changedTouches[0].clientX - startX;
-      const dy = e.changedTouches[0].clientY - startY;
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-        if (dx < 0) { page += getVisible(); } else { page -= getVisible(); }
-        update();
-      }
-    }, { passive: true });
-
-    // Auto-advance every 5 seconds, pause on hover or interaction
-    let autoTimer = null;
-    function startAuto() {
-      stopAuto();
-      autoTimer = setInterval(() => {
-        const max = getMaxPage();
-        if (page >= max) { page = 0; } else { page += 1; }
-        update();
-      }, 5000);
-    }
-    function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
-
-    viewport.addEventListener('mouseenter', stopAuto);
-    viewport.addEventListener('mouseleave', startAuto);
-    prevBtn.addEventListener('click', () => { stopAuto(); setTimeout(startAuto, 8000); });
-    nextBtn.addEventListener('click', () => { stopAuto(); setTimeout(startAuto, 8000); });
-
-    window.addEventListener('resize', () => update());
-    update();
-    startAuto();
-  })();
 </script>
 </body>
 </html>
