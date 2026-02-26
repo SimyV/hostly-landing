@@ -330,9 +330,8 @@
       transition: transform 0.2s;
     }
     .insight-card:hover .insight-footer::after { transform: translateX(4px); }
-    .insight-hidden { display: none; }
-    .insights-grid.expanded .insight-hidden { display: flex; }
-    .insights-expand {
+    .insight-card.hidden { display: none; }
+    .insights-pager {
       display: flex; align-items: center; justify-content: center; gap: 8px;
       margin: 32px auto 0; padding: 14px 32px;
       background: var(--bg-card); border: 1px solid var(--border);
@@ -340,9 +339,8 @@
       font-family: 'Inter', system-ui, sans-serif; font-size: 14px;
       cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
-    .insights-expand:hover { border-color: var(--border-hover); color: var(--text); background: var(--bg-card-hover); }
-    .insights-expand-arrow { transition: transform 0.3s; }
-    .insights-expand.expanded .insights-expand-arrow { transform: rotate(180deg); }
+    .insights-pager:hover { border-color: var(--border-hover); color: var(--text); background: var(--bg-card-hover); }
+    .insights-pager-arrow { display: inline-block; transition: transform 0.3s; }
     @media (max-width: 900px) { .insights-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .insights-grid { grid-template-columns: 1fr; } }
 
@@ -759,7 +757,7 @@
           <div class="insight-footer">7 min read</div>
         </a>
 
-        <a href="insights/mcp-enterprise-standard.html" class="insight-card insight-hidden">
+        <a href="insights/mcp-enterprise-standard.html" class="insight-card">
           <div class="insight-meta">
             <span class="insight-tag">Architecture</span>
             <span class="insight-date">Feb 2026</span>
@@ -769,7 +767,7 @@
           <div class="insight-footer">6 min read</div>
         </a>
 
-        <a href="insights/saaspocalypse-agent-licensing.html" class="insight-card insight-hidden">
+        <a href="insights/saaspocalypse-agent-licensing.html" class="insight-card">
           <div class="insight-meta">
             <span class="insight-tag">Industry</span>
             <span class="insight-date">Feb 2026</span>
@@ -779,7 +777,7 @@
           <div class="insight-footer">7 min read</div>
         </a>
 
-        <a href="insights/physical-ai-industrial.html" class="insight-card insight-hidden">
+        <a href="insights/physical-ai-industrial.html" class="insight-card">
           <div class="insight-meta">
             <span class="insight-tag">Industry</span>
             <span class="insight-date">Feb 2026</span>
@@ -790,8 +788,9 @@
         </a>
 
     </div>
-    <button class="insights-expand" id="insightsExpand">
-      Show 3 more articles <span class="insights-expand-arrow">&#8595;</span>
+    <button class="insights-pager" id="insightsPager">
+      <span id="insightsPagerText">Show more articles</span>
+      <span class="insights-pager-arrow" id="insightsPagerArrow">&#8595;</span>
     </button>
   </div>
 </section>
@@ -983,18 +982,43 @@
   }, { threshold: 0.3 });
   document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
 
-  // Insights expand/collapse
-  const expandBtn = document.getElementById('insightsExpand');
-  const insightsGrid = document.querySelector('.insights-grid');
-  if (expandBtn && insightsGrid) {
-    expandBtn.addEventListener('click', () => {
-      const expanded = insightsGrid.classList.toggle('expanded');
-      expandBtn.classList.toggle('expanded', expanded);
-      expandBtn.innerHTML = expanded
-        ? 'Show fewer articles <span class="insights-expand-arrow" style="display:inline-block;transform:rotate(180deg)">&#8595;</span>'
-        : 'Show 3 more articles <span class="insights-expand-arrow">&#8595;</span>';
+  // Insights paging -- show 6 at a time, shift by 3
+  (function() {
+    const cards = Array.from(document.querySelectorAll('.insights-grid .insight-card'));
+    const pagerBtn = document.getElementById('insightsPager');
+    const pagerText = document.getElementById('insightsPagerText');
+    const pagerArrow = document.getElementById('insightsPagerArrow');
+    if (!cards.length || !pagerBtn) return;
+
+    const pageSize = 6;
+    const step = 3;
+    let offset = 0;
+    const maxOffset = Math.max(0, cards.length - pageSize);
+
+    function render() {
+      cards.forEach((card, i) => {
+        card.classList.toggle('hidden', i < offset || i >= offset + pageSize);
+      });
+      const atEnd = offset >= maxOffset;
+      const atStart = offset === 0;
+      pagerText.textContent = atEnd ? 'Show earlier articles' : 'Show more articles';
+      pagerArrow.innerHTML = atEnd ? '&#8593;' : '&#8595;';
+      pagerBtn.style.display = cards.length <= pageSize ? 'none' : '';
+    }
+
+    pagerBtn.addEventListener('click', () => {
+      const section = document.getElementById('insights');
+      if (offset >= maxOffset) {
+        offset = 0;
+      } else {
+        offset = Math.min(offset + step, maxOffset);
+      }
+      render();
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-  }
+
+    render();
+  })();
 
 </script>
 </body>
