@@ -330,6 +330,19 @@
       transition: transform 0.2s;
     }
     .insight-card:hover .insight-footer::after { transform: translateX(4px); }
+    .insight-hidden { display: none; }
+    .insights-grid.expanded .insight-hidden { display: flex; }
+    .insights-expand {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin: 32px auto 0; padding: 14px 32px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text-secondary);
+      font-family: 'Inter', system-ui, sans-serif; font-size: 14px;
+      cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .insights-expand:hover { border-color: var(--border-hover); color: var(--text); background: var(--bg-card-hover); }
+    .insights-expand-arrow { transition: transform 0.3s; }
+    .insights-expand.expanded .insights-expand-arrow { transform: rotate(180deg); }
     @media (max-width: 900px) { .insights-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .insights-grid { grid-template-columns: 1fr; } }
 
@@ -746,7 +759,7 @@
           <div class="insight-footer">7 min read</div>
         </a>
 
-        <a href="insights/mcp-enterprise-standard.html" class="insight-card">
+        <a href="insights/mcp-enterprise-standard.html" class="insight-card insight-hidden">
           <div class="insight-meta">
             <span class="insight-tag">Architecture</span>
             <span class="insight-date">Feb 2026</span>
@@ -756,7 +769,7 @@
           <div class="insight-footer">6 min read</div>
         </a>
 
-        <a href="insights/saaspocalypse-agent-licensing.html" class="insight-card">
+        <a href="insights/saaspocalypse-agent-licensing.html" class="insight-card insight-hidden">
           <div class="insight-meta">
             <span class="insight-tag">Industry</span>
             <span class="insight-date">Feb 2026</span>
@@ -766,7 +779,7 @@
           <div class="insight-footer">7 min read</div>
         </a>
 
-        <a href="insights/physical-ai-industrial.html" class="insight-card">
+        <a href="insights/physical-ai-industrial.html" class="insight-card insight-hidden">
           <div class="insight-meta">
             <span class="insight-tag">Industry</span>
             <span class="insight-date">Feb 2026</span>
@@ -777,6 +790,9 @@
         </a>
 
     </div>
+    <button class="insights-expand" id="insightsExpand">
+      Show 3 more articles <span class="insights-expand-arrow">&#8595;</span>
+    </button>
   </div>
 </section>
 
@@ -966,6 +982,19 @@
     });
   }, { threshold: 0.3 });
   document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+
+  // Insights expand/collapse
+  const expandBtn = document.getElementById('insightsExpand');
+  const insightsGrid = document.querySelector('.insights-grid');
+  if (expandBtn && insightsGrid) {
+    expandBtn.addEventListener('click', () => {
+      const expanded = insightsGrid.classList.toggle('expanded');
+      expandBtn.classList.toggle('expanded', expanded);
+      expandBtn.innerHTML = expanded
+        ? 'Show fewer articles <span class="insights-expand-arrow" style="display:inline-block;transform:rotate(180deg)">&#8595;</span>'
+        : 'Show 3 more articles <span class="insights-expand-arrow">&#8595;</span>';
+    });
+  }
 
 </script>
 </body>
