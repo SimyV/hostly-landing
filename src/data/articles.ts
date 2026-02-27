@@ -10,6 +10,42 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'scaling-ai-operating-model-culture',
+    tag: 'AI Strategy',
+    date: 'Feb 2026',
+    readTime: '4 min',
+    title: 'Scaling AI Is an Organisational Problem, Not a Technology One',
+    excerpt:
+      'Most enterprise AI programmes stall not because the technology fails, but because the operating model, culture, and governance structures around it were never redesigned to support scale.',
+    body: `<p>The organisations succeeding with AI at scale share a common trait that rarely makes it into vendor case studies: they redesigned how work gets done before they scaled the technology. The organisations struggling share an equally common trait: they layered AI onto structures built for a pre-AI world, and then wondered why adoption stalled, pilots stayed in the lab, and value failed to materialise at the pace the business expected.</p>
+
+<p>This is the central challenge of enterprise AI in 2026. The technology works. Foundation models are capable, tooling has matured, and integration patterns are well established. What is failing, in most enterprises, is the organisational architecture surrounding the technology. The models are ready. The question is whether the organisation is.</p>
+
+<h2>Redesigning the operating model</h2>
+
+<p>Most enterprise AI programmes are structured as technology projects. A team builds a pilot, demonstrates capability, and then attempts to scale it across the organisation. The failure mode is structural, not technical. Roles, decision rights, accountability frameworks, and incentive structures were designed around linear workflows and human judgment. When AI enters those workflows, the underlying logic changes, and the operating model needs to change with it.</p>
+
+<p>The organisations that scale successfully ask structural questions early. Who owns this capability once it moves out of the lab? How do we define accountability when an AI system makes a decision that affects a customer or triggers a regulatory obligation? What does governance look like when there are fifteen models in production rather than one? These are not technology questions. They are organisational design questions, and they require organisational design answers.</p>
+
+<p>One pattern emerging from more mature AI programmes is what IBM calls AI fusion teams: hybrid groups that combine deep business domain expertise with technical capability. Instead of data science teams building models and passing them across to business units, fusion teams embed both together from the start. The model builders understand business context; the business owners understand what the models are doing. That structural integration removes the hand-off failures that kill most scaling attempts before they begin.</p>
+
+<h2>The cultural shift most enterprises are still avoiding</h2>
+
+<p>The deeper challenge is cultural. Organisations optimised for process efficiency and risk avoidance do not naturally create the conditions AI needs to be effective. AI requires teams that can tolerate uncertainty, iterate quickly, and accept that models will sometimes be wrong and that the appropriate response is refinement, not abandonment. That is a fundamentally different working culture than most large enterprises have built over decades.</p>
+
+<p>This shift is harder than any technology implementation. It requires leaders who can set direction without complete certainty. It requires middle management who do not see AI as a threat to the expertise they have spent careers developing. It requires frontline workers who believe the organisation is genuinely investing in their capability rather than engineering them out of a role. Building that belief is not an IT project. It is a people leadership challenge, and it belongs on the executive agenda alongside the technology roadmap.</p>
+
+<p>The World Economic Forum's 2025 analysis makes the stakes clear: AI will create more roles than it displaces, but only in organisations that deliberately redesign work and invest in people. That distinction is a leadership and culture question, not a procurement one. Organisations that simply automate existing job descriptions and wait to see what falls away will find morale problems long before they find scale.</p>
+
+<h2>Governance as the strategic foundation</h2>
+
+<p>For Australian enterprises, the governance imperative is becoming external as well as internal. APRA's CPS 230 operational risk requirements, which took effect in July 2025, impose tighter controls on how regulated firms manage technology risk. The Privacy Act reforms taking effect in December 2026 introduce new transparency obligations around automated decision-making. The Australian Government's National AI Plan signals where regulatory expectations are heading across the economy. Only 22 per cent of Australian organisations currently have advanced governance models for AI agents, which means most are building capability ahead of the governance infrastructure needed to operate it responsibly.</p>
+
+<p>Trust has become the operative measure of AI maturity. The question in 2026 is not whether AI can perform a task. It is whether the organisation can account for its decisions, explain its outputs, and stand behind its performance in front of regulators, customers, and employees. That requires clear model ownership, defined performance monitoring, escalation paths, and accountability held by named individuals rather than anonymous teams. Governance is no longer a compliance exercise. It is the foundation on which scalable AI capability is built.</p>
+
+<p>The organisations that succeed at scale will not be the ones that chose the best model or the most capable cloud provider. They will be the ones that built the organisational architecture to support their AI capabilities: the operating model, the culture, and the governance structures working together. The technology has been ready for some time. The harder question, for most enterprises, is whether the organisation is.</p>`,
+  },
+  {
     slug: 'ai-agents-enterprise-reality-check',
     tag: 'AI Strategy',
     date: 'Feb 2026',
