@@ -20,8 +20,8 @@ export default function About() {
         {/* Image */}
         <div>
           <img
-            src="/images/consulting.jpg"
-            alt="Consulting session"
+            src="/images/technology.jpg"
+            alt="Technology and business strategy session"
             style={{
               width: '100%',
               height: 480,
