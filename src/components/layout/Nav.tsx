@@ -57,7 +57,7 @@ export default function Nav() {
         >
           <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
             <img
-              src="/hostly-mark.png"
+              src="/hostly-mark.svg"
               alt="Host-ly Co"
               style={{ height: 36 }}
             />

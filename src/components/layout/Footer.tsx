@@ -31,7 +31,7 @@ export default function Footer() {
         >
           <div>
             <img
-              src="/hostly-mark.png"
+              src="/hostly-mark.svg"
               alt="Host-ly Co"
               style={{ height: 44, width: 44, objectFit: 'contain', marginBottom: 10 }}
             />
