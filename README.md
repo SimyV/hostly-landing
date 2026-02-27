@@ -27,7 +27,7 @@ hostly-landing/
 │   ├── components/
 │   │   ├── layout/
 │   │   │   ├── Nav.tsx                 # Fixed top nav with scroll effect
-│   │   │   └── Footer.tsx              # Dark section footer
+│   │   │   └── Footer.tsx              # Orange accent footer
 │   │   └── sections/
 │   │       ├── Hero.tsx                # Headline + CTAs
 │   │       ├── ClientLogos.tsx         # Scrolling logo carousel
@@ -57,7 +57,7 @@ hostly-landing/
 
 ### Page Flow
 
-Hero (warm) → Client Logos → About → Image Collage → Capabilities (dark) → Case Studies → Insights → Contact (dark) → Footer (dark)
+Hero (warm) → Client Logos → About → Image Collage → Capabilities (dark) → Case Studies → Insights → Contact (dark) → Footer (orange)
 
 ---
 
@@ -71,11 +71,12 @@ Hero (warm) → Client Logos → About → Image Collage → Capabilities (dark)
 | Text primary       | `#2A2A2A`                      |
 | Text secondary     | `#6B6B6B`                      |
 | Accent (teal)      | `#00C9A7`                      |
+| Accent (orange)    | `#E8613C`                      |
 | Heading font       | EB Garamond (serif)            |
 | Body font          | Inter (sans-serif)             |
 | Mono/tags font     | JetBrains Mono                 |
 
-Fonts loaded from Google Fonts. The accent colour (`#00C9A7`, teal) is used for italic heading words, tags, hover states, and form focus rings. Buttons use pill shape (`border-radius: 100px`). Dark sections (Capabilities, Contact, Footer) use `.section-dark` class with inverted colours.
+Fonts loaded from Google Fonts. Teal (`#00C9A7`) is used for italic heading words, tags, and hover states. Burnt orange (`#E8613C`) is used for CTA buttons, the footer background, alternating capability numbers, and case study metrics. Buttons use pill shape (`border-radius: 100px`). Capabilities and Contact use `.section-dark` class with inverted colours.
 
 ---
 
