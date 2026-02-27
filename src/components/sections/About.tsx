@@ -41,7 +41,7 @@ export default function About() {
             dangerouslySetInnerHTML={{ __html: 'It\'s about <em>your business,</em> not ours.' }}
           />
           <p style={{ fontSize: 17, lineHeight: 1.7, color: 'var(--color-text-secondary)', marginBottom: 32, maxWidth: 460 }}>
-            We navigate you through the unique complexities of your transformation and combine deep industry expertise with a structured approach, to ensure your organisation realises its potential.
+            We guide organisations through the unique complexities of transformation, combining deep industry expertise with disciplined execution to unlock measurable performance outcomes.
           </p>
           <button
             className="btn btn-primary"
