@@ -10,6 +10,72 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'deepseek-v4-geopolitical-ai-decoupling',
+    tag: 'AI Strategy',
+    date: 'Feb 2026',
+    readTime: '4 min',
+    title: 'DeepSeek Locks Out US Chipmakers: The AI Decoupling Enterprises Cannot Ignore',
+    excerpt:
+      'DeepSeek withholding its V4 model from Nvidia and AMD is not just a trade dispute story. It signals an accelerating bifurcation of the global AI ecosystem that will shape enterprise model strategy for years.',
+    body: `<p>DeepSeek, the Chinese AI lab that upended industry assumptions about training efficiency in 2025, has denied Nvidia and AMD early access to its upcoming V4 model. Instead, the company gave domestic chipmakers including Huawei a multi-week head start to optimise their hardware for the new model. This breaks with standard industry practice, where major AI labs provide pre-release model access to leading chipmakers to ensure broad hardware compatibility at launch. The decision is deliberate, strategic, and significant.</p>
+
+<p>DeepSeek's models have been downloaded more than 75 million times on Hugging Face since the company's emergence in early 2025. That adoption sparked a wave of Chinese open-source AI models that now compete directly with American labs on capability benchmarks. In models released over the past year, Chinese downloads on Hugging Face have surpassed those from every other country. This is no longer a niche ecosystem. It is a parallel AI infrastructure with global reach and growing enterprise relevance.</p>
+
+<h2>The decoupling is accelerating</h2>
+
+<p>The V4 lockout sits within a broader pattern of AI ecosystem bifurcation. US export controls continue to restrict China's access to the most advanced Nvidia chips, though inference-grade processors like the H20 and AMD's MI308 have been allowed to ship. A senior Trump administration official has alleged that DeepSeek trained V4 on Nvidia Blackwell chips inside mainland China, potentially in violation of those controls, and that the company intends to publicly credit Huawei chips instead.</p>
+
+<p>Whether the specific allegations hold up, the strategic direction is unmistakable. China is building an AI stack that does not depend on American hardware, and it is doing so with increasing urgency and capability. Huawei's Ascend processors are improving. Domestic foundries are scaling. And labs like DeepSeek are demonstrating that competitive frontier models can be trained with fewer resources than Western incumbents assumed necessary. The decoupling is not hypothetical. It is happening in production.</p>
+
+<p>For Australian enterprises, this is not an abstract geopolitical narrative. It has practical implications for technology strategy. Organisations evaluating open-source AI models for deployment need to understand where those models come from, what hardware they are optimised for, and what geopolitical dynamics could affect their continued availability, maintenance, and security posture.</p>
+
+<h2>Enterprise model strategy needs a geopolitical lens</h2>
+
+<p>The immediate technical impact of DeepSeek's decision is limited. Most Australian enterprises are not running DeepSeek models in production. But the second-order effects matter. If Chinese AI models are increasingly optimised for domestic hardware and less compatible with Western infrastructure, the open-source AI ecosystem begins to split. Models that work brilliantly on Huawei Ascend chips may perform differently on Nvidia GPUs. Fine-tuning techniques developed for one hardware ecosystem may not transfer cleanly to the other. The assumption that open-source means hardware-agnostic becomes less reliable.</p>
+
+<p>There are also supply chain security considerations. Organisations using open-source models from Chinese labs need robust processes for code review, vulnerability assessment, and provenance verification. This is not about assuming malicious intent. It is about applying the same due diligence to AI model supply chains that enterprises already apply (or should apply) to software dependencies. The youX breach this month demonstrated what happens when third-party trust is not verified. AI model supply chains deserve the same scrutiny.</p>
+
+<p>Australian enterprises sit in an interesting position in this landscape. The country's National AI Plan emphasises the importance of AI infrastructure sovereignty and proportionate risk management. The establishment of the AI Safety Institute in early 2026 signals a government that is thinking seriously about advanced AI risks. Enterprise leaders should be asking their architecture teams how a bifurcated global AI ecosystem affects their model sourcing strategy, their hardware planning, and their risk posture.</p>
+
+<h2>Prepare for a two-track world</h2>
+
+<p>The most prudent enterprise response is to plan for a two-track AI world without betting on either track exclusively. Maintain relationships with Western frontier model providers. Monitor open-source developments from both ecosystems. Invest in abstraction layers that make model switching feasible. And ensure that your AI governance framework includes geopolitical risk assessment alongside the technical and ethical dimensions that already feature in most frameworks. DeepSeek locking out US chipmakers is a signal, not a crisis. But the trajectory it signals, a world where AI ecosystems diverge along geopolitical lines, is one that every enterprise technology strategy needs to account for.</p>`,
+  },
+  {
+    slug: 'youx-breach-cloud-security-australia',
+    tag: 'Security',
+    date: 'Feb 2026',
+    readTime: '4 min',
+    title: 'The youX Breach Exposes What Australian Enterprises Keep Getting Wrong About Cloud Security',
+    excerpt:
+      'A single unsecured MongoDB cluster exposed 444,000 Australians\u2019 financial records across 90 downstream lenders. The architecture of third-party risk is still broken.',
+    body: `<p>On 17 February 2026, Sydney-based asset finance technology company youX confirmed unauthorised access to its systems. A threat actor claimed to have exfiltrated 141 gigabytes of data from an unsecured MongoDB Atlas cluster, including 629,597 loan applications, 229,236 Australian driver\u2019s licences, 607,822 residential addresses, and detailed financial records covering income, debts, and government identification for 444,538 borrowers. The compromised database was connected to more than 90 downstream lenders and 797 broker organisations. ASX-listed Motorcycle Holdings was among the companies that disclosed exposure through a formal ASX announcement the following day.</p>
+
+<p>This is not a sophisticated nation-state attack. It is an unsecured database accessible over the internet. The kind of misconfiguration that has been on every cloud security checklist for a decade. And yet it keeps happening, at scale, with real consequences for hundreds of thousands of Australians whose financial identities are now circulating in criminal marketplaces.</p>
+
+<h2>Third-party concentration risk at its worst</h2>
+
+<p>The youX breach is a case study in third-party concentration risk. A single fintech platform, sitting between borrowers and a network of 90 lenders and nearly 800 brokers, became the point of failure for an entire ecosystem. Every organisation in that network made a decision, explicit or implicit, to trust youX with sensitive customer data. And youX, based on what has been disclosed so far, did not secure that data to the standard the trust required.</p>
+
+<p>This pattern is not unique to financial services. Enterprise architectures increasingly depend on platform intermediaries that aggregate data from multiple parties. Payroll platforms hold employee records for hundreds of employers. Healthcare data exchanges connect hospitals, insurers, and government agencies. Supply chain platforms consolidate operational data across dozens of trading partners. Each of these creates the same structural risk: a single point of compromise that cascades across an entire ecosystem.</p>
+
+<p>For enterprise architects, the question is not whether your own security posture is adequate. It is whether the security posture of every platform you share data with is adequate, and whether you have the visibility and contractual leverage to verify that. The youX breach suggests that many organisations in the Australian lending ecosystem either did not ask that question or accepted an unsatisfactory answer.</p>
+
+<h2>The regulatory context is tightening</h2>
+
+<p>This breach arrives at a moment when Australian regulators are signalling clearly that the tolerance for inadequate cybersecurity is declining. The Australian Signals Directorate\u2019s ACSC reported more than 42,500 calls to the national Cyber Security Hotline in the last financial year, a 16 per cent increase, and responded to over 1,200 cyber incidents. The ACSC is signalling that Essential Eight Maturity Level Two will become the expected standard for mid-sized businesses handling sensitive customer data.</p>
+
+<p>FIIG Securities was recently ordered to pay a $2.5 million penalty by the Federal Court following ASIC action over cybersecurity failures, setting a precedent that financial services licensees will face direct regulatory consequences for inadequate security. The Privacy Act reforms taking effect in December 2026 will introduce new transparency obligations around automated decision-making and data handling. The regulatory direction is unmistakable: organisations that handle Australian personal data will be held to higher standards, and the penalties for falling short are becoming material.</p>
+
+<p>Separately, the breach of Canadian transcription firm VIQ Solutions, which exposed sensitive Australian federal and state court files after work was subcontracted to an Indian firm, reinforces the same theme from a different angle. Third-party risk is not just a technology problem. It is a supply chain governance problem that extends to every organisation that touches your data, including their subcontractors.</p>
+
+<h2>Architecture is the first line of defence</h2>
+
+<p>Sound enterprise architecture can mitigate, though never eliminate, these risks. Data minimisation principles should govern what is shared with third parties, not just what is collected. Access controls should enforce least privilege at the platform level, not just within your own systems. Contractual security requirements need to be specific, auditable, and backed by genuine verification rather than self-assessment questionnaires that nobody reads after signing.</p>
+
+<p>The youX breach is not an anomaly. It is the predictable outcome of an architecture that concentrated sensitive data in a platform without commensurate security controls. Australian enterprises that have not audited their own third-party data concentrations should treat this as the prompt to do so. The next breach will follow the same pattern. The question is whether your data will be in it.</p>`,
+  },
+  {
     slug: 'meta-google-tpu-deal-ai-compute-wars',
     tag: 'Industry',
     date: 'Feb 2026',
