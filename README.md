@@ -49,6 +49,9 @@ hostly-landing/
 │       ├── HomePage.tsx                # Main landing page
 │       ├── ArticlePage.tsx             # Individual article view
 │       └── NotFoundPage.tsx            # 404 page
+├── .claude/
+│   ├── article-drafts/                 # Draft batches awaiting approval (JSON)
+│   └── article-sources.json            # Curated links + followed publications
 ├── package.json
 ├── tsconfig.json
 ├── vite.config.ts
@@ -80,16 +83,82 @@ Fonts loaded from Google Fonts. Teal (`#00C9A7`) is used for italic heading word
 
 ---
 
+## Article Pipeline (Automated)
+
+The site includes an automated daily article research and publishing pipeline:
+
+### How It Works
+
+1. **Daily Research** (7am AEST, scheduled task) -- An AI agent searches for the latest AI, enterprise architecture, cybersecurity, and Australian tech news. It writes 3-5 draft articles (~650 words each).
+
+2. **Email for Approval** -- Drafts are emailed to the editor with **Publish** and **Reject** buttons per article. The email includes full article previews styled in the site's design system.
+
+3. **One-Click Publish** -- Clicking "Publish" in the email triggers the agent-system approval endpoint, which:
+   - Marks the article as approved in the draft batch JSON
+   - Creates a one-time scheduled task that automatically:
+     - Adds the article to `src/data/articles.ts`
+     - Runs `npx vite build`
+     - Deploys the built site to the VPS
+     - Commits and pushes to GitHub
+
+4. **Reject** -- Clicking "Reject" marks the article as rejected. No deployment occurs.
+
+### Key Files
+
+| File | Purpose |
+|------|---------|
+| `src/data/articles.ts` | All published articles (slug, tag, title, excerpt, body HTML) |
+| `.claude/article-drafts/*.json` | Draft batches with approval status per article |
+| `.claude/article-sources.json` | Curated links (from WhatsApp) and followed publications |
+
+### Article Format
+
+Each article in `articles.ts` has:
+- `slug` -- URL-friendly identifier (kebab-case)
+- `tag` -- One of: AI Strategy, Industry, Architecture, Security, Delivery
+- `date` -- Month and year (e.g. "Feb 2026")
+- `readTime` -- Estimated read time (e.g. "4 min")
+- `title`, `excerpt` -- Display metadata
+- `body` -- Full HTML content with `<p>` and `<h2>` tags
+
+### Draft Batch Format
+
+```json
+{
+  "batchToken": "a1b2c3d4",
+  "date": "2026-02-27",
+  "articles": [
+    {
+      "id": "art_1",
+      "status": "pending|approved|rejected",
+      "slug": "article-slug",
+      "tag": "AI Strategy",
+      "title": "Article Title",
+      "excerpt": "Short excerpt...",
+      "readTime": "4 min",
+      "body": "<p>Full HTML...</p>"
+    }
+  ]
+}
+```
+
+### WhatsApp Source Integration
+
+Links shared via WhatsApp are captured by a webhook and added to `.claude/article-sources.json` as curated links. The daily research task prioritises these links when writing articles.
+
+---
+
 ## Deployment
 
 Hosted on a VPS behind Cloudflare with Caddy as the web server (SPA fallback via `try_files`). SSL is auto-managed by Caddy via Let's Encrypt.
+
+The site is deployed via Docker volume mounts from the agent-system container (see internal docs for credentials and paths).
 
 ```bash
 # Build
 npx vite build
 
-# Deploy (see internal docs for credentials)
-scp -r dist/* <server>:/opt/hostly-landing/
+# Deploy (automated via agent-system -- see internal docs)
 ```
 
 ---
