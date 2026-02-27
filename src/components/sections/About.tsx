@@ -44,16 +44,8 @@ export default function About() {
             We navigate you through the unique complexities of your transformation and combine deep industry expertise with a structured approach, to ensure your organisation realises its potential.
           </p>
           <button
-            className="btn-outline"
+            className="btn btn-primary"
             onClick={() => scrollTo('capabilities')}
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: 14,
-              fontWeight: 500,
-              letterSpacing: 0,
-              textTransform: 'none',
-              padding: '12px 28px',
-            }}
           >
             Our services
           </button>
