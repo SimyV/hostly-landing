@@ -14,7 +14,7 @@ export default function Insights() {
         {/* Header */}
         <div style={{ marginBottom: 64 }}>
           <p className="eyebrow" style={{ marginBottom: 20 }}>Insights</p>
-          <h2 className="section-heading">Latest work and insights</h2>
+          <h2 className="section-heading" dangerouslySetInnerHTML={{ __html: 'Latest work and<br/><em>insights</em>' }} />
         </div>
 
         {/* Grid */}
