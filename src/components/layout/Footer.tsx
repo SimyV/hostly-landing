@@ -11,9 +11,7 @@ export default function Footer() {
   const scrollTo = useScrollToSection()
 
   return (
-    <footer className="section-dark">
-      {/* Orange accent strip */}
-      <div style={{ height: 3, background: 'var(--color-accent-warm)' }} />
+    <footer style={{ background: 'var(--color-accent-warm)', color: '#fff' }}>
       <div
         style={{
           maxWidth: 1440,
@@ -35,7 +33,7 @@ export default function Footer() {
             <div style={{ fontFamily: 'var(--font-heading)', fontSize: 20, color: '#fff', letterSpacing: '-0.3px', marginBottom: 10 }}>
               Host-ly Co
             </div>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, maxWidth: 260 }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.6, maxWidth: 260 }}>
               Enterprise AI strategy, architecture, and technology consulting. Melbourne, Australia.
             </p>
           </div>
@@ -49,7 +47,7 @@ export default function Footer() {
                   background: 'none',
                   border: 'none',
                   padding: 0,
-                  color: 'rgba(255,255,255,0.6)',
+                  color: 'rgba(255,255,255,0.8)',
                   fontSize: 13,
                   fontWeight: 500,
                   fontFamily: 'var(--font-body)',
@@ -57,7 +55,7 @@ export default function Footer() {
                   transition: 'color 200ms',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.8)')}
               >
                 {n.label}
               </button>
@@ -67,7 +65,7 @@ export default function Footer() {
 
         <div
           style={{
-            borderTop: '1px solid rgba(255,255,255,0.1)',
+            borderTop: '1px solid rgba(255,255,255,0.25)',
             paddingTop: 24,
             display: 'flex',
             justifyContent: 'space-between',
@@ -76,10 +74,10 @@ export default function Footer() {
             gap: 12,
           }}
         >
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,255,255,0.65)' }}>
             &copy; {new Date().getFullYear()} Host-ly Co
           </span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,255,255,0.65)' }}>
             ABN 88 616 024 695
           </span>
         </div>
