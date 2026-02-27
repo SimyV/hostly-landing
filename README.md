@@ -81,32 +81,14 @@ Fonts loaded from Google Fonts. The accent colour (`#00C9A7`, teal) is used for 
 
 ## Deployment
 
-### Infrastructure
-
-- **VPS:** `5.223.62.179` (Hetzner)
-- **Web server:** [Caddy](https://caddyserver.com/) with `file_server` and SPA fallback
-- **CDN/DNS:** Cloudflare (proxied A record)
-- **SSL:** Auto-managed by Caddy via Let's Encrypt
-
-### Caddy Configuration
-
-```
-host-ly.com, www.host-ly.com {
-    root * /opt/hostly-landing
-    encode gzip
-    file_server
-    try_files {path} /index.html
-}
-```
-
-### Deploy
+Hosted on a VPS behind Cloudflare with Caddy as the web server (SPA fallback via `try_files`). SSL is auto-managed by Caddy via Let's Encrypt.
 
 ```bash
 # Build
 npx vite build
 
-# Deploy to VPS
-scp -i ~/.ssh/deploy_key -r dist/* root@5.223.62.179:/opt/hostly-landing/
+# Deploy (see internal docs for credentials)
+scp -r dist/* <server>:/opt/hostly-landing/
 ```
 
 ---
