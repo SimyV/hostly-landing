@@ -7,7 +7,7 @@ export const logos: ClientLogo[] = [
   { name: 'NDIS', src: '/logos/ndis.png' },
   { name: 'IOOF', src: '/logos/ioof.png' },
   { name: 'Zurich', src: '/logos/zurich.png' },
-  { name: 'MLC', src: '/logos/mlc.jpg' },
+  { name: 'MLC', src: '/logos/mlc.png' },
   { name: 'NAB', src: '/logos/nab.png' },
   { name: 'Melbourne Business School', src: '/logos/mbs.png' },
   { name: 'WorkSafe Tasmania', src: '/logos/worksafe.png' },
