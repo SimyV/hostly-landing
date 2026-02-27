@@ -5,38 +5,75 @@ export default function Hero() {
 
   return (
     <section
+      id="top"
       style={{
         position: 'relative',
-        paddingTop: 'clamp(140px, 20vh, 220px)',
-        paddingBottom: 'clamp(80px, 12vh, 140px)',
+        minHeight: 'clamp(640px, 78vh, 860px)',
+        paddingTop: 'clamp(140px, 18vh, 220px)',
+        paddingBottom: 'clamp(80px, 10vh, 130px)',
         overflow: 'hidden',
+        background: '#0f1116',
       }}
     >
-      <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 var(--gutter)', position: 'relative' }}>
-        {/* Headline — large serif, centred right like the reference */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+        }}
+      >
+        <source src="/videos/hero-city.mp4" type="video/mp4" />
+      </video>
+
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background:
+            'linear-gradient(115deg, rgba(9,11,16,0.80) 0%, rgba(9,11,16,0.58) 40%, rgba(9,11,16,0.68) 100%)',
+        }}
+      />
+
+      <div
+        style={{
+          maxWidth: 1440,
+          margin: '0 auto',
+          padding: '0 var(--gutter)',
+          position: 'relative',
+          zIndex: 2,
+        }}
+      >
         <h1
           style={{
             fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(40px, 6vw, 76px)',
+            fontSize: 'clamp(42px, 6vw, 78px)',
             fontWeight: 400,
             lineHeight: 1.08,
             letterSpacing: '-1px',
-            color: '#2A2A2A',
-            maxWidth: 900,
+            color: '#fff',
+            maxWidth: 960,
             marginBottom: 32,
+            textWrap: 'balance',
           }}
         >
           Your partners in business and technology{' '}
-          <em style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>transformation</em>
+          <em style={{ fontStyle: 'italic', color: '#E8613C' }}>transformation</em>
         </h1>
 
-        {/* Sub */}
         <p
           style={{
             fontSize: 'clamp(16px, 1.3vw, 20px)',
-            lineHeight: 1.65,
-            color: 'var(--color-text-secondary)',
-            maxWidth: 540,
+            lineHeight: 1.7,
+            color: 'rgba(255,255,255,0.88)',
+            maxWidth: 590,
             marginBottom: 48,
           }}
         >
@@ -45,7 +82,6 @@ export default function Hero() {
           real organisational pressure.
         </p>
 
-        {/* CTAs */}
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
           <button className="btn btn-primary" onClick={() => scrollTo('contact')}>
             Get in touch
