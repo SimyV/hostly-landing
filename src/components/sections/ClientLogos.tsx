@@ -61,7 +61,7 @@ export default function ClientLogos() {
                 src={logo.src}
                 alt={logo.name}
                 style={{
-                  height: 40,
+                  height: logo.name === 'Kmart' ? 48 : 40,
                   width: 'auto',
                   objectFit: 'contain',
                   userSelect: 'none',

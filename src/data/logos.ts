@@ -3,7 +3,7 @@ export interface ClientLogo {
   src: string
 }
 
-const LOGO_ASSET_VERSION = 'v3'
+const LOGO_ASSET_VERSION = 'v4'
 
 export const logos: ClientLogo[] = [
   { name: 'NDIS', src: `/logos/ndis.png?${LOGO_ASSET_VERSION}` },
@@ -16,7 +16,7 @@ export const logos: ClientLogo[] = [
   { name: 'Treasury Wine Estates', src: `/logos/twe.png?${LOGO_ASSET_VERSION}` },
   { name: 'Opticomm', src: `/logos/opticomm.png?${LOGO_ASSET_VERSION}` },
   { name: 'Dulux', src: `/logos/dulux.png?${LOGO_ASSET_VERSION}` },
-  { name: 'Kmart', src: `/logos/kmart.png?${LOGO_ASSET_VERSION}` },
+  { name: 'Kmart', src: `/logos/kmart.svg?${LOGO_ASSET_VERSION}` },
   { name: 'Orica', src: `/logos/orica.png?${LOGO_ASSET_VERSION}` },
   { name: 'ANZ', src: `/logos/anz.png?${LOGO_ASSET_VERSION}` },
 ]
