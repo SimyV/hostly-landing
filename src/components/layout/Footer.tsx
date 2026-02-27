@@ -34,7 +34,7 @@ export default function Footer() {
               Host-ly Co
             </div>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.6, maxWidth: 260 }}>
-              Enterprise AI strategy, architecture, and technology consulting. Melbourne, Australia.
+              Enterprise AI strategy, architecture, and technology consulting. Sydney, Australia.
             </p>
           </div>
 

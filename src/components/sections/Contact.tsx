@@ -69,7 +69,7 @@ export default function Contact() {
                 <span style={{ width: 36, height: 36, borderRadius: 8, background: '#333', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
                 </span>
-                <span style={{ fontSize: 14 }}>Melbourne, Australia</span>
+                <span style={{ fontSize: 14 }}>Sydney, Australia</span>
               </div>
 
               <a href="https://linkedin.com/in/simonlobascher" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', color: 'rgba(255,255,255,0.6)', transition: 'color 200ms' }} onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')} onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}>
