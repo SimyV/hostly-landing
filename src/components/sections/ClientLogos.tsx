@@ -1,6 +1,22 @@
 import { useState } from 'react'
 import { logos } from '../../data/logos'
 
+const logoScale: Record<string, number> = {
+  NDIS: 1.12,
+  IOOF: 1.12,
+  Zurich: 0.98,
+  MLC: 1.1,
+  NAB: 1.03,
+  'Melbourne Business School': 1.05,
+  'WorkSafe Tasmania': 1.18,
+  'Treasury Wine Estates': 1.24,
+  Opticomm: 1.0,
+  Dulux: 1.0,
+  Kmart: 1.16,
+  Orica: 1.06,
+  ANZ: 1.02,
+}
+
 export default function ClientLogos() {
   const doubled = [...logos, ...logos]
   const [imgErrors, setImgErrors] = useState<Set<string>>(new Set())
@@ -35,7 +51,7 @@ export default function ClientLogos() {
           <div
             key={`${logo.name}-${i}`}
             style={{
-              height: 44,
+              height: 56,
               minWidth: 120,
               display: 'flex',
               alignItems: 'center',
@@ -61,13 +77,15 @@ export default function ClientLogos() {
                 src={logo.src}
                 alt={logo.name}
                 style={{
-                  height: logo.name === 'Kmart' ? 48 : 40,
+                  height: 40,
                   width: 'auto',
                   objectFit: 'contain',
                   userSelect: 'none',
                   filter: 'grayscale(100%) contrast(1.08)',
                   opacity: 0.9,
                   mixBlendMode: 'multiply',
+                  transform: `scale(${logoScale[logo.name] ?? 1})`,
+                  transformOrigin: 'center',
                 }}
                 draggable={false}
                 onError={() => handleError(logo.name)}
