@@ -10,6 +10,34 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'enterprise-ai-testing-production-readiness',
+    tag: 'AI Strategy',
+    date: 'Feb 2026',
+    readTime: '4 min',
+    title: 'Why Most Enterprise AI Deployments Fail the Production Readiness Test',
+    excerpt:
+      'Organisations are shipping AI capabilities into production without the testing disciplines that software engineering spent decades developing. The consequences are becoming visible.',
+    body: `<p>There is a quiet crisis building inside enterprise AI programmes. Across industries, organisations have moved from experimentation to deployment with genuine speed. Models are in production, workflows are being automated, and AI-assisted processes are handling decisions that matter. What is missing, in most cases, is the rigorous testing discipline that the rest of enterprise software engineering treats as foundational. The result is a growing inventory of AI systems operating in production that no one can fully characterise, and a mounting set of failures that were entirely predictable.</p>
+
+<p>The pattern is consistent. A team demonstrates a compelling capability in a controlled environment. The business case is compelling, the pilot results are positive, and the path to deployment looks clear. The testing that happens between pilot and production typically covers happy-path scenarios and performance benchmarks. It rarely covers adversarial inputs, distributional shift, edge cases with regulatory implications, or the failure modes that emerge when AI systems interact with real organisational data at scale. The system goes live carrying risks that were not assessed because the frameworks to assess them were never built.</p>
+
+<h2>The gap between software testing and AI testing</h2>
+
+<p>The software engineering discipline has well-established practice around testing: unit tests, integration tests, regression suites, load testing, security scanning, and formal release gates that systems must pass before reaching production. These practices exist because decades of experience demonstrated the cost of shipping defects. AI systems require all of those disciplines and several that are specific to the nature of models: behavioural consistency testing, bias and fairness evaluation, output robustness under input variation, and what the industry is beginning to call red-teaming, structured adversarial testing designed to surface failure modes before they surface in production.</p>
+
+<p>Most enterprise AI teams have not built these capabilities yet. The skills required are different from traditional QA engineering. The tooling is immature compared to what software engineers have available for conventional systems. And the cultural expectation around AI, particularly foundation models, often treats impressive benchmark performance as a proxy for production readiness. It is not. A model that performs well on a curated evaluation dataset may behave very differently when confronted with the specific vocabulary, data quality issues, and edge cases present in a particular organisation's environment.</p>
+
+<p>Australian enterprises face additional pressure here. APRA's CPS 230, in effect since July 2025, requires regulated firms to demonstrate that technology systems supporting critical operations are subject to appropriate risk management. The Privacy Act reforms taking effect later in 2026 impose obligations around automated decision-making that presuppose organisations can characterise and explain how their AI systems reach conclusions. Neither obligation is satisfiable without a testing and documentation discipline that most AI programmes have not yet developed.</p>
+
+<h2>Building a production readiness standard</h2>
+
+<p>The organisations getting this right are treating AI testing as a first-class engineering function, not an afterthought before release. They are defining production readiness criteria before development begins, not discovering gaps during incident retrospectives. The criteria vary by use case, but typically include: documented behavioural specifications, a test suite that covers known edge cases and failure modes, a red-team exercise that attempts to elicit undesirable outputs, a bias and fairness assessment appropriate to the decision context, and a defined monitoring strategy for tracking model behaviour after deployment.</p>
+
+<p>This is not a research activity. It is an engineering practice, and it requires dedicated resourcing. Organisations that treat AI testing as something that can be absorbed by existing QA teams without additional capability or tooling investment are setting themselves up for production incidents that could have been avoided.</p>
+
+<p>The velocity of AI deployment is not slowing. The regulatory and reputational consequences of deploying undertested AI systems are increasing. The organisations that build rigorous testing discipline now are not slowing down their AI programmes. They are building the foundation that allows those programmes to operate at scale without the accumulating technical and ethical debt that currently threatens to undermine them. Shipping fast matters. Shipping tested matters more.</p>`,
+  },
+  {
     slug: 'scaling-ai-operating-model-culture',
     tag: 'AI Strategy',
     date: 'Feb 2026',
