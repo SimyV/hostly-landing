@@ -10,6 +10,40 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'amazon-openai-50-billion-stateful-ai',
+    tag: 'Architecture',
+    date: 'Feb 2026',
+    readTime: '4 min',
+    title: "Amazon's $50 Billion OpenAI Bet and the Rise of Stateful AI",
+    excerpt:
+      'The largest private funding round in history is not just a capital story. It is an architecture story, and the emergence of stateful AI runtimes will reshape how enterprises build on cloud infrastructure.',
+    body: `<p>Amazon's $50 billion investment in OpenAI, announced today as part of a $110 billion funding round that values OpenAI at $730 billion, is the kind of deal that demands attention beyond the headline numbers. The capital is staggering, yes. But the architectural implications buried in the partnership details matter far more for enterprise technology leaders than the dollar figures on the wire.</p>
+
+<p>The centrepiece of the technical partnership is a jointly developed Stateful Runtime Environment, powered by OpenAI's models and available through Amazon Bedrock. This is not a minor product announcement dressed up in partnership language. It represents a fundamental shift in how AI workloads will be built and deployed on cloud infrastructure, and it carries significant implications for enterprise architecture strategy.</p>
+
+<h2>What stateful AI runtimes actually change</h2>
+
+<p>Most enterprise AI deployments today are stateless. An application sends a prompt to a model API, gets a response, and the interaction ends. The model retains no memory, no context, no awareness of prior work. Every request starts from scratch. This is fine for simple question-and-answer interactions. It is entirely inadequate for the agentic AI workloads that enterprises are now trying to build.</p>
+
+<p>A stateful runtime changes this fundamentally. The AI system maintains context across interactions, remembers prior work, accesses compute and memory resources, and coordinates across tools and data sources over time. This is the infrastructure layer that makes AI agents viable in production: systems that can manage a multi-step procurement workflow, maintain context across a week-long code review, or coordinate between multiple specialised models working on different aspects of the same problem.</p>
+
+<p>For enterprise architects, the distinction matters because stateful runtimes create deeper dependencies than stateless API calls. A stateless interaction can be routed to any provider with a compatible API. A stateful runtime ties your agent's memory, identity, and workflow state to a specific platform. The switching costs are structurally higher, and that is precisely the point for both Amazon and OpenAI.</p>
+
+<h2>The cloud lock-in calculus just changed</h2>
+
+<p>AWS becoming the exclusive third-party cloud distributor of OpenAI's Frontier platform is the detail that enterprise procurement teams should circle in red. Frontier is OpenAI's enterprise agent platform, the layer where organisations build and manage teams of AI agents that operate across business processes. If your organisation deploys Frontier agents, those agents run on AWS. That is not a soft preference. It is an architectural constraint written into the partnership terms.</p>
+
+<p>The expanded cloud deal, worth $100 billion over eight years, commits OpenAI to consuming approximately two gigawatts of Trainium capacity through AWS infrastructure. This is not just a customer relationship. It is a co-dependency. OpenAI needs Amazon's custom silicon and infrastructure scale. Amazon needs OpenAI's models and enterprise demand to justify the silicon investment. Both are betting that the other's success is essential to their own.</p>
+
+<p>For Australian enterprises evaluating their cloud and AI strategies, this partnership adds a new variable. AWS already operates two regions in Australia and has significant enterprise adoption across financial services, government, and resources. If OpenAI's Frontier platform becomes a standard enterprise tool, the organisations already on AWS gain a deployment advantage. Those on Azure or Google Cloud face a new question about whether to maintain a multi-cloud posture specifically to access this capability.</p>
+
+<h2>Architecture decisions compound from here</h2>
+
+<p>The Amazon-OpenAI deal does not exist in isolation. Microsoft retains its partnership with OpenAI for stateless model access. Google has its own frontier models and the deepest integration between AI and productivity software. Anthropic is building its own enterprise ecosystem through the Model Context Protocol and Claude's growing capabilities. The market is not consolidating around a single provider. It is fragmenting into competing platform ecosystems, each with different architectural implications.</p>
+
+<p>The organisations that navigate this well will be those that treat AI platform selection with the same rigour they apply to cloud strategy: deliberate diversification, abstraction layers that preserve optionality, and clear-eyed assessment of where dependencies are forming. The Amazon-OpenAI partnership makes stateful AI runtimes real and commercially available. It also makes the vendor lock-in conversation considerably more urgent. The architecture decisions enterprises make in the next twelve months will compound for years. Choose carefully.</p>`,
+  },
+  {
     slug: 'scaling-ai-operating-model-culture',
     tag: 'AI Strategy',
     date: 'Feb 2026',
