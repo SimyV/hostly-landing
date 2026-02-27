@@ -33,7 +33,13 @@ export default function Footer() {
             <img
               src="/hostly-mark.svg"
               alt="Host-ly Co"
-              style={{ height: 44, width: 44, objectFit: 'contain', marginBottom: 10 }}
+              style={{
+                height: 44,
+                width: 44,
+                objectFit: 'contain',
+                marginBottom: 10,
+                filter: 'brightness(0) invert(1)',
+              }}
             />
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.6, maxWidth: 260 }}>
               Enterprise AI strategy, architecture, and technology consulting. Sydney, Australia.
