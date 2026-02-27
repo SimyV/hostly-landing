@@ -2,16 +2,16 @@ import { caseStudies } from '../../data/caseStudies'
 
 export default function CaseStudies() {
   return (
-    <section id="work" className="py-[100px] max-md:py-[60px]">
+    <section id="work" className="py-[80px] max-md:py-[48px]">
       <div className="container">
         {/* Eyebrow */}
-        <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-accent mb-[48px] flex items-center gap-[10px]">
+        <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-accent mb-[24px] flex items-center gap-[10px]">
           <span className="block w-[28px] h-[1px] bg-accent" />
           Selected work
         </div>
 
         {/* Header */}
-        <div className="grid grid-cols-2 gap-[80px] mb-[64px] max-md:grid-cols-1 max-md:gap-[20px]">
+        <div className="grid grid-cols-2 gap-[80px] mb-[48px] max-md:grid-cols-1 max-md:gap-[16px]">
           <h2 className="font-heading text-[clamp(28px,3.6vw,42px)] font-normal leading-[1.2] tracking-[-0.5px] text-text">
             Case Studies
           </h2>

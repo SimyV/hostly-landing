@@ -27,10 +27,10 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-[100px] max-md:py-[60px]">
+    <section id="contact" className="py-[80px] max-md:py-[48px]">
       <div className="container">
         {/* Eyebrow */}
-        <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-accent mb-[48px] flex items-center gap-[10px]">
+        <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-accent mb-[24px] flex items-center gap-[10px]">
           <span className="block w-[28px] h-[1px] bg-accent" />
           Contact
         </div>
