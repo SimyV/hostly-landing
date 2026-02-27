@@ -10,6 +10,36 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'ai-agents-enterprise-reality-check',
+    tag: 'AI Strategy',
+    date: 'Feb 2026',
+    readTime: '4 min',
+    title: 'AI Agents in the Enterprise: Past the Hype, Into the Hard Work',
+    excerpt:
+      'The conversation around AI agents has shifted from possibility to production. What that transition actually demands of enterprise architects is less glamorous than the demos suggest.',
+    body: `<p>The past six months have seen enterprise AI discourse pivot sharply toward agents. Where the conversation once centred on large language models as sophisticated autocomplete, the current focus is on systems that plan, act, and iterate across multi-step tasks without continuous human steering. Vendor demonstrations are compelling. Production deployments are harder. The gap between the two is where enterprise architects are spending most of their time right now, and it is worth being precise about what is actually difficult.</p>
+
+<h2>What Agents Actually Require</h2>
+
+<p>An AI agent, in the enterprise sense, is a system that can receive a goal, decompose it into tasks, use tools to complete those tasks, observe the results, and adjust its approach. The capability is real. The challenge is that making this reliable in a production environment requires solving problems that do not appear in proof-of-concept work. Tool calling must be deterministic enough to trust in automated workflows. Context windows must be managed carefully when tasks span extended reasoning chains. Failure modes must be observable and recoverable rather than silent and compounding. None of these are unsolvable, but each requires deliberate engineering that most pilot projects skip.</p>
+
+<p>The infrastructure question is equally pointed. Agents are not stateless request-response systems. They maintain state across steps, often for minutes or hours. They call external APIs, write to databases, send messages, and trigger downstream processes. This means the governance frameworks that organisations have built for traditional software apply here, but with added complexity around observability. You need to know what an agent decided, why it decided it, what it did as a result, and whether that action can be reversed. Audit trails are not optional when agents operate with real-world side effects.</p>
+
+<h2>The Integration Problem Is the Real Problem</h2>
+
+<p>Enterprise environments are not clean. They are composed of legacy systems with inconsistent APIs, data stores with incomplete documentation, and business rules that exist in the heads of people who have been in the organisation for fifteen years. Agents built on top of this reality perform significantly worse than agents built on top of sanitised demonstration data. The model itself is rarely the bottleneck. The quality of the tools and data the model has access to almost always is.</p>
+
+<p>This surfaces a practical prioritisation question for technology leaders. The return on investment from AI agents is closely correlated with the quality of the underlying data and integration layer. Organisations that have invested in clean APIs, well-governed data products, and documented business rules will see agent performance that looks close to the vendor demos. Organisations that have not will see agents that hallucinate permissions, misread data states, and produce outputs that require human correction to be useful. The agent is not failing. The environment is failing the agent.</p>
+
+<h2>A Realistic Deployment Posture</h2>
+
+<p>The most effective enterprise agent deployments in 2026 share a common characteristic: they are narrowly scoped, deeply integrated with a specific workflow, and instrumented for continuous evaluation. The temptation to build a general-purpose agent that can handle any task in a given domain consistently produces systems that handle no task well enough to trust with autonomy. Starting narrow, proving reliability, and expanding scope incrementally is slower to demo but faster to production.</p>
+
+<p>Human-in-the-loop design deserves more credit than it currently gets in the agent discourse. The framing of human oversight as a concession to risk aversion misses the point. In most enterprise contexts, partial automation, where an agent drafts, structures, and prepares work that a human reviews before it goes further, delivers most of the productivity benefit with a fraction of the governance complexity. Full autonomy is a future state. The path to it runs through partial autonomy that organisations can actually trust.</p>
+
+<p>For Australian enterprises working through their AI agent strategies, the practical question is not whether agents are ready. Some are, for the right problems, in the right environments. The question is whether your organisation has done the foundational work that makes agent deployment reliable rather than experimental. That work, on data quality, integration patterns, observability tooling, and governance frameworks, is less exciting than the capability it enables. It is also the part that separates organisations that will scale AI agents successfully from those that will still be running pilots in two years.</p>`,
+  },
+  {
     slug: 'australia-digital-identity-enterprise-ai',
     tag: 'AI Strategy',
     date: 'Feb 2026',
