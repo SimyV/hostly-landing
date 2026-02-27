@@ -142,9 +142,12 @@ Each article in `articles.ts` has:
 }
 ```
 
-### WhatsApp Source Integration
+### WhatsApp Integration
 
-Links shared via WhatsApp are captured by a webhook and added to `.claude/article-sources.json` as curated links. The daily research task prioritises these links when writing articles.
+The WhatsApp bot (via Meta Cloud API webhook) supports two modes:
+
+- **Send a URL** -- The link is added to `.claude/article-sources.json` as a curated source. The daily 7am research task prioritises these links when writing articles.
+- **Send a text idea** (e.g. "write about how Australian banks handle AI governance") -- Triggers **immediate** article generation. A scheduled task researches the topic, writes a ~650 word article, and emails it with Publish/Reject buttons within a few minutes. Same approval flow as daily articles.
 
 ---
 
