@@ -10,6 +10,38 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'meta-google-tpu-deal-ai-compute-wars',
+    tag: 'Industry',
+    date: 'Feb 2026',
+    readTime: '4 min',
+    title: "Meta Rents Google's AI Chips: What the Compute Crunch Is Forcing",
+    excerpt:
+      'Meta signing a multi-billion dollar deal to rent Google\u2019s TPUs is not a sign of cooperation. It is a sign of desperation in an AI compute market that cannot build capacity fast enough.',
+    body: `<p>Two of the most intense competitors in technology just signed a multi-billion dollar deal that would have been unthinkable eighteen months ago. Meta, which has spent more than a decade building infrastructure to avoid dependence on external platforms, has agreed to rent Google\u2019s custom tensor processing units to train its next generation of AI models. The deal does not signal a new era of collaboration. It signals that demand for AI compute has outstripped supply so severely that even companies with the resources to build their own infrastructure cannot build it fast enough.</p>
+
+<p>Meta is projected to spend $135 billion on AI infrastructure in 2026. It recently signed a $60 billion agreement with AMD for Instinct series GPUs. It has been developing its own custom Meta Training and Inference Accelerator chips with TSMC, though technical challenges have reportedly delayed that programme. And now it is renting compute from a direct competitor. When a company with this level of capital and engineering talent still needs to look outside for capacity, the supply constraint is structural, not temporary.</p>
+
+<h2>The compute supply chain is fracturing</h2>
+
+<p>This deal sits alongside another development that reshapes the AI compute landscape in a different direction. DeepSeek, the Chinese AI lab whose efficiency-focused models disrupted market assumptions in 2025, has locked US chipmakers out of its upcoming V4 model. Nvidia and AMD were denied the early access that has been standard industry practice for major model releases. Instead, DeepSeek gave that access to Huawei and other domestic chip manufacturers, granting them weeks of optimisation time before the model\u2019s public release.</p>
+
+<p>A senior Trump administration official has alleged that DeepSeek trained V4 on Nvidia\u2019s Blackwell chips inside mainland China, a likely violation of US export controls, and that the company plans to publicly claim it used Huawei chips instead. Whether or not these specific allegations prove accurate, the strategic direction is clear. China\u2019s AI ecosystem is building independence from US hardware at every level, from training silicon to model distribution. The global AI compute supply chain is not just tight. It is actively fracturing along geopolitical lines.</p>
+
+<p>For enterprise technology leaders, these two stories together paint a picture that demands attention. The assumption that AI compute would follow the trajectory of cloud compute, steadily becoming cheaper, more abundant, and more commoditised, is not holding. Instead, compute is becoming scarcer, more contested, and more politically entangled.</p>
+
+<h2>Google\u2019s quiet infrastructure play</h2>
+
+<p>The Meta deal is a significant win for Google\u2019s cloud division. Google has historically kept its TPUs primarily for internal use and select cloud customers. Opening them to a competitor of Meta\u2019s scale represents a strategic pivot: Google is positioning its custom silicon as a third option in an AI compute market dominated by Nvidia. Some Google Cloud executives reportedly estimate that expanding TPU sales could capture as much as ten per cent of Nvidia\u2019s annual revenue.</p>
+
+<p>Google\u2019s latest Ironwood TPU series can scale a single AI server pod to over 9,000 chips connected by high-speed interconnects, delivering performance that Google claims exceeds competitors by more than 100 times on key benchmarks. If that performance translates to production workloads, Google has a genuine alternative to offer the market, not just a fallback for companies that cannot secure enough Nvidia GPUs.</p>
+
+<p>Anthropic has already committed to a deal worth tens of billions of dollars for access to one million Google TPUs. With Meta now added to the customer base, Google\u2019s AI infrastructure business is becoming a serious revenue line rather than an internal cost centre. The competitive dynamics in cloud AI are shifting, and Australian enterprises with Google Cloud relationships may find new leverage in their negotiations as Google invests more aggressively in customer acquisition.</p>
+
+<h2>What enterprises should take from this</h2>
+
+<p>The practical lesson is that AI compute strategy needs to be treated as a board-level concern, not a procurement detail. If the largest technology companies in the world are scrambling for capacity and signing deals with direct competitors to secure it, mid-market enterprises cannot assume that compute will simply be available when they need it. Capacity planning for AI workloads, diversification of compute suppliers, and realistic assessment of infrastructure timelines all need to be part of the enterprise AI strategy. The companies that secure their compute runway now will be the ones that can execute their AI ambitions. The ones that wait may find the runway fully booked.</p>`,
+  },
+  {
     slug: 'amazon-openai-50-billion-stateful-ai',
     tag: 'Architecture',
     date: 'Feb 2026',
