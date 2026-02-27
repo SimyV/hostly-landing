@@ -4,7 +4,7 @@ export default function Hero() {
   const scrollTo = useScrollToSection()
 
   return (
-    <section className="min-h-[92vh] flex items-center pt-[64px]">
+    <section className="pt-[140px] pb-[80px] max-md:pt-[100px] max-md:pb-[60px]">
       <div className="container">
         <div className="max-w-[720px]">
           {/* Eyebrow */}
