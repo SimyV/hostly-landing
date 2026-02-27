@@ -85,15 +85,15 @@ Fonts loaded from Google Fonts. Teal (`#00C9A7`) is used for italic heading word
 
 ## Article Pipeline (Automated)
 
-The site includes an automated daily article research and publishing pipeline:
+The site includes an automated article research and publishing pipeline with two input modes:
 
-### How It Works
+### Daily Research (Scheduled)
 
 1. **Daily Research** (7am AEST, scheduled task) -- An AI agent searches for the latest AI, enterprise architecture, cybersecurity, and Australian tech news. It writes 3-5 draft articles (~650 words each).
 
 2. **Email for Approval** -- Drafts are emailed to the editor with **Publish** and **Reject** buttons per article. The email includes full article previews styled in the site's design system.
 
-3. **One-Click Publish** -- Clicking "Publish" in the email triggers the agent-system approval endpoint, which:
+3. **One-Click Publish** -- Clicking "Publish" in the email triggers the approval endpoint (`/api/articles/approve`), which:
    - Marks the article as approved in the draft batch JSON
    - Creates a one-time scheduled task that automatically:
      - Adds the article to `src/data/articles.ts`
@@ -102,6 +102,27 @@ The site includes an automated daily article research and publishing pipeline:
      - Commits and pushes to GitHub
 
 4. **Reject** -- Clicking "Reject" marks the article as rejected. No deployment occurs.
+
+### WhatsApp Idea-to-Article (On-Demand)
+
+Send a text message to the WhatsApp bot and get an article back in minutes:
+
+1. **Send an idea** (e.g. "write about how Australian banks handle AI governance") via WhatsApp
+2. Bot replies "Got it -- writing an article on..." immediately
+3. An AI agent researches the topic, writes a ~650 word article, saves the draft batch, and emails it with Publish/Reject buttons
+4. Bot sends a **WhatsApp notification** when the article is ready: "Your article is ready! Check your email for Publish/Reject buttons."
+5. Same one-click Publish/Reject flow as daily articles
+
+Alternatively, **send a URL** via WhatsApp to queue it as a curated source for the next daily research run.
+
+### Key Endpoints
+
+| Endpoint | Purpose |
+|----------|---------|
+| `POST /whatsapp/webhook` | Receives WhatsApp messages (Meta Cloud API) |
+| `GET /whatsapp/send?to=PHONE&message=TEXT` | Server-side WhatsApp message sender (used by agent tasks) |
+| `GET /api/articles/approve?batch=TOKEN&id=ID` | Approves article, triggers publish task |
+| `GET /api/articles/reject?batch=TOKEN&id=ID` | Rejects article |
 
 ### Key Files
 
@@ -141,13 +162,6 @@ Each article in `articles.ts` has:
   ]
 }
 ```
-
-### WhatsApp Integration
-
-The WhatsApp bot (via Meta Cloud API webhook) supports two modes:
-
-- **Send a URL** -- The link is added to `.claude/article-sources.json` as a curated source. The daily 7am research task prioritises these links when writing articles.
-- **Send a text idea** (e.g. "write about how Australian banks handle AI governance") -- Triggers **immediate** article generation. A scheduled task researches the topic, writes a ~650 word article, and emails it with Publish/Reject buttons within a few minutes. Same approval flow as daily articles.
 
 ---
 
@@ -193,3 +207,7 @@ Article content follows these conventions:
 - No bold text mid-paragraph
 - Direct, conversational tone
 - ~650 words per article
+
+---
+
+Last updated: 2026-02-27
