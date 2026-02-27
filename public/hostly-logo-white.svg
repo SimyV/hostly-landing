@@ -1,25 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
-  <!-- Layered sideways-H mark, building upward (white) -->
-  <g transform="translate(4, 6)">
-    <!-- Bottom layer -->
-    <g opacity="0.2">
-      <rect x="0" y="46" width="56" height="10" rx="2" fill="#fff"/>
-      <rect x="0" y="12" width="56" height="10" rx="2" fill="#fff"/>
-      <rect x="22" y="12" width="10" height="44" rx="2" fill="#fff"/>
-    </g>
-    <!-- Middle layer -->
-    <g opacity="0.45">
-      <rect x="0" y="40" width="56" height="10" rx="2" fill="#fff"/>
-      <rect x="0" y="6" width="56" height="10" rx="2" fill="#fff"/>
-      <rect x="22" y="6" width="10" height="44" rx="2" fill="#fff"/>
-    </g>
-    <!-- Top layer -->
-    <g>
-      <rect x="0" y="34" width="56" height="10" rx="2" fill="#fff"/>
-      <rect x="0" y="0" width="56" height="10" rx="2" fill="#fff"/>
-      <rect x="22" y="0" width="10" height="44" rx="2" fill="#fff"/>
-    </g>
+  <!-- Stacked isometric H mark (white variant) -->
+  <g transform="translate(2, 2)">
+    <!-- Bottom diamond layer -->
+    <path d="M30 70 L6 56 L30 42 L54 56 Z"
+      fill="none" stroke="#fff" stroke-width="2.5"
+      stroke-linejoin="round" stroke-linecap="round" opacity="0.35"/>
+
+    <!-- Middle diamond layer (crossbar of H) -->
+    <path d="M30 52 L6 38 L30 24 L54 38 Z"
+      fill="none" stroke="#fff" stroke-width="2.5"
+      stroke-linejoin="round" stroke-linecap="round" opacity="0.65"/>
+
+    <!-- Top diamond layer -->
+    <path d="M30 34 L6 20 L30 6 L54 20 Z"
+      fill="none" stroke="#fff" stroke-width="2.5"
+      stroke-linejoin="round" stroke-linecap="round" opacity="1"/>
+
+    <!-- Left vertical pillar (H upright) -->
+    <line x1="6" y1="20" x2="6" y2="56"
+      stroke="#fff" stroke-width="2.5"
+      stroke-linecap="round" opacity="0.8"/>
+
+    <!-- Right vertical pillar (H upright) -->
+    <line x1="54" y1="20" x2="54" y2="56"
+      stroke="#fff" stroke-width="2.5"
+      stroke-linecap="round" opacity="0.8"/>
   </g>
+
   <!-- Wordmark -->
   <text x="72" y="52" font-family="'EB Garamond', 'Georgia', serif" font-size="38" font-weight="500" letter-spacing="-0.5" fill="#fff">
     Host<tspan fill="rgba(255,255,255,0.85)" font-style="italic">-ly</tspan>
