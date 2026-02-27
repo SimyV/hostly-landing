@@ -8,9 +8,11 @@ export default function Hero() {
       id="top"
       style={{
         position: 'relative',
-        minHeight: 'clamp(640px, 78vh, 860px)',
-        paddingTop: 'clamp(140px, 18vh, 220px)',
-        paddingBottom: 'clamp(80px, 10vh, 130px)',
+        minHeight: '100svh',
+        display: 'flex',
+        alignItems: 'center',
+        paddingTop: 'clamp(96px, 12vh, 140px)',
+        paddingBottom: 'clamp(72px, 8vh, 110px)',
         overflow: 'hidden',
         background: '#0f1116',
       }}
