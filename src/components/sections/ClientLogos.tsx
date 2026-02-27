@@ -4,7 +4,7 @@ import { logos } from '../../data/logos'
 const logoScale: Record<string, number> = {
   NDIS: 1.27,
   IOOF: 1.6,
-  Zurich: 0.9,
+  Zurich: 0.72,
   MLC: 1.46,
   NAB: 1.14,
   'Melbourne Business School': 0.9,
