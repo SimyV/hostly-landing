@@ -10,6 +10,44 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'anthropic-pentagon-standoff',
+    tag: 'Industry',
+    date: 'Feb 2026',
+    readTime: '5 min',
+    title: "Anthropic vs. the Pentagon: The AI Safety Standoff That Changes Everything",
+    excerpt:
+      "The US Department of Defense has given Anthropic an ultimatum: drop your guardrails or face the Defense Production Act. The standoff reveals a fault line running through every enterprise AI strategy.",
+    body: `<p>In the final week of February 2026, a confrontation that had been building for months reached a breaking point. Defense Secretary Pete Hegseth gave Anthropic CEO Dario Amodei until 5pm on a Friday to hand over unrestricted access to Claude for military use. Anthropic refused. The Department of Defense then threatened to invoke the Defense Production Act, label Anthropic a supply chain risk, and compel compliance by force of law. This is not a technology story. It is a governance story, and every enterprise leader with an AI strategy should be reading it closely.</p>
+
+<p>Anthropic holds a defense contract worth up to $200 million and is the only AI company whose model runs on the Pentagon's classified networks, through a partnership with Palantir. In January 2026, Hegseth released a new AI strategy document demanding that all Defense Department AI contracts permit "any lawful use" of AI systems, free from the usage restrictions set by individual companies. Contracting officers were given 180 days to incorporate this language into existing agreements. For Anthropic, that language was a direct challenge to the foundation of their business.</p>
+
+<h2>The two restrictions Anthropic won't drop</h2>
+
+<p>The dispute is specific. Anthropic has asked to maintain exactly two restrictions on how the military uses Claude. First, that Claude not be used for mass domestic surveillance. Second, that Claude not be used to make final targeting decisions in military operations without meaningful human oversight. These are not arbitrary commercial constraints. They reflect a considered position about what an AI system that hallucinates, makes errors, and lacks the contextual judgment of an experienced human should not be trusted to do unilaterally.</p>
+
+<p>Dario Amodei made this explicit in a public statement released Thursday evening: "Our strong preference is to continue to serve the Department and our warfighters — with our two requested safeguards in place." He added that the DoD's threats "do not change our position: we cannot in good conscience accede to their request." This is a company drawing a line on the basis of principle, not negotiating position. Whether you agree with where they drew it or not, the act of drawing it is significant.</p>
+
+<h2>The Pentagon's escalation strategy</h2>
+
+<p>The Pentagon's response has been methodical and deliberately public. On the Wednesday before the deadline, DoD officials contacted Boeing and Lockheed Martin to enquire about their use of Claude in relation to "a potential supply chain risk declaration." This was not subtle. It was a warning sent through the supply chain: Anthropic's technology could be designated a risk, which would pressure every defense contractor using it to find alternatives. The message to Anthropic was clear. Comply, or we will make your technology toxic to the industry you are trying to serve.</p>
+
+<p>The broader context adds urgency. OpenAI, Google, and xAI have all agreed to remove their guardrails for use in the military's unclassified systems. A senior administration official told reporters they were confident those three companies would agree to the "all lawful use" standard for classified work as well. Anthropic is being made an example of. The implicit offer is this: agree, and stay at the table; refuse, and watch your competitors fill the space you vacate.</p>
+
+<h2>What this means beyond the Beltway</h2>
+
+<p>For enterprise architects and technology leaders, the Anthropic-Pentagon standoff is worth analysing on three levels. The first is vendor risk. Any organisation relying on Anthropic's Claude as a core capability needs to understand that the company's position in the defense market — and potentially in the broader government market — is actively contested. That is a vendor relationship with elevated uncertainty, regardless of how the immediate dispute resolves.</p>
+
+<p>The second is the governance vacuum the dispute is forcing into the open. Congress has not set substantive rules for military AI. There are no legislated guidelines on autonomous weapons systems, no statutory framework for AI-assisted targeting, no clear legal standard for what "meaningful human oversight" means in a military context. That vacuum is being filled by executive strategy documents and contract negotiations between individual companies and the Pentagon. This is not a stable governance environment, and it will not remain limited to defense. The same questions about acceptable AI use, human oversight, and the right of AI providers to set terms on their own systems will eventually surface in every regulated industry.</p>
+
+<p>The third is the question of what kind of AI industry we are building. The companies that have agreed to drop their guardrails for military use have made a calculation that access to government contracts outweighs the reputational and ethical cost of doing so. Anthropic has made the opposite calculation, at significant financial risk. The market outcome of this dispute will shape what every AI company believes it can and cannot hold the line on in future negotiations.</p>
+
+<h2>The architecture of accountability</h2>
+
+<p>There is a lesson here for enterprise AI governance that has nothing to do with defense contracts. Anthropic's position rests on the argument that an AI system should not be the final decision-maker in situations where errors have irreversible, potentially lethal consequences. That principle — human oversight at the point of consequential decision-making — is exactly what sound enterprise AI governance looks like in any domain. Financial institutions, healthcare providers, infrastructure operators, and legal services firms all face analogous questions about where AI judgment ends and human accountability begins.</p>
+
+<p>The Pentagon wants to remove the company-set guardrails and replace them with nothing. Anthropic is arguing that something needs to fill that space — contractual restrictions, legislation, or both. Until Congress acts, this dispute will recur in different forms with different companies. The Anthropic standoff is not the end of the story. It is the opening chapter. And the question it poses — who decides where the limits of AI authority lie — is one that every industry, not just defense, will have to answer.</p>`,
+  },
+  {
     slug: 'cba-ai-strategy',
     tag: 'AI Strategy',
     date: 'Feb 2026',
