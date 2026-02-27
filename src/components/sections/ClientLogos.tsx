@@ -65,8 +65,9 @@ export default function ClientLogos() {
                   width: 'auto',
                   objectFit: 'contain',
                   userSelect: 'none',
-                  filter: 'grayscale(100%) contrast(1.05)',
-                  opacity: 0.78,
+                  filter: 'grayscale(100%) contrast(1.08)',
+                  opacity: 0.9,
+                  mixBlendMode: 'multiply',
                 }}
                 draggable={false}
                 onError={() => handleError(logo.name)}
