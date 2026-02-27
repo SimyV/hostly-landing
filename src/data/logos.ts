@@ -4,13 +4,17 @@ export interface ClientLogo {
 }
 
 export const logos: ClientLogo[] = [
-  { name: 'Dulux Group', src: '/logos/dulux.svg' },
-  { name: 'Orica', src: '/logos/orica.svg' },
-  { name: 'Kmart', src: '/logos/kmart.svg' },
-  { name: 'Treasury Wine Estates', src: '/logos/twe.svg' },
-  { name: 'ANZ', src: '/logos/anz.svg' },
-  { name: 'NAB', src: '/logos/nab.svg' },
-  { name: 'QBE Insurance', src: '/logos/qbe.svg' },
-  { name: 'WorkSafe Victoria', src: '/logos/worksafe.svg' },
-  { name: 'Melbourne Business School', src: '/logos/mbs.svg' },
+  { name: 'NDIS', src: '/logos/ndis.png' },
+  { name: 'IOOF', src: '/logos/ioof.png' },
+  { name: 'Zurich', src: '/logos/zurich.png' },
+  { name: 'MLC', src: '/logos/mlc.jpg' },
+  { name: 'NAB', src: '/logos/nab.png' },
+  { name: 'Melbourne Business School', src: '/logos/mbs.png' },
+  { name: 'WorkSafe Tasmania', src: '/logos/worksafe.png' },
+  { name: 'Treasury Wine Estates', src: '/logos/twe.png' },
+  { name: 'Opticomm', src: '/logos/opticomm.png' },
+  { name: 'Dulux', src: '/logos/dulux.png' },
+  { name: 'Kmart', src: '/logos/kmart.png' },
+  { name: 'Orica', src: '/logos/orica.png' },
+  { name: 'ANZ', src: '/logos/anz.png' },
 ]
