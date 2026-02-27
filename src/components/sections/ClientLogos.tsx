@@ -2,17 +2,17 @@ import { useState } from 'react'
 import { logos } from '../../data/logos'
 
 const logoScale: Record<string, number> = {
-  NDIS: 1.15,
-  IOOF: 1.45,
+  NDIS: 1.27,
+  IOOF: 1.6,
   Zurich: 0.9,
-  MLC: 1.33,
-  NAB: 1.04,
+  MLC: 1.46,
+  NAB: 1.14,
   'Melbourne Business School': 0.9,
-  'WorkSafe Tasmania': 1.52,
+  'WorkSafe Tasmania': 1.67,
   'Treasury Wine Estates': 1.34,
   Opticomm: 0.9,
   Dulux: 0.9,
-  Kmart: 1.24,
+  Kmart: 1.36,
   Orica: 1.1,
   ANZ: 1.0,
 }
