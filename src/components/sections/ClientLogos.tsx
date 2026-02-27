@@ -1,7 +1,13 @@
+import { useState } from 'react'
 import { logos } from '../../data/logos'
 
 export default function ClientLogos() {
   const doubled = [...logos, ...logos]
+  const [imgErrors, setImgErrors] = useState<Set<string>>(new Set())
+
+  const handleError = (name: string) => {
+    setImgErrors((prev) => new Set(prev).add(name))
+  }
 
   return (
     <section
@@ -13,7 +19,6 @@ export default function ClientLogos() {
         position: 'relative',
       }}
     >
-      {/* Fades */}
       <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 120, background: 'linear-gradient(to right, #F8F1E8, transparent)', zIndex: 2, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 120, background: 'linear-gradient(to left, #F8F1E8, transparent)', zIndex: 2, pointerEvents: 'none' }} />
 
@@ -27,20 +32,47 @@ export default function ClientLogos() {
         }}
       >
         {doubled.map((logo, i) => (
-          <img
+          <div
             key={`${logo.name}-${i}`}
-            src={logo.src}
-            alt={logo.name}
             style={{
-              height: 40,
-              width: 'auto',
-              objectFit: 'contain',
+              height: 44,
+              minWidth: 120,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               flexShrink: 0,
-              filter: 'grayscale(100%) brightness(0) opacity(0.2)',
-              userSelect: 'none',
             }}
-            draggable={false}
-          />
+          >
+            {imgErrors.has(logo.name) ? (
+              <span
+                style={{
+                  fontFamily: 'JetBrains Mono, monospace',
+                  fontSize: 11,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(42,42,42,0.55)',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {logo.name}
+              </span>
+            ) : (
+              <img
+                src={logo.src}
+                alt={logo.name}
+                style={{
+                  height: 40,
+                  width: 'auto',
+                  objectFit: 'contain',
+                  userSelect: 'none',
+                  filter: 'grayscale(100%) contrast(1.05)',
+                  opacity: 0.78,
+                }}
+                draggable={false}
+                onError={() => handleError(logo.name)}
+              />
+            )}
+          </div>
         ))}
       </div>
     </section>
