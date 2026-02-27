@@ -76,7 +76,7 @@ export default function Footer() {
             borderTop: '1px solid rgba(255,255,255,0.25)',
             paddingTop: 24,
             display: 'flex',
-            justifyContent: 'space-between',
+            justifyContent: 'flex-start',
             alignItems: 'center',
             flexWrap: 'wrap',
             gap: 12,
@@ -84,9 +84,6 @@ export default function Footer() {
         >
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,255,255,0.65)' }}>
             &copy; {new Date().getFullYear()} Host-ly Co
-          </span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,255,255,0.65)' }}>
-            ABN 88 616 024 695
           </span>
         </div>
       </div>
