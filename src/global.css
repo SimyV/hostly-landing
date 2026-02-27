@@ -57,6 +57,11 @@ body {
 @media (max-width: 1024px) { :root { --gutter: 48px; } }
 @media (max-width: 640px)  { :root { --gutter: 20px; } }
 
+/* Safety kill-switch for removed floating side nav */
+.quick-nav {
+  display: none !important;
+}
+
 /* Eyebrow label */
 .eyebrow {
   font-family: var(--font-mono);
