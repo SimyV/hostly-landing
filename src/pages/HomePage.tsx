@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import PageQuickNav from '../components/layout/PageQuickNav'
 import Hero from '../components/sections/Hero'
 import ClientLogos from '../components/sections/ClientLogos'
 import About from '../components/sections/About'
@@ -24,7 +23,6 @@ export default function HomePage() {
 
   return (
     <main>
-      <PageQuickNav />
       <Hero />
       <ClientLogos />
       <About />
