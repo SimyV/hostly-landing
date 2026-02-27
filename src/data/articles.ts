@@ -10,6 +10,38 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'australia-digital-identity-enterprise-ai',
+    tag: 'AI Strategy',
+    date: 'Feb 2026',
+    readTime: '4 min',
+    title: "Australia's Digital Identity Push Could Reshape Enterprise AI Adoption",
+    excerpt:
+      "The federal government's renewed push for a national digital identity framework has significant implications for how Australian enterprises deploy AI systems.",
+    body: `<p>The Australian Government's renewed commitment to a national digital identity framework, announced alongside the latest round of Privacy Act reforms, signals a turning point for enterprise AI adoption across the country. While the policy conversation has focused on consumer protection and fraud reduction, the downstream effects on enterprise technology strategy deserve closer attention.</p>
+
+<h2>Identity as Infrastructure</h2>
+
+<p>For years, Australian organisations have struggled with fragmented identity verification systems. Banks maintain their own KYC processes, government agencies run separate credential stores, and healthcare providers operate in yet another silo. This fragmentation does more than create friction for consumers. It creates a fundamental barrier to deploying AI systems that need to operate across organisational boundaries.</p>
+
+<p>The proposed framework, built on the existing myGovID infrastructure but extended to support private sector use cases, would establish a common trust layer. For enterprise architects, this represents something genuinely new: a government-backed identity fabric that AI systems can rely on without each organisation building its own verification pipeline.</p>
+
+<h2>What This Means for Enterprise AI</h2>
+
+<p>The implications are practical and immediate. Consider a financial services firm deploying an AI-powered advisory system. Today, that system must independently verify client identity, check credentials against multiple sources, and maintain its own audit trail. Under the proposed framework, much of that verification shifts to the identity layer, allowing the AI system to focus on its core function.</p>
+
+<p>This pattern extends across industries. Healthcare AI systems could access patient records with cryptographically verified consent. Government service delivery platforms could personalise interactions without maintaining separate identity stores. Supply chain AI could verify counterparty credentials in real time.</p>
+
+<p>The reduction in identity management overhead is significant. Our estimates suggest that identity verification and credential management account for 15 to 25 per cent of the integration complexity in typical enterprise AI deployments. A standardised framework could compress that dramatically.</p>
+
+<h2>The Architecture Challenge</h2>
+
+<p>None of this happens automatically. Organisations will need to rearchitect their identity management layers to integrate with the new framework. Legacy systems, particularly those in banking and government, will require careful migration strategies. The framework itself must prove it can handle the scale and performance requirements of real-time AI decision making.</p>
+
+<p>There are also legitimate concerns about centralisation risk. A single identity framework, however well designed, creates a high-value target. Enterprise architects must plan for scenarios where the framework is unavailable or compromised, maintaining fallback verification paths that do not simply recreate the current fragmented approach.</p>
+
+<p>For Australian enterprises planning their AI strategies, the message is clear: digital identity infrastructure is becoming a platform capability, not just a compliance requirement. Organisations that architect for this shift now will be better positioned to deploy AI systems that operate across traditional boundaries. Those that treat it as purely a regulatory exercise will find themselves rebuilding integration layers that should have been designed for a federated identity world from the start.</p>`,
+  },
+  {
     slug: 'anthropic-pentagon-standoff',
     tag: 'Industry',
     date: 'Feb 2026',
