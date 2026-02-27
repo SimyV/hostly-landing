@@ -3,18 +3,20 @@ export interface ClientLogo {
   src: string
 }
 
+const LOGO_ASSET_VERSION = 'v3'
+
 export const logos: ClientLogo[] = [
-  { name: 'NDIS', src: '/logos/ndis.png' },
-  { name: 'IOOF', src: '/logos/ioof.png' },
-  { name: 'Zurich', src: '/logos/zurich.png' },
-  { name: 'MLC', src: '/logos/mlc.png' },
-  { name: 'NAB', src: '/logos/nab.png' },
-  { name: 'Melbourne Business School', src: '/logos/mbs.png' },
-  { name: 'WorkSafe Tasmania', src: '/logos/worksafe.png' },
-  { name: 'Treasury Wine Estates', src: '/logos/twe.png' },
-  { name: 'Opticomm', src: '/logos/opticomm.png' },
-  { name: 'Dulux', src: '/logos/dulux.png' },
-  { name: 'Kmart', src: '/logos/kmart.png' },
-  { name: 'Orica', src: '/logos/orica.png' },
-  { name: 'ANZ', src: '/logos/anz.png' },
+  { name: 'NDIS', src: `/logos/ndis.png?${LOGO_ASSET_VERSION}` },
+  { name: 'IOOF', src: `/logos/ioof.png?${LOGO_ASSET_VERSION}` },
+  { name: 'Zurich', src: `/logos/zurich.png?${LOGO_ASSET_VERSION}` },
+  { name: 'MLC', src: `/logos/mlc.png?${LOGO_ASSET_VERSION}` },
+  { name: 'NAB', src: `/logos/nab.png?${LOGO_ASSET_VERSION}` },
+  { name: 'Melbourne Business School', src: `/logos/mbs.png?${LOGO_ASSET_VERSION}` },
+  { name: 'WorkSafe Tasmania', src: `/logos/worksafe.png?${LOGO_ASSET_VERSION}` },
+  { name: 'Treasury Wine Estates', src: `/logos/twe.png?${LOGO_ASSET_VERSION}` },
+  { name: 'Opticomm', src: `/logos/opticomm.png?${LOGO_ASSET_VERSION}` },
+  { name: 'Dulux', src: `/logos/dulux.png?${LOGO_ASSET_VERSION}` },
+  { name: 'Kmart', src: `/logos/kmart.png?${LOGO_ASSET_VERSION}` },
+  { name: 'Orica', src: `/logos/orica.png?${LOGO_ASSET_VERSION}` },
+  { name: 'ANZ', src: `/logos/anz.png?${LOGO_ASSET_VERSION}` },
 ]
