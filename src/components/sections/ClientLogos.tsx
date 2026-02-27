@@ -2,19 +2,19 @@ import { useState } from 'react'
 import { logos } from '../../data/logos'
 
 const logoScale: Record<string, number> = {
-  NDIS: 1.12,
-  IOOF: 1.12,
-  Zurich: 0.98,
-  MLC: 1.1,
-  NAB: 1.03,
-  'Melbourne Business School': 1.05,
-  'WorkSafe Tasmania': 1.18,
-  'Treasury Wine Estates': 1.24,
-  Opticomm: 1.0,
-  Dulux: 1.0,
-  Kmart: 1.16,
-  Orica: 1.06,
-  ANZ: 1.02,
+  NDIS: 1.0,
+  IOOF: 1.26,
+  Zurich: 0.9,
+  MLC: 1.16,
+  NAB: 0.9,
+  'Melbourne Business School': 0.9,
+  'WorkSafe Tasmania': 1.32,
+  'Treasury Wine Estates': 1.34,
+  Opticomm: 0.9,
+  Dulux: 0.9,
+  Kmart: 1.08,
+  Orica: 1.1,
+  ANZ: 1.0,
 }
 
 export default function ClientLogos() {
