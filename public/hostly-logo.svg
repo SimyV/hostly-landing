@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
-  <!-- Layered H mark -->
-  <g transform="translate(6, 8)">
-    <!-- Back layer - lightest, offset right+down -->
+  <!-- Layered sideways-H mark, building upward -->
+  <g transform="translate(4, 6)">
+    <!-- Bottom layer - lightest, lowest -->
     <g opacity="0.2">
-      <rect x="6" y="4" width="10" height="56" rx="2" fill="#E8613C"/>
-      <rect x="40" y="4" width="10" height="56" rx="2" fill="#E8613C"/>
-      <rect x="6" y="26" width="44" height="10" rx="2" fill="#E8613C"/>
+      <rect x="0" y="46" width="56" height="10" rx="2" fill="#E8613C"/>
+      <rect x="0" y="12" width="56" height="10" rx="2" fill="#E8613C"/>
+      <rect x="22" y="12" width="10" height="44" rx="2" fill="#E8613C"/>
     </g>
-    <!-- Middle layer - medium opacity, slight offset -->
+    <!-- Middle layer - medium, shifted up -->
     <g opacity="0.45">
-      <rect x="3" y="2" width="10" height="56" rx="2" fill="#E8613C"/>
-      <rect x="37" y="2" width="10" height="56" rx="2" fill="#E8613C"/>
-      <rect x="3" y="24" width="44" height="10" rx="2" fill="#E8613C"/>
+      <rect x="0" y="40" width="56" height="10" rx="2" fill="#E8613C"/>
+      <rect x="0" y="6" width="56" height="10" rx="2" fill="#E8613C"/>
+      <rect x="22" y="6" width="10" height="44" rx="2" fill="#E8613C"/>
     </g>
-    <!-- Front layer - full opacity -->
+    <!-- Top layer - full opacity, highest -->
     <g>
-      <rect x="0" y="0" width="10" height="56" rx="2" fill="#E8613C"/>
-      <rect x="34" y="0" width="10" height="56" rx="2" fill="#E8613C"/>
-      <rect x="0" y="22" width="44" height="10" rx="2" fill="#E8613C"/>
+      <rect x="0" y="34" width="56" height="10" rx="2" fill="#E8613C"/>
+      <rect x="0" y="0" width="56" height="10" rx="2" fill="#E8613C"/>
+      <rect x="22" y="0" width="10" height="44" rx="2" fill="#E8613C"/>
     </g>
   </g>
   <!-- Wordmark -->
