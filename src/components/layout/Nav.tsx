@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useScrollToSection } from '../../hooks/useScrollToSection'
 
 const links = [
+  { label: 'Home', id: 'home' },
   { label: 'Services', id: 'capabilities' },
   { label: 'Approach', id: 'work' },
   { label: 'Insights', id: 'insights' },
@@ -13,6 +14,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const scrollTo = useScrollToSection()
+  const navigate = useNavigate()
   const { pathname } = useLocation()
   const navTextColor = scrolled ? '#2A2A2A' : '#F8F1E8'
 
@@ -24,7 +26,22 @@ export default function Nav() {
 
   useEffect(() => setOpen(false), [pathname])
 
+  const goHome = () => {
+    setOpen(false)
+    if (pathname !== '/') {
+      navigate('/')
+    }
+    // Ensure Home always returns users to the top, even if already on "/".
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    })
+  }
+
   const go = (id: string) => {
+    if (id === 'home') {
+      goHome()
+      return
+    }
     setOpen(false)
     scrollTo(id)
   }
@@ -55,7 +72,14 @@ export default function Nav() {
             justifyContent: 'space-between',
           }}
         >
-          <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+          <Link
+            to="/"
+            onClick={(e) => {
+              e.preventDefault()
+              goHome()
+            }}
+            style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}
+          >
             <img
               src="/hostly-mark.svg"
               alt="Host-ly Co"
