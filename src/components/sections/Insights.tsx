@@ -2,97 +2,122 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { articles } from '../../data/articles'
 
-const STEP = 3
 const PAGE_SIZE = 6
 
 export default function Insights() {
-  const [offset, setOffset] = useState(0)
-
-  const visible = articles.slice(offset, offset + PAGE_SIZE)
-  const canShowMore = offset + PAGE_SIZE < articles.length
-  const canShowEarlier = offset > 0
+  const [showAll, setShowAll] = useState(false)
+  const visible = showAll ? articles : articles.slice(0, PAGE_SIZE)
 
   return (
-    <section id="insights" className="py-[80px] max-md:py-[48px]">
-      <div className="container">
-        {/* Eyebrow */}
-        <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-accent mb-[24px] flex items-center gap-[10px]">
-          <span className="block w-[28px] h-[1px] bg-accent" />
-          Insights
-        </div>
-
+    <section id="insights" style={{ padding: 'clamp(80px, 10vw, 120px) 0' }}>
+      <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 var(--gutter)' }}>
         {/* Header */}
-        <div className="grid grid-cols-2 gap-[80px] mb-[48px] max-md:grid-cols-1 max-md:gap-[16px]">
-          <h2 className="font-heading text-[clamp(28px,3.6vw,42px)] font-normal leading-[1.2] tracking-[-0.5px] text-text">
-            Perspectives on enterprise AI
-          </h2>
-          <p className="text-[15px] leading-[1.8] text-text-secondary self-end">
-            Analysis and commentary on the strategic, architectural, and
-            organisational dimensions of AI in the enterprise.
-          </p>
+        <div style={{ marginBottom: 64 }}>
+          <p className="eyebrow" style={{ marginBottom: 20 }}>Insights</p>
+          <h2 className="section-heading" dangerouslySetInnerHTML={{ __html: 'Perspectives on<br/>enterprise <em>AI</em>' }} />
         </div>
 
-        {/* Article cards */}
-        <div className="grid grid-cols-3 gap-px bg-border rounded-[8px] overflow-hidden mb-[48px] max-[900px]:grid-cols-2 max-[560px]:grid-cols-1">
-          {visible.map((article) => (
+        {/* Grid */}
+        <div className="insights-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginBottom: 40 }}>
+          {visible.map((a) => (
             <Link
-              key={article.slug}
-              to={`/insights/${article.slug}`}
-              className="bg-bg-card flex flex-col no-underline transition-colors duration-200 hover:bg-bg-card-hover group"
+              key={a.slug}
+              to={`/insights/${a.slug}`}
+              style={{
+                textDecoration: 'none',
+                background: '#fff',
+                border: '1px solid rgba(0,0,0,0.08)',
+                borderRadius: 12,
+                padding: 28,
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'border-color 200ms, box-shadow 200ms, transform 200ms',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(0,0,0,0.15)'
+                e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)'
+                e.currentTarget.style.transform = 'translateY(-2px)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(0,0,0,0.08)'
+                e.currentTarget.style.boxShadow = 'none'
+                e.currentTarget.style.transform = 'translateY(0)'
+              }}
             >
-              <div className="p-[32px] flex flex-col flex-1">
-                {/* Tag + date */}
-                <div className="flex items-center gap-[12px] mb-[16px]">
-                  <span className="font-mono text-[9px] tracking-[0.12em] uppercase text-accent bg-accent-glow border border-[rgba(212,168,83,0.25)] px-[10px] py-[4px] rounded-[3px]">
-                    {article.tag}
-                  </span>
-                  <span className="font-mono text-[10px] text-text-tertiary tracking-[0.04em]">
-                    {article.date}
-                  </span>
-                </div>
+              {/* Meta */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 18 }}>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: 10,
+                    fontWeight: 500,
+                    letterSpacing: '0.8px',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-accent)',
+                    background: 'var(--color-accent-muted)',
+                    padding: '3px 10px',
+                    borderRadius: 4,
+                  }}
+                >
+                  {a.tag}
+                </span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-tertiary)' }}>
+                  {a.date}
+                </span>
+              </div>
 
-                {/* Title */}
-                <h3 className="font-heading text-[22px] font-normal leading-[1.3] tracking-[-0.2px] text-text mb-[12px]">
-                  {article.title}
-                </h3>
+              {/* Title */}
+              <h3
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: 20,
+                  fontWeight: 400,
+                  lineHeight: 1.35,
+                  color: '#2A2A2A',
+                  marginBottom: 12,
+                }}
+              >
+                {a.title}
+              </h3>
 
-                {/* Excerpt */}
-                <p className="text-[13px] leading-[1.7] text-text-secondary flex-1 mb-[24px]">
-                  {article.excerpt}
-                </p>
+              {/* Excerpt */}
+              <p style={{ fontSize: 14, lineHeight: 1.65, color: 'var(--color-text-secondary)', flex: 1, marginBottom: 20 }}>
+                {a.excerpt}
+              </p>
 
-                {/* Footer */}
-                <div className="flex items-center justify-between text-[11px] text-text-tertiary">
-                  <span className="font-mono">{article.readTime} read</span>
-                  <span className="transition-transform duration-200 group-hover:translate-x-[4px]">
-                    &rarr;
-                  </span>
-                </div>
+              {/* Footer */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  paddingTop: 14,
+                  borderTop: '1px solid rgba(0,0,0,0.06)',
+                }}
+              >
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-tertiary)' }}>
+                  {a.readTime} read
+                </span>
+                <span style={{ color: 'var(--color-accent)', fontSize: 14 }}>&rarr;</span>
               </div>
             </Link>
           ))}
         </div>
 
-        {/* Pagination */}
-        <div className="flex justify-center gap-[16px]">
-          {canShowEarlier && (
-            <button
-              onClick={() => setOffset(Math.max(0, offset - STEP))}
-              className="btn btn-ghost text-[13px]"
-            >
-              Show earlier articles
+        {/* Show more */}
+        {!showAll && articles.length > PAGE_SIZE && (
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <button onClick={() => setShowAll(true)} className="btn btn-secondary">
+              Show all articles
             </button>
-          )}
-          {canShowMore && (
-            <button
-              onClick={() => setOffset(offset + STEP)}
-              className="btn btn-ghost text-[13px]"
-            >
-              Show more articles
-            </button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
+
+      <style>{`
+        @media (max-width: 900px) { .insights-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+        @media (max-width: 560px) { .insights-grid { grid-template-columns: 1fr !important; } }
+      `}</style>
     </section>
   )
 }

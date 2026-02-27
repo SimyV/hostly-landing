@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import Hero from '../components/sections/Hero'
 import ClientLogos from '../components/sections/ClientLogos'
+import About from '../components/sections/About'
+import ImageCollage from '../components/sections/ImageCollage'
 import Capabilities from '../components/sections/Capabilities'
 import CaseStudies from '../components/sections/CaseStudies'
 import Insights from '../components/sections/Insights'
@@ -11,10 +13,10 @@ export default function HomePage() {
   const [searchParams] = useSearchParams()
 
   useEffect(() => {
-    const scrollTo = searchParams.get('scrollTo')
-    if (scrollTo) {
+    const target = searchParams.get('scrollTo')
+    if (target) {
       setTimeout(() => {
-        document.getElementById(scrollTo)?.scrollIntoView({ behavior: 'smooth' })
+        document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' })
       }, 100)
     }
   }, [searchParams])
@@ -23,6 +25,8 @@ export default function HomePage() {
     <main>
       <Hero />
       <ClientLogos />
+      <About />
+      <ImageCollage />
       <Capabilities />
       <CaseStudies />
       <Insights />

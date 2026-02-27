@@ -1,90 +1,167 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useScrollToSection } from '../../hooks/useScrollToSection'
-import { useActiveSection } from '../../hooks/useActiveSection'
 
 const links = [
-  { label: 'Capabilities', id: 'capabilities' },
-  { label: 'Work', id: 'work' },
+  { label: 'Services', id: 'capabilities' },
+  { label: 'Approach', id: 'work' },
   { label: 'Insights', id: 'insights' },
   { label: 'Contact', id: 'contact' },
 ]
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [open, setOpen] = useState(false)
   const scrollTo = useScrollToSection()
-  const activeId = useActiveSection()
-  const location = useLocation()
-  const isHome = location.pathname === '/'
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const fn = () => setScrolled(window.scrollY > 32)
+    window.addEventListener('scroll', fn, { passive: true })
+    return () => window.removeEventListener('scroll', fn)
   }, [])
 
-  useEffect(() => {
-    setMobileOpen(false)
-  }, [location.pathname])
+  useEffect(() => setOpen(false), [pathname])
+
+  const go = (id: string) => {
+    setOpen(false)
+    scrollTo(id)
+  }
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[rgba(10,10,10,0.92)] backdrop-blur-md border-b border-border'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="container flex items-center justify-between h-[56px]">
-        <Link to="/" className="font-heading text-[20px] tracking-[0.02em] text-text no-underline">
-          Host-ly<span className="text-accent">.</span>
-        </Link>
-
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-[32px]">
-          {links.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => scrollTo(link.id)}
-              className={`bg-transparent border-none text-[13px] tracking-[0.02em] cursor-pointer transition-colors duration-200 ${
-                isHome && activeId === link.id
-                  ? 'text-accent'
-                  : 'text-text-secondary hover:text-text'
-              }`}
-            >
-              {link.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden bg-transparent border-none text-text text-[22px] cursor-pointer p-[8px]"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
+    <>
+      <header
+        style={{
+          position: 'fixed',
+          inset: '0 0 auto 0',
+          zIndex: 100,
+          height: 64,
+          transition: 'background 400ms, border-color 400ms, backdrop-filter 400ms',
+          background: scrolled ? 'rgba(248,241,232,0.92)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(16px) saturate(1.4)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(16px) saturate(1.4)' : 'none',
+          borderBottom: `1px solid ${scrolled ? 'rgba(0,0,0,0.06)' : 'transparent'}`,
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 1440,
+            height: '100%',
+            margin: '0 auto',
+            padding: '0 var(--gutter)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
         >
-          {mobileOpen ? '\u2715' : '\u2630'}
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-[rgba(10,10,10,0.95)] backdrop-blur-md border-t border-border pb-[24px]">
-          {links.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => {
-                scrollTo(link.id)
-                setMobileOpen(false)
+          <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 21,
+                fontWeight: 400,
+                letterSpacing: '-0.3px',
+                color: '#2A2A2A',
               }}
-              className="block w-full text-left bg-transparent border-none text-text-secondary hover:text-text text-[14px] tracking-[0.02em] cursor-pointer px-[var(--pad)] py-[12px] transition-colors"
             >
-              {link.label}
+              Host-ly Co
+            </span>
+          </Link>
+
+          {/* Desktop */}
+          <nav className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            {links.map((l) => (
+              <button
+                key={l.id}
+                onClick={() => go(l.id)}
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  padding: '7px 14px',
+                  color: '#2A2A2A',
+                  fontSize: 14,
+                  fontWeight: 400,
+                  fontFamily: 'var(--font-body)',
+                  cursor: 'pointer',
+                  transition: 'color 200ms',
+                  textDecoration: 'underline',
+                  textUnderlineOffset: '4px',
+                  textDecorationColor: 'transparent',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.textDecorationColor = '#2A2A2A')}
+                onMouseLeave={(e) => (e.currentTarget.style.textDecorationColor = 'transparent')}
+              >
+                {l.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Mobile toggle */}
+          <button
+            className="nav-toggle"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+            style={{
+              display: 'none',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 4,
+            }}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" strokeWidth="1.5" strokeLinecap="round">
+              {open ? <path d="M18 6L6 18M6 6l12 12" /> : <><line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="17" x2="20" y2="17" /></>}
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile overlay */}
+      {open && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 99,
+            background: 'rgba(248,241,232,0.98)',
+            backdropFilter: 'blur(24px)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 8,
+          }}
+        >
+          {links.map((l) => (
+            <button
+              key={l.id}
+              onClick={() => go(l.id)}
+              style={{
+                background: 'none',
+                border: 'none',
+                fontFamily: 'var(--font-heading)',
+                fontSize: 36,
+                fontWeight: 400,
+                color: '#2A2A2A',
+                cursor: 'pointer',
+                padding: '12px 24px',
+                transition: 'opacity 200ms',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.5')}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+            >
+              {l.label}
             </button>
           ))}
         </div>
       )}
-    </nav>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .nav-links { display: none !important; }
+          .nav-toggle { display: flex !important; }
+        }
+      `}</style>
+    </>
   )
 }

@@ -2,20 +2,41 @@ import { Link } from 'react-router-dom'
 
 export default function NotFoundPage() {
   return (
-    <main className="min-h-[80vh] flex items-center justify-center">
-      <div className="container text-center">
-        <span className="font-mono text-[80px] text-accent leading-none block mb-[16px]">
+    <main
+      style={{
+        minHeight: '80vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <div style={{ textAlign: 'center', padding: '0 var(--gutter)' }}>
+        <span
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 72,
+            color: 'var(--color-accent)',
+            lineHeight: 1,
+            display: 'block',
+            marginBottom: 16,
+          }}
+        >
           404
         </span>
-        <h1 className="font-heading text-[36px] text-text mb-[12px]">
+        <h1
+          style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 32,
+            color: 'var(--color-text)',
+            marginBottom: 12,
+          }}
+        >
           Page not found
         </h1>
-        <p className="text-[15px] text-text-secondary mb-[32px]">
-          The page you&rsquo;re looking for doesn&rsquo;t exist or has been moved.
+        <p style={{ fontSize: 15, color: 'var(--color-text-secondary)', marginBottom: 32 }}>
+          The page you're looking for doesn't exist or has been moved.
         </p>
-        <Link to="/" className="btn btn-ghost">
-          Back to home
-        </Link>
+        <Link to="/" className="btn btn-secondary">Back to home</Link>
       </div>
     </main>
   )

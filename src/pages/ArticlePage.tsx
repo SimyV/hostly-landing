@@ -7,54 +7,84 @@ export default function ArticlePage() {
 
   if (!article) {
     return (
-      <main className="pt-[120px] pb-[100px]">
-        <div className="container text-center">
-          <h1 className="font-heading text-[36px] text-text mb-[16px]">Article not found</h1>
-          <p className="text-text-secondary mb-[32px]">
+      <main style={{ paddingTop: 120, paddingBottom: 100 }}>
+        <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 var(--gutter)', textAlign: 'center' }}>
+          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 36, color: 'var(--color-text)', marginBottom: 16 }}>
+            Article not found
+          </h1>
+          <p style={{ fontSize: 15, color: 'var(--color-text-secondary)', marginBottom: 32 }}>
             The article you're looking for doesn't exist.
           </p>
-          <Link to="/" className="btn btn-ghost">
-            Back to home
-          </Link>
+          <Link to="/" className="btn btn-secondary">Back to home</Link>
         </div>
       </main>
     )
   }
 
   return (
-    <main className="pt-[120px] pb-[100px] max-md:pt-[90px]">
-      <article className="container max-w-[720px]">
-        {/* Back link */}
+    <main style={{ paddingTop: 120, paddingBottom: 100 }}>
+      <article style={{ maxWidth: 720, margin: '0 auto', padding: '0 var(--gutter)' }}>
+        {/* Back */}
         <Link
           to="/"
-          className="inline-flex items-center gap-[8px] text-[13px] text-text-secondary no-underline hover:text-text transition-colors mb-[48px]"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 8,
+            fontSize: 13,
+            color: 'var(--color-text-secondary)',
+            textDecoration: 'none',
+            marginBottom: 48,
+            transition: 'color 200ms',
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text)')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')}
         >
           &larr; Back to insights
         </Link>
 
         {/* Meta */}
-        <div className="flex items-center gap-[12px] mb-[24px]">
-          <span className="font-mono text-[9px] tracking-[0.12em] uppercase text-accent bg-accent-glow border border-[rgba(212,168,83,0.25)] px-[10px] py-[4px] rounded-[3px]">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 10,
+              fontWeight: 500,
+              letterSpacing: '0.8px',
+              textTransform: 'uppercase',
+              color: 'var(--color-accent)',
+              background: 'var(--color-accent-muted)',
+              padding: '3px 10px',
+              borderRadius: 4,
+            }}
+          >
             {article.tag}
           </span>
-          <span className="font-mono text-[10px] text-text-tertiary tracking-[0.04em]">
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-tertiary)' }}>
             {article.date}
           </span>
-          <span className="font-mono text-[10px] text-text-tertiary tracking-[0.04em]">
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-tertiary)' }}>
             {article.readTime} read
           </span>
         </div>
 
         {/* Title */}
-        <h1 className="font-heading text-[clamp(28px,4vw,44px)] font-normal leading-[1.2] tracking-[-0.5px] text-text mb-[32px]">
+        <h1
+          style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(28px, 4vw, 44px)',
+            fontWeight: 400,
+            lineHeight: 1.2,
+            letterSpacing: '-0.5px',
+            color: 'var(--color-text)',
+            marginBottom: 36,
+          }}
+        >
           {article.title}
         </h1>
 
         {/* Body */}
-        <div
-          className="article-body"
-          dangerouslySetInnerHTML={{ __html: article.body }}
-        />
+        <div className="article-body" dangerouslySetInnerHTML={{ __html: article.body }} />
       </article>
     </main>
   )
