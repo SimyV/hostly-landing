@@ -1,44 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
-  <!-- Stacked isometric H mark inspired by JIP layered diamonds -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 76" fill="none">
+  <!-- Stacked isometric H mark -->
   <g transform="translate(2, 2)">
-    <!--
-      Three stacked diamond outlines building upward.
-      Each diamond is an isometric floor plate.
-      Left and right verticals connect them to form the H.
-    -->
-
     <!-- Bottom diamond layer -->
-    <path d="M30 70 L6 56 L30 42 L54 56 Z"
+    <path d="M28 68 L4 54 L28 40 L52 54 Z"
       fill="none" stroke="#E8613C" stroke-width="2.5"
       stroke-linejoin="round" stroke-linecap="round" opacity="0.35"/>
 
-    <!-- Middle diamond layer (crossbar of H) -->
-    <path d="M30 52 L6 38 L30 24 L54 38 Z"
+    <!-- Middle diamond layer -->
+    <path d="M28 50 L4 36 L28 22 L52 36 Z"
       fill="none" stroke="#E8613C" stroke-width="2.5"
       stroke-linejoin="round" stroke-linecap="round" opacity="0.65"/>
 
     <!-- Top diamond layer -->
-    <path d="M30 34 L6 20 L30 6 L54 20 Z"
+    <path d="M28 32 L4 18 L28 4 L52 18 Z"
       fill="none" stroke="#E8613C" stroke-width="2.5"
       stroke-linejoin="round" stroke-linecap="round" opacity="1"/>
 
-    <!-- Left vertical pillar (H upright) -->
-    <line x1="6" y1="20" x2="6" y2="56"
+    <!-- Left vertical pillar -->
+    <line x1="4" y1="18" x2="4" y2="54"
       stroke="#E8613C" stroke-width="2.5"
       stroke-linecap="round" opacity="0.8"/>
 
-    <!-- Right vertical pillar (H upright) -->
-    <line x1="54" y1="20" x2="54" y2="56"
+    <!-- Right vertical pillar -->
+    <line x1="52" y1="18" x2="52" y2="54"
       stroke="#E8613C" stroke-width="2.5"
       stroke-linecap="round" opacity="0.8"/>
   </g>
-
-  <!-- Wordmark -->
-  <text x="72" y="52" font-family="'EB Garamond', 'Georgia', serif" font-size="38" font-weight="500" letter-spacing="-0.5" fill="#2A2A2A">
-    Host<tspan fill="#E8613C" font-style="italic">-ly</tspan>
-  </text>
-  <!-- "Co" suffix -->
-  <text x="222" y="52" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="14" font-weight="400" letter-spacing="2" fill="#6B6B6B">
-    CO
-  </text>
 </svg>
