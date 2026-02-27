@@ -88,7 +88,15 @@ export default function Hero() {
           <button className="btn btn-primary" onClick={() => scrollTo('contact')}>
             Get in touch
           </button>
-          <button className="btn btn-secondary" onClick={() => scrollTo('work')}>
+          <button
+            className="btn btn-secondary"
+            onClick={() => scrollTo('work')}
+            style={{
+              color: '#F8F1E8',
+              borderColor: 'rgba(248,241,232,0.72)',
+              background: 'rgba(248,241,232,0.06)',
+            }}
+          >
             View our work
           </button>
         </div>

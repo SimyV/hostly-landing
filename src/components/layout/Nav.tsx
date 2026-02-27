@@ -14,6 +14,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false)
   const scrollTo = useScrollToSection()
   const { pathname } = useLocation()
+  const navTextColor = scrolled ? '#2A2A2A' : '#F8F1E8'
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 32)
@@ -72,7 +73,7 @@ export default function Nav() {
                   background: 'transparent',
                   border: 'none',
                   padding: '7px 14px',
-                  color: '#2A2A2A',
+                  color: navTextColor,
                   fontSize: 14,
                   fontWeight: 400,
                   fontFamily: 'var(--font-body)',
@@ -82,7 +83,7 @@ export default function Nav() {
                   textUnderlineOffset: '4px',
                   textDecorationColor: 'transparent',
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.textDecorationColor = '#2A2A2A')}
+                onMouseEnter={(e) => (e.currentTarget.style.textDecorationColor = navTextColor)}
                 onMouseLeave={(e) => (e.currentTarget.style.textDecorationColor = 'transparent')}
               >
                 {l.label}
@@ -103,7 +104,7 @@ export default function Nav() {
               padding: 4,
             }}
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" strokeWidth="1.5" strokeLinecap="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={navTextColor} strokeWidth="1.5" strokeLinecap="round">
               {open ? <path d="M18 6L6 18M6 6l12 12" /> : <><line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="17" x2="20" y2="17" /></>}
             </svg>
           </button>
