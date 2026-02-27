@@ -12,6 +12,8 @@ export default function Footer() {
 
   return (
     <footer className="section-dark">
+      {/* Orange accent strip */}
+      <div style={{ height: 3, background: 'var(--color-accent-warm)' }} />
       <div
         style={{
           maxWidth: 1440,

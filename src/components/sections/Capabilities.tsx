@@ -38,7 +38,7 @@ export default function Capabilities() {
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: 11,
-                  color: 'var(--color-accent)',
+                  color: Number(cap.number) % 2 === 0 ? 'var(--color-accent-warm)' : 'var(--color-accent)',
                   letterSpacing: '0.5px',
                   display: 'block',
                   marginBottom: 20,

@@ -100,7 +100,7 @@ export default function CaseStudies() {
                           fontFamily: 'var(--font-mono)',
                           fontSize: 30,
                           fontWeight: 500,
-                          color: 'var(--color-accent)',
+                          color: 'var(--color-accent-warm)',
                           display: 'block',
                           lineHeight: 1.1,
                         }}

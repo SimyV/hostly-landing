@@ -12,6 +12,8 @@
   --color-text-tertiary: #999999;
   --color-accent: #00C9A7;
   --color-accent-muted: rgba(0,201,167,0.1);
+  --color-accent-warm: #E8613C;
+  --color-accent-warm-muted: rgba(232,97,60,0.1);
   --font-heading: 'EB Garamond', serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -113,11 +115,11 @@ body {
 }
 
 .btn-primary {
-  background: #2A2A2A;
+  background: var(--color-accent-warm);
   color: #fff;
 }
 .btn-primary:hover {
-  background: #1a1a1a;
+  background: #d4532f;
 }
 
 .btn-secondary {
@@ -151,11 +153,11 @@ body {
 
 /* Dark section button overrides */
 .section-dark .btn-primary {
-  background: #fff;
-  color: #2A2A2A;
+  background: var(--color-accent-warm);
+  color: #fff;
 }
 .section-dark .btn-primary:hover {
-  background: #e8e8e8;
+  background: #d4532f;
 }
 .section-dark .btn-secondary {
   background: transparent;
