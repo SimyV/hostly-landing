@@ -55,17 +55,11 @@ export default function Nav() {
           }}
         >
           <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-            <span
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 21,
-                fontWeight: 400,
-                letterSpacing: '-0.3px',
-                color: '#2A2A2A',
-              }}
-            >
-              Host-ly Co
-            </span>
+            <img
+              src="/hostly-logo.svg"
+              alt="Host-ly Co"
+              style={{ height: 36 }}
+            />
           </Link>
 
           {/* Desktop */}

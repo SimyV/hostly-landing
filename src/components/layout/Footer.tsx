@@ -30,9 +30,11 @@ export default function Footer() {
           }}
         >
           <div>
-            <div style={{ fontFamily: 'var(--font-heading)', fontSize: 20, color: '#fff', letterSpacing: '-0.3px', marginBottom: 10 }}>
-              Host-ly Co
-            </div>
+            <img
+              src="/hostly-logo-white.svg"
+              alt="Host-ly Co"
+              style={{ height: 32, marginBottom: 10 }}
+            />
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.6, maxWidth: 260 }}>
               Enterprise AI strategy, architecture, and technology consulting. Sydney, Australia.
             </p>
