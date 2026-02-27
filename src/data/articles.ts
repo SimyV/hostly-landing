@@ -10,15 +10,6 @@ export interface Article {
 
 export const articles: Article[] = [
   {
-    slug: 'test-approval-flow-delete-me',
-    tag: 'Architecture',
-    date: 'Feb 2026',
-    readTime: '3 min',
-    title: 'TEST ARTICLE — Delete After Validation',
-    excerpt: 'This is a test article to validate the approval pipeline. It should be removed after testing.',
-    body: `<p>This is a test article created to validate the end-to-end approval flow. If you can see this on host-ly.com, the pipeline is working correctly.</p><h2>What This Tests</h2><p>The approval pipeline works as follows: a daily scheduled task researches and writes articles, saves them as a draft batch, and emails them with Publish and Reject buttons. When the user clicks Publish, the server marks the article as approved, creates a one-time scheduled task, and that task adds the article to the site, builds it, and deploys.</p><h2>Cleanup</h2><p>This article should be removed from articles.ts and the site redeployed once testing is complete. It exists solely to confirm the pipeline works end to end.</p>`,
-  },
-  {
     slug: 'australia-digital-identity-enterprise-ai',
     tag: 'AI Strategy',
     date: 'Feb 2026',
