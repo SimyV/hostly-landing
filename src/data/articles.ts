@@ -10,6 +10,40 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'openai-frontier-alliances-consulting-giants-enterprise-ai',
+    tag: 'AI Strategy',
+    date: 'Feb 2026',
+    readTime: '4 min',
+    title: "OpenAI's Frontier Alliances Signal the End of Enterprise AI as a Side Project",
+    excerpt:
+      'OpenAI has enlisted McKinsey, BCG, Accenture, and Capgemini to deploy its Frontier agent platform across the enterprise. For organisations still running AI pilots, the window to lead is closing fast.',
+    body: `<p>OpenAI's announcement last week of its Frontier Alliances programme marks a decisive shift in how enterprise AI will be sold, deployed, and governed. By partnering with McKinsey, Boston Consulting Group, Accenture, and Capgemini, OpenAI is not simply expanding its sales channel. It is building the distribution infrastructure for a new category of enterprise software: autonomous AI agents embedded directly into business operations.</p>
+
+<p>The Frontier platform itself is the centrepiece. OpenAI describes it as a "semantic layer for the enterprise," a unified system that allows AI agents to navigate CRM platforms, HR tools, internal ticketing systems, and more. Rather than bolting a chatbot onto an existing workflow, Frontier positions AI as an orchestration layer that can execute multi-step tasks across an organisation's entire technology stack.</p>
+
+<h2>Why Consultancies, and Why Now</h2>
+
+<p>The choice of partners is telling. McKinsey's research finds that 62 per cent of organisations are experimenting with AI agents, but only 23 per cent report scaling an agentic system anywhere in their enterprise. The gap between experimentation and production is not a technology problem. It is a change management problem, an integration problem, and increasingly a governance problem. These are precisely the capabilities that large consultancies bring.</p>
+
+<p>The division of labour is deliberate. McKinsey and BCG take the strategy and operating model work, helping leadership teams determine where agents deliver the greatest impact and how workforce structures need to adapt. Accenture and Capgemini handle the systems integration, connecting Frontier to the data architectures, cloud infrastructure, and legacy systems that enterprises actually run on. OpenAI's own Forward Deployed Engineering team sits alongside both groups, ensuring the product roadmap stays connected to real deployment challenges.</p>
+
+<p>For OpenAI, the financial logic is straightforward. Enterprise customers accounted for 40 per cent of revenue in January, and CFO Sarah Friar expects that share to approach 50 per cent by year's end. The Frontier Alliances give OpenAI access to thousands of enterprise relationships it could never build on its own, while the consulting firms gain a differentiated offering in a market where every competitor is racing to stand up an AI practice.</p>
+
+<h2>The Implications for Enterprise Architecture</h2>
+
+<p>For enterprise architects and CIOs, this development demands serious attention. When an AI agent platform is being deployed by the same firms that redesign operating models and rebuild technology stacks, the scope of change extends well beyond a single tool adoption. Frontier's positioning as a semantic layer means it sits between business logic and underlying systems, a layer that has historically been the domain of middleware, integration platforms, and enterprise service buses.</p>
+
+<p>Organisations considering their AI strategy need to evaluate what it means to have an external agent orchestration layer mediating access to internal systems. Questions of data sovereignty, auditability, and vendor lock-in become acute when agents are executing decisions across multiple platforms. Australian organisations in particular, operating under the Privacy Act and sector-specific regulations, will need to ensure that any agent deployment maintains clear lines of accountability for automated decisions.</p>
+
+<h2>What This Means for the APAC Market</h2>
+
+<p>The Frontier Alliances will inevitably reach the Australian and broader APAC market through the consulting firms' regional practices. With 40 per cent of Australian SMEs already embedding AI into operations and the government's National AI Plan emphasising both opportunity and safety, the timing aligns with growing local demand for structured, governed AI deployment.</p>
+
+<p>However, the risk for mid-market organisations is clear. As the largest enterprises lock in multi-year agreements with OpenAI through their consulting partners, the talent pool for AI deployment, the integration tooling, and the best-practice frameworks will consolidate around a small number of platforms. Organisations that are still treating AI as a series of disconnected experiments may find themselves locked out of the ecosystem advantages that come with early, deliberate adoption.</p>
+
+<p>The message from OpenAI's Frontier Alliances is unambiguous: enterprise AI is moving from pilot to production, and the organisations building the integration muscle now will define the competitive landscape for the next decade.</p>`,
+  },
+  {
     slug: 'deepseek-v4-geopolitical-ai-decoupling',
     tag: 'AI Strategy',
     date: 'Feb 2026',
