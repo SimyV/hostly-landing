@@ -10,6 +10,42 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'aeternum-c2-blockchain-botnet-untakeable-infrastructure',
+    tag: 'Security',
+    date: 'Feb 2026',
+    readTime: '4 min',
+    title: 'Aeternum C2: The Blockchain Botnet That Cannot Be Taken Down',
+    excerpt:
+      'A new botnet stores its command-and-control instructions on the Polygon blockchain, rendering traditional takedown tactics useless. Enterprise defenders need a fundamentally different playbook.',
+    body: `<p>For years, law enforcement and security teams have relied on a well-established playbook to disrupt botnets: seize the command-and-control servers, suspend the domains, and block the IP addresses. Operations against Emotet, TrickBot, and QakBot all followed this pattern with varying degrees of success. A new botnet loader called Aeternum C2, disclosed this week by Qrator Research Lab, renders that entire playbook obsolete.</p>
+
+<p>Aeternum C2 replaces conventional command-and-control infrastructure with smart contracts on the Polygon blockchain. Instead of connecting to a server that can be seized or a domain that can be suspended, infected machines retrieve their instructions by querying publicly available blockchain data. Since that data is replicated across thousands of nodes worldwide and is immutable by design, there is no single point of failure for defenders to target.</p>
+
+<h2>How It Works</h2>
+
+<p>Developed in C++, Aeternum writes encrypted commands into smart contracts on the Polygon network. Compromised machines poll public remote procedure call endpoints to retrieve those commands, with the malware author claiming delivery times of two to three minutes. This is faster and more reliable than many legacy peer-to-peer botnet architectures, which often suffer from propagation delays and node churn.</p>
+
+<p>The operational economics are striking. The Polygon network's low transaction fees mean that one dollar worth of MATIC, the network's native token, covers 100 to 150 command transactions. The operator needs no rented servers, no registered domains, and no maintained infrastructure beyond a cryptocurrency wallet and a local copy of the control panel. Advertised on underground forums by a threat actor known as LenAI since December 2025, the toolkit sells for as little as $200 for a panel and configured build, scaling to $10,000 for the full project source code.</p>
+
+<p>Aeternum also ships with anti-analysis capabilities, including virtual machine detection and integration with the Kleenscan API, which lets operators test their builds against 37 antivirus engines before deployment. This combination of resilient infrastructure, low cost, and built-in evasion tooling lowers the barrier to entry for sophisticated botnet operations considerably.</p>
+
+<h2>Why Traditional Defences Fall Short</h2>
+
+<p>The fundamental challenge Aeternum poses is architectural. Every previous generation of botnet, regardless of sophistication, ultimately depended on infrastructure that could be identified and disrupted. Domain generation algorithms made takedowns harder but not impossible. Fast-flux DNS added complexity but still required domain registrations. Even distributed peer-to-peer networks could be sinkholed with sufficient coordination.</p>
+
+<p>Blockchain-based command and control eliminates these leverage points entirely. The data is public, permanent, and controlled exclusively by the wallet holder. No court order can compel a decentralised network to delete a transaction. No hosting provider can be served with an abuse notice. The only entity that can modify the smart contract is the attacker who deployed it.</p>
+
+<p>This has direct implications for how enterprises should think about their defensive posture. If the botnet cannot be dismantled at the source, the only remaining defence is detection and mitigation at the edge and on the endpoint.</p>
+
+<h2>What Enterprise Defenders Should Do</h2>
+
+<p>Qrator's researchers recommend several practical measures. Endpoint detection and response tools should be tuned to identify suspicious C++ loaders, unusual process-creation chains, and anti-virtualisation behaviours characteristic of Aeternum's delivery mechanism. Network security teams should monitor and consider restricting outbound traffic to public Polygon RPC endpoints where legitimate business use does not require it.</p>
+
+<p>More broadly, organisations should be sharing wallet addresses, contract hashes, and observed command-and-control patterns with blockchain analytics providers and Information Sharing and Analysis Centres. The blockchain's transparency is a double-edged sword: while it makes takedowns impossible, it also means every command the attacker issues is permanently and publicly recorded. Threat intelligence teams that learn to read blockchain transactions as indicators of compromise gain a new, persistent source of adversary telemetry.</p>
+
+<p>Aeternum C2 is not the first malware to experiment with blockchain-based infrastructure, but it is the most complete and commercially available implementation to date. For enterprise security leaders, it is a clear signal that defensive strategies built around disrupting attacker infrastructure are losing their effectiveness. The organisations that adapt fastest, shifting investment toward edge-based mitigation, endpoint behavioural analysis, and blockchain-native threat intelligence, will be best positioned to weather what comes next.</p>`,
+  },
+  {
     slug: 'openai-frontier-alliances-consulting-giants-enterprise-ai',
     tag: 'AI Strategy',
     date: 'Feb 2026',
