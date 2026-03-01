@@ -502,44 +502,6 @@ export const articles: Article[] = [
 <p>Vibe coding is the new normal. Making it secure is the work that needs doing now, before the technical debt becomes unmanageable.</p>`,
   },
   {
-    slug: 'mcp-enterprise-standard',
-    tag: 'Architecture',
-    date: 'Feb 2026',
-    readTime: '6 min',
-    title: 'MCP Is Becoming the USB-C of Enterprise AI, and That Changes Everything',
-    excerpt:
-      "Anthropic's Model Context Protocol has been adopted by OpenAI, Google, and Microsoft. With 97 million monthly SDK downloads, it's solving the M\u00d7N integration problem.",
-    body: `<p>When Anthropic first released the Model Context Protocol in late 2024, it was easy to dismiss as another proprietary standard trying to gain traction. That is no longer a credible reading. MCP has been donated to the Linux Foundation's Agentic AI Foundation. It has been adopted by OpenAI, Google, and Microsoft. The SDK is recording 97 million monthly downloads. In the space of about a year, MCP has gone from an Anthropic initiative to something that looks increasingly like an industry standard for connecting AI models to the systems they need to work with. Enterprise architects should be paying close attention.</p>
-
-<p>The analogy to USB-C is apt, even if imperfect. Before USB-C, connecting devices meant navigating a maze of proprietary cables, adapters, and protocols. USB-C did not make the underlying devices better. It made them interoperable. MCP is doing the same thing for AI: providing a standard protocol through which AI models can connect to data sources, tools, and enterprise systems without requiring bespoke integrations for every combination.</p>
-
-<h2>Solving the M times N problem</h2>
-
-<p>The integration challenge MCP addresses is one that enterprise architects will recognise immediately. Without a common protocol, connecting M applications to N data sources requires M times N custom integrations. Every new application needs a connector for every data source. Every new data source needs a connector for every application. The combinatorial explosion makes integration the most expensive and fragile part of any AI deployment.</p>
-
-<p>MCP reduces this to M plus N. Each application implements the MCP client protocol once. Each data source implements the MCP server protocol once. Any client can then connect to any server without additional integration work. This is the same architectural pattern that made REST APIs transformative for web services: a common interface that turns point-to-point integrations into a pluggable ecosystem.</p>
-
-<p>For enterprises with complex technology landscapes (dozens of data sources, multiple AI tools, hundreds of potential use cases) this shift from multiplicative to additive integration cost is significant. It does not eliminate integration complexity entirely, but it changes the economics fundamentally.</p>
-
-<h2>The enterprise plugin ecosystem is expanding</h2>
-
-<p>Anthropic has been accelerating the enterprise applicability of MCP through initiatives like Claude Cowork, which allows AI agents to interact with enterprise tools through standardised MCP connections. The growing plugin ecosystem means that common enterprise systems (CRMs, project management tools, knowledge bases, databases, communication platforms) are increasingly accessible to AI models through a standard protocol rather than custom code.</p>
-
-<p>This composability is where the real value lies. When your AI systems can connect to any MCP-compliant data source or tool without custom integration, the time from identifying an AI use case to deploying it drops dramatically. Instead of spending weeks building connectors, your team can focus on the logic and governance that make the use case valuable. The plumbing becomes standard, and the differentiation moves to the business logic layer where it belongs.</p>
-
-<p>The adoption by OpenAI, Google, and Microsoft amplifies this effect. When the three largest AI platform providers all support the same integration protocol, it becomes rational for enterprise software vendors to build MCP compatibility into their products. This creates a network effect: the more tools that support MCP, the more valuable it becomes for every tool that supports it.</p>
-
-<h2>Early adoption as architectural advantage</h2>
-
-<p>For enterprise architects making decisions today, MCP presents a clear strategic consideration. Organisations that adopt MCP early and build their AI integration layer around it will accumulate composability. Every new MCP-compliant tool or data source they add to their ecosystem becomes immediately available to every AI capability they have deployed. The marginal cost of each new integration approaches zero.</p>
-
-<p>Organisations that do not adopt MCP, or that build their AI integrations on proprietary protocols, will accumulate integration debt instead. Every new AI use case will require bespoke connector work. Every change to an underlying system will require updates across multiple integration points. The maintenance burden will grow linearly with the number of AI capabilities deployed, and that burden will eventually throttle the organisation's ability to scale its AI investments.</p>
-
-<p>The decision is not whether MCP will become the standard protocol for AI integration. The trajectory of adoption makes that increasingly likely. The decision is whether your organisation positions itself to benefit from that standardisation or pays the cost of resisting it.</p>
-
-<p>MCP may not be the final word in AI integration standards. But it is the most credible candidate right now, and the architectural advantages of early adoption compound over time. For enterprise architects, that makes it worth understanding, evaluating, and, in most cases, adopting sooner rather than later.</p>`,
-  },
-  {
     slug: 'saaspocalypse-agent-licensing',
     tag: 'Industry',
     date: 'Feb 2026',
