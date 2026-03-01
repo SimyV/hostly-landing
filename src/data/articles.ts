@@ -10,6 +10,38 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'webmcp-chrome-ai-agents-web-standard',
+    tag: 'Architecture',
+    date: 'Mar 2026',
+    readTime: '4 min',
+    title: "WebMCP: Chrome's Quiet Revolution in How AI Agents Interact With the Web",
+    excerpt:
+      'Google and Microsoft have shipped an early preview of WebMCP, a proposed standard that lets websites expose structured tools to AI agents. For enterprise architects, this is the most consequential browser API since the Service Worker.',
+    body: `<p>For the past two years, AI agents have interacted with websites the same way a human does: by looking at a screenshot, guessing where to click, and hoping the page layout has not changed since the last attempt. It works, barely, and it is slow, expensive, and fragile. Google's Chrome team, working jointly with Microsoft engineers, has shipped an early preview of WebMCP, a proposed web standard that replaces this entire approach with something far more deliberate.</p>
+
+<p>WebMCP, short for Web Model Context Protocol, allows websites to publish a structured set of tools that AI agents can discover and invoke directly through the browser. Instead of an agent parsing raw HTML or processing a screenshot through a vision model to find a "Book Flight" button, the website exposes a typed function like <code>bookFlight(destination, date, passengers)</code> through a new browser API called <code>navigator.modelContext</code>. The agent calls the function, receives structured JSON back, and moves on. No screenshots. No guesswork. No layout-dependent selectors that break when the design team ships an update.</p>
+
+<h2>Two APIs, Two Levels of Complexity</h2>
+
+<p>The specification proposes two complementary APIs. The Declarative API handles standard actions that map cleanly to HTML forms: search fields, dropdown selections, simple submissions. Website owners can expose these with minimal code changes by annotating existing form elements. The Imperative API handles more complex, multi-step interactions that require JavaScript execution: configuring a product with dependencies between options, navigating a multi-page checkout, or orchestrating a sequence of actions that depend on intermediate results.</p>
+
+<p>This two-tier approach is pragmatic. Most enterprise web applications are built on forms and structured inputs, which means the Declarative API covers a large surface area with low implementation cost. The Imperative API exists for the cases where business logic genuinely requires dynamic orchestration, but it demands more from the site developer and more trust from the agent platform.</p>
+
+<h2>Why Enterprise Architects Should Pay Attention Now</h2>
+
+<p>The performance implications alone are significant. Moving from vision-based browsing to structured tool invocation eliminates the need to upload high-resolution screenshots to a language model, process them through a vision encoder, and then map the model's spatial reasoning back to DOM coordinates. Google's early benchmarks show near-zero error rates for structured interactions compared to the 15 to 30 per cent failure rates typical of screenshot-based agents on complex pages. Latency drops by an order of magnitude. Cost per interaction falls dramatically because text-based schemas are far cheaper to process than images.</p>
+
+<p>For organisations building internal tools, customer portals, or partner integrations, WebMCP creates a new design consideration: which actions should your application expose as agent-callable tools? This is not a hypothetical. Enterprises already deal with screen-scraping integrations built by customers, partners, and their own automation teams. Those integrations are brittle, undocumented, and break without warning. WebMCP offers a path to formalise those interactions with versioned contracts, typed inputs and outputs, and clear boundaries around what an agent can and cannot do.</p>
+
+<h2>The Standard Is Early, but the Direction Is Clear</h2>
+
+<p>WebMCP is currently available behind a flag in Chrome 146 Canary and is being incubated through the W3C's Web Machine Learning community group. Microsoft's active co-authorship of the specification makes Edge support a near certainty. Broader browser adoption will depend on whether Mozilla and Apple see sufficient developer demand, but the pattern is familiar: the most consequential web standards of the past decade, from Service Workers to WebAuthn, followed similar incubation paths.</p>
+
+<p>The relationship between WebMCP and Anthropic's Model Context Protocol is worth understanding. MCP connects AI agents to backend services using JSON-RPC. WebMCP connects agents to browser-based interfaces using <code>postMessage</code> communication within the browser context. They are complementary: an enterprise might use MCP for its internal API integrations and WebMCP for its customer-facing web applications.</p>
+
+<p>For Australian enterprises investing in agentic AI strategies, WebMCP is a signal to start thinking about web applications not just as interfaces for humans, but as structured tool surfaces for autonomous agents. The organisations that design for this now will have a meaningful head start when the standard reaches general availability.</p>`,
+  },
+  {
     slug: 'aeternum-c2-blockchain-botnet-untakeable-infrastructure',
     tag: 'Security',
     date: 'Feb 2026',
