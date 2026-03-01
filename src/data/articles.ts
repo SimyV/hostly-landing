@@ -10,6 +10,104 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'google-wiz-32-billion-cloud-security-architecture',
+    tag: 'Security',
+    date: 'Mar 2026',
+    readTime: '4 min',
+    title: "Google's $32 Billion Wiz Acquisition Closes the Loop on Cloud-Native Security",
+    excerpt:
+      "With EU and DOJ approvals secured, Google's acquisition of Wiz is set to close by the end of March. The deal reshapes the cloud security landscape and forces a rethink of enterprise security architecture.",
+    body: `<p>Google's $32 billion acquisition of Wiz, the largest cybersecurity deal in history, has cleared its final major regulatory hurdles. The European Commission granted unconditional approval on 10 February 2026, following the US Department of Justice's antitrust clearance. With only procedural approvals remaining in jurisdictions including Australia and Israel, the deal is expected to close by the end of March. For enterprise security leaders, the implications extend well beyond Google Cloud's product roadmap.</p>
+
+<h2>Why This Deal Matters Beyond Google Cloud</h2>
+
+<p>Wiz built its business on a simple but powerful insight: cloud security needs to work across all clouds, not just the one your vendor happens to sell. Its agentless scanning technology maps vulnerabilities, misconfigurations, and identity risks across AWS, Azure, Google Cloud, and Oracle Cloud from a single platform. This multicloud capability is precisely why Wiz grew to $500 million in annual recurring revenue faster than any enterprise software company in history.</p>
+
+<p>Google has committed to maintaining Wiz's multicloud support post-acquisition, and it has strong commercial reasons to do so. Google Cloud remains the third-largest hyperscaler behind AWS and Microsoft Azure. Pulling Wiz into a Google-only offering would destroy the product's core value proposition and hand the multicloud security market to competitors like CrowdStrike, Palo Alto Networks, and Orca Security. The more interesting strategic play is to use Wiz as a wedge into AWS and Azure environments, giving Google visibility into, and influence over, workloads running on competitor infrastructure.</p>
+
+<p>The integration with Google's existing security portfolio is where the architectural significance emerges. Google has spent the past three years assembling a security stack through acquisitions: Mandiant for threat intelligence and incident response, Siemplify for security orchestration, and Chronicle for security analytics. Wiz adds the cloud security posture management layer. Combined with Google's Gemini AI models, the result is an end-to-end security platform that can scan for vulnerabilities, correlate them with active threat intelligence, and orchestrate response actions, increasingly with autonomous AI-driven triage.</p>
+
+<h2>The Pressure on Standalone Security Vendors</h2>
+
+<p>This consolidation pattern should concern any enterprise running a best-of-breed security architecture. When cloud providers bundle security capabilities into their platform offerings, standalone vendors lose pricing power and integration advantages simultaneously. Microsoft already generates more than $20 billion annually from its security products, largely by embedding them into Microsoft 365 and Azure. Google is now building a comparable integrated offering.</p>
+
+<p>For enterprise architects, this raises a familiar but increasingly urgent question: does your security architecture assume best-of-breed procurement, or are you designing for a world where security is a platform capability delivered by your cloud provider? The answer has significant implications for vendor strategy, integration complexity, and the long-term cost of switching cloud providers.</p>
+
+<h2>Australian and APAC Implications</h2>
+
+<p>Australia is one of the jurisdictions where final procedural approval is still pending, but the outcome is not in serious doubt. The more relevant consideration for Australian enterprises is what the deal means for the local cloud security market. Google Cloud's Sydney and Melbourne regions serve a growing number of government and financial services workloads, sectors where security posture management is not optional but mandated by regulators including APRA and the ASD's Essential Eight framework.</p>
+
+<p>If Wiz's capabilities are tightly integrated into Google Cloud's platform, Australian organisations running multicloud environments may face pressure to consolidate their security tooling around their primary cloud provider rather than maintaining independent, cross-cloud security platforms. This is not inherently negative, platform-integrated security can reduce complexity and improve coverage, but it does increase switching costs and deepen cloud provider lock-in at the security layer, which is arguably the most sensitive layer in any enterprise architecture.</p>
+
+<p>The $32 billion price tag reflects a market reality that enterprise security leaders already know: cloud security is no longer a product category. It is a platform capability. The organisations that recognise this shift and plan their security architecture accordingly will navigate the consolidation wave far more effectively than those still procuring point solutions.</p>`,
+  },
+  {
+    slug: 'openai-110-billion-funding-enterprise-ai-infrastructure',
+    tag: 'Industry',
+    date: 'Mar 2026',
+    readTime: '4 min',
+    title: "OpenAI's $110 Billion Round Is Not About AI Research. It Is About Infrastructure.",
+    excerpt:
+      'The largest private funding round in history values OpenAI at $730 billion. The real story is the infrastructure commitments that will reshape enterprise cloud for the next decade.',
+    body: `<p>When a company raises $110 billion in a single funding round, the number itself becomes the headline. OpenAI's latest financing, announced on 27 February 2026 and led by Amazon ($50 billion), Nvidia ($30 billion), and SoftBank ($30 billion), is the largest private funding event in history. It values OpenAI at $730 billion pre-money, more than all but a handful of public companies globally. But the capital itself is less interesting than where it is going and what it tells us about the emerging structure of enterprise AI.</p>
+
+<h2>Follow the Infrastructure</h2>
+
+<p>The headline investment is dramatic. The infrastructure commitments behind it are transformative. OpenAI is expanding its existing AWS partnership by $100 billion over the next eight years. Amazon Web Services will serve as the exclusive third-party cloud distribution provider for OpenAI's enterprise platform, Frontier. OpenAI plans to build a new "stateful runtime environment" running on Amazon's Bedrock platform, meaning enterprise customers will access OpenAI's models through AWS infrastructure with persistent state, not just stateless API calls.</p>
+
+<p>On the compute side, Nvidia is providing 3 gigawatts of dedicated inference capacity and 2 gigawatts of training capacity on its next-generation Vera Rubin systems. To put those numbers in context, 5 gigawatts of dedicated AI compute is roughly equivalent to the total electricity consumption of a city the size of Adelaide. OpenAI projects it will invest approximately $600 billion in compute infrastructure by 2030.</p>
+
+<p>These are not research expenditures. They are industrial infrastructure investments on a scale typically associated with national energy grids or telecommunications networks. The signal is clear: AI is transitioning from a software product category to an infrastructure layer, and the capital requirements reflect that shift.</p>
+
+<h2>The Enterprise Platform Play</h2>
+
+<p>For enterprise technology leaders, the more consequential development is the Frontier platform's positioning. With more than 9 million paying business users and enterprise revenue approaching 50 per cent of total revenue, OpenAI is building a platform that sits between organisations and their cloud infrastructure. The AWS exclusivity arrangement means that enterprises adopting Frontier are, by extension, deepening their AWS commitment.</p>
+
+<p>This creates a new dynamic in cloud platform selection. Australian organisations evaluating multi-cloud strategies now need to factor in that their AI platform choice may constrain or determine their cloud infrastructure decisions. If Frontier becomes the default enterprise AI platform, as OpenAI's consulting partnerships with McKinsey, Accenture, and others suggest is the intent, then AWS gains a powerful gravitational pull that has nothing to do with its traditional infrastructure advantages.</p>
+
+<p>The competitive response is already visible. Google's $32 billion acquisition of Wiz, which cleared EU regulatory approval on 10 February, is partly a defensive move to strengthen Google Cloud's security positioning against an AWS ecosystem that now includes OpenAI's enterprise platform. Microsoft, which notably did not participate in this funding round despite being OpenAI's original cloud partner, faces the uncomfortable reality that its largest AI investment is now economically aligned with its biggest cloud competitor.</p>
+
+<h2>What Australian Enterprises Should Watch</h2>
+
+<p>The practical implications for the Australian market will take time to materialise, but the strategic direction is visible now. AWS's Sydney and Melbourne regions will be natural delivery points for Frontier, and the consulting firms involved in the Frontier Alliances programme have substantial Australian practices. Organisations currently running AI workloads on Azure or Google Cloud should assess whether platform lock-in risk is increasing as AI providers consolidate around specific cloud partnerships.</p>
+
+<p>OpenAI's revenue projection of $280 billion by 2030, alongside $100 billion in cumulative losses, reveals the underlying bet: that AI infrastructure will generate returns on a timeline and at a scale comparable to cloud computing itself. For enterprise leaders, the question is no longer whether AI will become foundational infrastructure. It is whether your organisation's architecture is positioned for a world where the AI platform layer dictates cloud, compute, and vendor strategy for the next decade.</p>`,
+  },
+  {
+    slug: 'anthropic-pentagon-ai-ethics-enterprise-precedent',
+    tag: 'AI Strategy',
+    date: 'Mar 2026',
+    readTime: '4 min',
+    title: "Anthropic's Pentagon Standoff Sets a Precedent Every Enterprise AI Buyer Should Understand",
+    excerpt:
+      "Anthropic refused to remove AI safeguards at the Pentagon's demand, triggering a government-wide ban. The fallout reshapes how enterprises should evaluate AI vendor risk and ethical commitments.",
+    body: `<p>On 26 February 2026, Anthropic CEO Dario Amodei told the United States Department of Defense something no major technology vendor says lightly: no. The Pentagon had demanded that Anthropic remove safety guardrails from its Claude AI model, specifically the restrictions preventing its use in fully autonomous weapons systems and mass domestic surveillance. Amodei's response was unequivocal: "We cannot in good conscience accede to their request."</p>
+
+<p>Within hours, the consequences arrived. President Trump ordered a six-month phase-out of Anthropic products across all federal agencies. Defence Secretary Pete Hegseth designated the company a supply chain risk, effectively barring military contractors from doing business with it. And OpenAI, moving with conspicuous speed, announced a new deal to provide its own AI technology on classified Pentagon networks.</p>
+
+<h2>What Actually Happened</h2>
+
+<p>The dispute centred on contract language. Anthropic was willing to support legitimate defence and intelligence applications, including threat analysis, logistics optimisation, and cybersecurity. What it refused was a blanket "all lawful purposes" clause that would have permitted autonomous lethal decision-making and warrantless mass surveillance. Anthropic's position rested on two arguments: that current frontier AI models are not reliable enough for fully autonomous weapons, and that mass domestic surveillance violates fundamental rights regardless of legality.</p>
+
+<p>The Pentagon's response framed this as a compromise, but Anthropic said the proposed language "was paired with legalese that would allow those safeguards to be disregarded at will." In effect, the safety commitments would have existed on paper while being unenforceable in practice.</p>
+
+<p>This is not an abstract policy debate. It is a concrete demonstration of what happens when an AI vendor's stated values collide with the demands of its most powerful customer. The outcome, losing a $200 million contract and access to the entire US federal market, is the kind of financial consequence that most companies would do almost anything to avoid.</p>
+
+<h2>The Enterprise Procurement Angle</h2>
+
+<p>For enterprise technology leaders, particularly those in Australia and the APAC region, this episode introduces a new dimension to AI vendor assessment. When selecting an AI platform, organisations routinely evaluate performance, pricing, integration capabilities, and compliance certifications. What the Anthropic situation reveals is that vendor ethics are not just a reputational consideration. They are an operational risk factor.</p>
+
+<p>Consider the implications for Australian defence and intelligence procurement. The AUKUS partnership means Australian agencies increasingly share technology platforms and supply chains with their US and UK counterparts. If a vendor is designated a supply chain risk by the Pentagon, that designation will ripple through allied procurement frameworks. Conversely, organisations that value responsible AI deployment now face a market where the vendor most willing to accept unrestricted use cases gains preferential government access.</p>
+
+<p>The competitive dynamics shifted immediately. OpenAI's announcement of a Pentagon deal on the same day Anthropic was banned was not coincidental. It signals a market where AI vendors are being sorted into those willing to operate without use-case restrictions and those that maintain ethical red lines. Enterprise buyers need to understand which category their chosen vendor falls into, because that choice has downstream consequences for regulatory compliance, reputational risk, and the kind of AI governance frameworks an organisation can credibly maintain.</p>
+
+<h2>What This Means for AI Governance</h2>
+
+<p>Australia's approach to AI governance, embedding responsible AI requirements into existing privacy and sector-specific regulations rather than creating standalone legislation, assumes that vendors themselves maintain meaningful safety commitments. If the market incentivises vendors to abandon those commitments in exchange for government contracts, the regulatory model needs to account for that reality.</p>
+
+<p>For enterprise architects and CIOs, the practical takeaway is straightforward. AI vendor selection now requires explicit due diligence on acceptable use policies, the vendor's track record of enforcing those policies under pressure, and contingency planning for scenarios where a chosen vendor's market access changes for political rather than technical reasons. Anthropic's stand may be principled, but the six-month federal phase-out is a reminder that principles have costs, and those costs flow downstream to every customer in the ecosystem.</p>`,
+  },
+  {
     slug: 'webmcp-chrome-ai-agents-web-standard',
     tag: 'Architecture',
     date: 'Mar 2026',
