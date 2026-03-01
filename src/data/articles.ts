@@ -112,40 +112,6 @@ export const articles: Article[] = [
 <p>The most prudent enterprise response is to plan for a two-track AI world without betting on either track exclusively. Maintain relationships with Western frontier model providers. Monitor open-source developments from both ecosystems. Invest in abstraction layers that make model switching feasible. And ensure that your AI governance framework includes geopolitical risk assessment alongside the technical and ethical dimensions that already feature in most frameworks. DeepSeek locking out US chipmakers is a signal, not a crisis. But the trajectory it signals, a world where AI ecosystems diverge along geopolitical lines, is one that every enterprise technology strategy needs to account for.</p>`,
   },
   {
-    slug: 'youx-breach-cloud-security-australia',
-    tag: 'Security',
-    date: 'Feb 2026',
-    readTime: '4 min',
-    title: 'The youX Breach Exposes What Australian Enterprises Keep Getting Wrong About Cloud Security',
-    excerpt:
-      'A single unsecured MongoDB cluster exposed 444,000 Australians\u2019 financial records across 90 downstream lenders. The architecture of third-party risk is still broken.',
-    body: `<p>On 17 February 2026, Sydney-based asset finance technology company youX confirmed unauthorised access to its systems. A threat actor claimed to have exfiltrated 141 gigabytes of data from an unsecured MongoDB Atlas cluster, including 629,597 loan applications, 229,236 Australian driver\u2019s licences, 607,822 residential addresses, and detailed financial records covering income, debts, and government identification for 444,538 borrowers. The compromised database was connected to more than 90 downstream lenders and 797 broker organisations. ASX-listed Motorcycle Holdings was among the companies that disclosed exposure through a formal ASX announcement the following day.</p>
-
-<p>This is not a sophisticated nation-state attack. It is an unsecured database accessible over the internet. The kind of misconfiguration that has been on every cloud security checklist for a decade. And yet it keeps happening, at scale, with real consequences for hundreds of thousands of Australians whose financial identities are now circulating in criminal marketplaces.</p>
-
-<h2>Third-party concentration risk at its worst</h2>
-
-<p>The youX breach is a case study in third-party concentration risk. A single fintech platform, sitting between borrowers and a network of 90 lenders and nearly 800 brokers, became the point of failure for an entire ecosystem. Every organisation in that network made a decision, explicit or implicit, to trust youX with sensitive customer data. And youX, based on what has been disclosed so far, did not secure that data to the standard the trust required.</p>
-
-<p>This pattern is not unique to financial services. Enterprise architectures increasingly depend on platform intermediaries that aggregate data from multiple parties. Payroll platforms hold employee records for hundreds of employers. Healthcare data exchanges connect hospitals, insurers, and government agencies. Supply chain platforms consolidate operational data across dozens of trading partners. Each of these creates the same structural risk: a single point of compromise that cascades across an entire ecosystem.</p>
-
-<p>For enterprise architects, the question is not whether your own security posture is adequate. It is whether the security posture of every platform you share data with is adequate, and whether you have the visibility and contractual leverage to verify that. The youX breach suggests that many organisations in the Australian lending ecosystem either did not ask that question or accepted an unsatisfactory answer.</p>
-
-<h2>The regulatory context is tightening</h2>
-
-<p>This breach arrives at a moment when Australian regulators are signalling clearly that the tolerance for inadequate cybersecurity is declining. The Australian Signals Directorate\u2019s ACSC reported more than 42,500 calls to the national Cyber Security Hotline in the last financial year, a 16 per cent increase, and responded to over 1,200 cyber incidents. The ACSC is signalling that Essential Eight Maturity Level Two will become the expected standard for mid-sized businesses handling sensitive customer data.</p>
-
-<p>FIIG Securities was recently ordered to pay a $2.5 million penalty by the Federal Court following ASIC action over cybersecurity failures, setting a precedent that financial services licensees will face direct regulatory consequences for inadequate security. The Privacy Act reforms taking effect in December 2026 will introduce new transparency obligations around automated decision-making and data handling. The regulatory direction is unmistakable: organisations that handle Australian personal data will be held to higher standards, and the penalties for falling short are becoming material.</p>
-
-<p>Separately, the breach of Canadian transcription firm VIQ Solutions, which exposed sensitive Australian federal and state court files after work was subcontracted to an Indian firm, reinforces the same theme from a different angle. Third-party risk is not just a technology problem. It is a supply chain governance problem that extends to every organisation that touches your data, including their subcontractors.</p>
-
-<h2>Architecture is the first line of defence</h2>
-
-<p>Sound enterprise architecture can mitigate, though never eliminate, these risks. Data minimisation principles should govern what is shared with third parties, not just what is collected. Access controls should enforce least privilege at the platform level, not just within your own systems. Contractual security requirements need to be specific, auditable, and backed by genuine verification rather than self-assessment questionnaires that nobody reads after signing.</p>
-
-<p>The youX breach is not an anomaly. It is the predictable outcome of an architecture that concentrated sensitive data in a platform without commensurate security controls. Australian enterprises that have not audited their own third-party data concentrations should treat this as the prompt to do so. The next breach will follow the same pattern. The question is whether your data will be in it.</p>`,
-  },
-  {
     slug: 'meta-google-tpu-deal-ai-compute-wars',
     tag: 'Industry',
     date: 'Feb 2026',
