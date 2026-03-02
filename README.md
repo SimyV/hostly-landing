@@ -1,8 +1,8 @@
-# Host-ly.com Landing Page
+# Bashai.io Landing Page
 
-Corporate landing page for **Host-ly Co** -- enterprise AI strategy, architecture, and technology consulting.
+Corporate landing page for **Bashai** -- enterprise AI strategy, architecture, and technology consulting.
 
-**Live site:** [https://host-ly.com](https://host-ly.com)
+**Live site:** [https://bashai.io](https://bashai.io)
 
 ---
 

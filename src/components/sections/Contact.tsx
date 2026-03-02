@@ -51,11 +51,11 @@ export default function Contact() {
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-              <a href="mailto:simon@host-ly.com" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', color: 'rgba(255,255,255,0.6)', transition: 'color 200ms' }} onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')} onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}>
+              <a href="mailto:hello@bashai.io" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', color: 'rgba(255,255,255,0.6)', transition: 'color 200ms' }} onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')} onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}>
                 <span style={{ width: 36, height: 36, borderRadius: 8, background: '#333', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 4L12 13L2 4" /></svg>
                 </span>
-                <span style={{ fontSize: 14 }}>simon@host-ly.com</span>
+                <span style={{ fontSize: 14 }}>hello@bashai.io</span>
               </a>
 
               <a href="tel:+61433651272" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', color: 'rgba(255,255,255,0.6)', transition: 'color 200ms' }} onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')} onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}>
@@ -71,13 +71,6 @@ export default function Contact() {
                 </span>
                 <span style={{ fontSize: 14 }}>Sydney, Australia</span>
               </div>
-
-              <a href="https://linkedin.com/in/simonlobascher" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', color: 'rgba(255,255,255,0.6)', transition: 'color 200ms' }} onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')} onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}>
-                <span style={{ width: 36, height: 36, borderRadius: 8, background: '#333', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
-                </span>
-                <span style={{ fontSize: 14 }}>LinkedIn</span>
-              </a>
             </div>
           </div>
 
