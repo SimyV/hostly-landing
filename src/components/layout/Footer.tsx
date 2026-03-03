@@ -2,7 +2,7 @@ import { useScrollToSection } from '../../hooks/useScrollToSection'
 
 const nav = [
   { label: 'Services', id: 'capabilities' },
-  { label: 'Approach', id: 'work' },
+  { label: 'Our Work', id: 'work' },
   { label: 'Insights', id: 'insights' },
   { label: 'Contact', id: 'contact' },
 ]
@@ -32,7 +32,7 @@ export default function Footer() {
           <div>
             <img
               src="/hostly-mark.svg"
-              alt="Host-ly Co"
+              alt="BashAI"
               style={{
                 height: 44,
                 width: 44,
@@ -83,7 +83,7 @@ export default function Footer() {
           }}
         >
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,255,255,0.65)' }}>
-            &copy; {new Date().getFullYear()} Host-ly Co
+            &copy; {new Date().getFullYear()} BashAI
           </span>
         </div>
       </div>

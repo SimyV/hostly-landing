@@ -3,7 +3,7 @@ import { useScrollToSection } from '../../hooks/useScrollToSection'
 
 const items = [
   { label: 'Services', id: 'capabilities' },
-  { label: 'Approach', id: 'work' },
+  { label: 'Our Work', id: 'work' },
   { label: 'Insights', id: 'insights' },
   { label: 'Contact', id: 'contact' },
 ]

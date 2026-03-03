@@ -5,7 +5,7 @@ import { useScrollToSection } from '../../hooks/useScrollToSection'
 const links = [
   { label: 'Home', id: 'home' },
   { label: 'Services', id: 'capabilities' },
-  { label: 'Approach', id: 'work' },
+  { label: 'Our Work', id: 'work' },
   { label: 'Insights', id: 'insights' },
   { label: 'Contact', id: 'contact' },
 ]
@@ -82,7 +82,7 @@ export default function Nav() {
           >
             <img
               src="/hostly-mark.svg"
-              alt="Host-ly Co"
+              alt="BashAI"
               style={{ height: 36 }}
             />
           </Link>
