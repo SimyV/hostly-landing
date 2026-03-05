@@ -10,15 +10,6 @@ export interface Article {
 
 export const articles: Article[] = [
   {
-    slug: 'test-lock-one',
-    tag: 'AI Strategy',
-    title: 'Test Article One',
-    date: 'Mar 2026',
-    excerpt: 'Testing concurrent approval.',
-    readTime: '3 min',
-    body: `<p>Test article one body.</p>`,
-  },
-  {
     slug: 'test-lock-two',
     tag: 'Industry',
     title: 'Test Article Two',
