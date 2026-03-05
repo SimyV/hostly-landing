@@ -10,6 +10,33 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'test-lock-one',
+    tag: 'AI Strategy',
+    title: 'Test Article One',
+    date: 'Mar 2026',
+    excerpt: 'Testing concurrent approval.',
+    readTime: '3 min',
+    body: `<p>Test article one body.</p>`,
+  },
+  {
+    slug: 'test-lock-two',
+    tag: 'Industry',
+    title: 'Test Article Two',
+    date: 'Mar 2026',
+    excerpt: 'Testing batch publishing.',
+    readTime: '4 min',
+    body: `<p>Test article two body.</p>`,
+  },
+  {
+    slug: 'test-lock-three',
+    tag: 'Architecture',
+    title: 'Test Article Three',
+    date: 'Mar 2026',
+    excerpt: 'Testing mutex lock.',
+    readTime: '5 min',
+    body: `<p>Test article three body.</p>`,
+  },
+  {
     slug: 'testing-the-limits-of-enterprise-ai',
     tag: 'AI Strategy',
     title: 'Testing the Limits of Enterprise AI: What the Benchmarks Miss',
