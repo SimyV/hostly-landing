@@ -49,6 +49,8 @@ hostly-landing/
 │       ├── HomePage.tsx                # Main landing page
 │       ├── ArticlePage.tsx             # Individual article view
 │       └── NotFoundPage.tsx            # 404 page
+├── insights/                           # Standalone static HTML article pages
+│   └── *.html                          # Self-contained pages (SEO-friendly, no React dependency)
 ├── .claude/
 │   ├── article-drafts/                 # Draft batches awaiting approval (JSON)
 │   └── article-sources.json            # Curated links + followed publications
@@ -131,6 +133,7 @@ Alternatively, **send a URL** via WhatsApp to queue it as a curated source for t
 | `src/data/articles.ts` | All published articles (slug, tag, title, excerpt, body HTML) |
 | `.claude/article-drafts/*.json` | Draft batches with approval status per article |
 | `.claude/article-sources.json` | Curated links (from WhatsApp) and followed publications |
+| `insights/*.html` | Standalone static HTML article pages (separate from React SPA) |
 
 ### Article Format
 
@@ -210,4 +213,4 @@ Article content follows these conventions:
 
 ---
 
-Last updated: 2026-03-02
+Last updated: 2026-03-07
